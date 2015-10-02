@@ -3,5 +3,5 @@
 ln -s ~/.vim/.tmux.conf ~/.tmux.conf 
 ln -s ~/.vim/.bash_profile ~/.bash_profile  
 ln -s ~/.vim/.bashrc ~/.bashrc
-ln -s ~/.vim/.vim ~/.vim
+ln -s ~/.vim/.vimrc ~/.vimrc
 
