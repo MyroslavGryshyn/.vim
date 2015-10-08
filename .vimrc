@@ -101,13 +101,19 @@ highlight LineNr ctermfg=239 ctermbg=233
 let g:indentLine_color_term=234
 
 inoremap jj <ESC>
+nmap<leader>o o<Esc>
+nmap<leader>O O<Esc>
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F4> :TagbarToggle<CR>
 nmap <F3> :TMToggle<CR>
-nmap <leader>jd :YcmCompleter GoTo<CR>
 nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell
+nmap <leader>d :YcmCompleter GoTo<CR>
+
+" insert blank lines
+nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
+nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
 
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:tabman_number = 0
@@ -122,7 +128,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
 let g:ycm_complete_in_comments = 1 " Completion in comments
-let g:ycm_complete_in_strings = 1 " Completion in string "
+let g:ycm_complete_in_strings = 1 " Completion in string
 
 nnoremap <C-t> :tabnew<CR>              " new tab
 nnoremap <C-p> :tabprevious<CR>         " previous tab
@@ -184,7 +190,6 @@ let g:signify_vcs_list = ['git']
 
 "easy motion section
 nmap <Leader> <Plug>(easymotion-prefix)
-omap t <Plug>(easymotion-bd-wl)
 
 nmap / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -193,7 +198,8 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
+omap <Leader>t <Plug>(easymotion-bd-wl)
 
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion "
+"let g:EasyMotion_startofline = 0 " keep cursor column when JK motion "
 let g:EasyMotion_smartcase = 1
 
