@@ -79,6 +79,8 @@ set shiftwidth=4
 set cursorline
 set showmatch
 set switchbuf=usetab
+"Helps to insert higlighted in other apps text into vim with just p
+set clipboard=unnamed
 
 colorscheme myhyb
 
@@ -107,10 +109,17 @@ nmap<leader>O O<Esc>
 nmap <F2> :NERDTreeToggle<CR>
 nmap <F4> :TagbarToggle<CR>
 nmap <F3> :TMToggle<CR>
+
 nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell
 nmap <leader>d :YcmCompleter GoTo<CR>
 nmap W :w <CR>
+
+nmap <leader>u :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
+let g:gundo_help = 0
+let g:gundo_close_on_revert = 1
+let g:gundo_width = 5 
 
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
