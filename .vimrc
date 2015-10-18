@@ -110,6 +110,7 @@ nmap <F3> :TMToggle<CR>
 nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell
 nmap <leader>d :YcmCompleter GoTo<CR>
+nmap W :w <CR>
 
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
