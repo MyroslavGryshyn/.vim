@@ -10,43 +10,38 @@ endif
 "Opens vsp on right side
 set splitright
 
-let iCanHazVundle=1
-let vundle_readme=expand('~/.vim/bundle/vundle/README.md')
-if !filereadable(vundle_readme)
-    echo "Installing Vundle..."
-    echo ""
-    silent !mkdir -p ~/.vim/bundle
-    silent !git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-    let iCanHazVundle=0
+set nocompatible
+filetype off
+
+if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
+    !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 endif
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
 
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'craigemery/vim-autotag'
-Bundle 'gmarik/vundle'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'honza/vim-snippets'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'michaeljsmith/vim-indent-object'
-Bundle 'mileszs/ack.vim'
-Bundle 'nvie/vim-flake8'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'SirVer/ultisnips'
-Bundle 'sjl/gundo.vim'
-Bundle 'Townk/vim-autoclose'
-Bundle 'tpope/vim-surround'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'easymotion/vim-easymotion'
-Bundle 'wincent/Command-T'
+call vundle#begin()
 
-if iCanHazVundle == 0
-    echo "Installing Bundles, please ignore key map error messages"
-    echo ""
-    :BundleInstall
-endif
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'craigemery/vim-autotag'
+Plugin 'gmarik/vundle'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'honza/vim-snippets'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'mileszs/ack.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'SirVer/ultisnips'
+Plugin 'sjl/gundo.vim'
+Plugin 'Townk/vim-autoclose'
+Plugin 'tpope/vim-surround'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'wincent/Command-T'
+
+call vundle#end()
 
 " allow plugins by file type
 filetype on
