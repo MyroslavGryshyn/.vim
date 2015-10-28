@@ -71,6 +71,10 @@ xterm*|rxvt*)
     ;;
 esac
 
+#Use up 2 or up 3 instead of ../..
+upup(){ DEEP=$1; [ -z "${DEEP}" ] && { DEEP=1; }; for i in $(seq 1 ${DEEP}); do cd ../; done; }
+alias up='upup'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -90,6 +94,7 @@ alias l='ls -CF'
 alias ssh0251='ssh mgryshyn@vm30bsd0251.ibqa.sgg.cisco.com'
 alias ssh0024='ssh mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com'
 alias sshesa='ssh rtestuser@vm30esa0006.ibqa.sgg.cisco.com'
+alias sshadmin='ssh admin@vm30esa0006.ibqa.sgg.cisco.com'
 alias ssh26='ssh rtestuser@vm30esa0026.ibqa.sgg.cisco.com'
 alias tmux='tmux -2 attach || tmux -2 new'
 alias agi='sudo apt-get install'

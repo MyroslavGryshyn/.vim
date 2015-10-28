@@ -40,6 +40,7 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-surround'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'easymotion/vim-easymotion'
+Bundle 'wincent/Command-T'
 
 if iCanHazVundle == 0
     echo "Installing Bundles, please ignore key map error messages"
@@ -114,6 +115,8 @@ nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell
 nmap <leader>d :YcmCompleter GoTo<CR>
 nmap W :w <CR>
+nmap Q :q <CR>
+nmap Z :qa <CR>
 
 nmap <leader>u :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
@@ -176,7 +179,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " tab length exceptions
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType html, css setlocal shiftwidth=2 tabstop=2
 autocmd FileType html,xhtml,xml,htmldjango,jinja.html,jinja setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 
 " nicer colors
@@ -210,6 +213,6 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 omap <Leader>t <Plug>(easymotion-bd-wl)
 
-"let g:EasyMotion_startofline = 0 " keep cursor column when JK motion "
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion "
 let g:EasyMotion_smartcase = 1
 
