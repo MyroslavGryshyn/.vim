@@ -91,6 +91,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias ctags='ctags --languages=python --python-kinds=c'
+alias gentags='ctags -R *'
+
 alias ssh0251='ssh mgryshyn@vm30bsd0251.ibqa.sgg.cisco.com'
 alias ssh0024='ssh mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com'
 alias sshesa='ssh rtestuser@vm30esa0006.ibqa.sgg.cisco.com'

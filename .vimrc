@@ -1,16 +1,4 @@
 set nocompatible
-let mapleader = "\<Space>"
-
-"Changing cursor type in Insert mode
-if has("autocmd")
-    au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
-    au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-endif
-
-"Opens vsp on right side
-set splitright
-
-set nocompatible
 filetype off
 
 if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
@@ -40,8 +28,25 @@ Plugin 'tpope/vim-surround'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'wincent/Command-T'
+Plugin 'kien/ctrlp.vim'
+Plugin 'fisadev/vim-ctrlp-cmdpalette'
+Plugin 'ivalkeen/vim-ctrlp-tjump'
+Plugin 'Yggdroot/indentLine'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()
+
+set nocompatible
+let mapleader = "\<Space>"
+
+"Changing cursor type in Insert mode
+if has("autocmd")
+    au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
+    au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
+endif
+
+"Opens vsp on right side
+set splitright
 
 " allow plugins by file type
 filetype on
@@ -75,6 +80,7 @@ set shiftwidth=4
 set cursorline
 set showmatch
 set switchbuf=usetab
+
 "Helps to insert higlighted in other apps text into vim with just p
 set clipboard=unnamed
 
@@ -99,11 +105,9 @@ highlight LineNr ctermfg=239 ctermbg=233
 let g:indentLine_color_term=234
 
 inoremap jj <ESC>
-nmap<leader>o o<Esc>
-nmap<leader>O O<Esc>
 
 nmap <F2> :NERDTreeToggle<CR>
-nmap <F4> :TagbarToggle<CR>
+nmap tt :TagbarToggle<CR>
 nmap <F3> :TMToggle<CR>
 
 nnoremap <leader>f 1z=
@@ -122,6 +126,9 @@ let g:gundo_width = 5
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
 nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
+
+nnoremap <c-]> :CtrlPtjump<cr>
+vnoremap <c-]> :CtrlPtjumpVisual<cr>
 
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:tabman_number = 0
@@ -146,6 +153,14 @@ inoremap <C-p> :<Esc>:tabprevious<CR>i  " insert mode, previous tab
 inoremap <C-n> :<Esc>:tabnext<CR>i      " insert mode, next tab """"""
 map <leader><leader> :noh<CR>
 
+" CtrlP (new fuzzy finder)
+let g:ctrlp_map = '<c-j>'
+nmap <Leader>T :CtrlPBufTag<CR>
+nmap <Leader>t :CtrlPBufTagAll<CR>
+nmap <Leader>y :CtrlPLine<CR>
+nmap <Leader>f :CtrlPMRUFiles<CR>
+nmap <Leader>c :CtrlPCmdPalette<CR>
+
 "Better backup, swap and undos storage
 set directory=~/.vim/dirs/tmp     " directory to place swap files in
 set backup                        " make backup files
@@ -165,17 +180,21 @@ if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
 
-autocmd FileType python set sw=4 ts=4 sts=4
+" Open the file on the last exit place
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
 
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" autodetect filetypes
+au BufRead,BufNewFile *.py        set filetype=python
+au BufRead,BufNewFile *.js        set filetype=javascript
+au BufRead,BufNewFile *.html      set filetype=htmldjango
+au BufRead,BufNewFile *.css       set filetype=css
 
-" tab length exceptions
-autocmd FileType html, css setlocal shiftwidth=2 tabstop=2
-autocmd FileType html,xhtml,xml,htmldjango,jinja.html,jinja setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+" Enable omni completion and set filetype indent settings. 
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS shiftwidth=2 tabstop=2 colorcolumn=80
+autocmd FileType html,markdown,htmldjango setlocal omnifunc=htmlcomplete#CompleteTags shiftwidth=2 tabstop=2 colorcolumn=120
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS shiftwidth=2 tabstop=2 colorcolumn=80
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags shiftwidth=2 tabstop=2
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete colorcolumn=80
 
 " nicer colors
 highlight DiffAdd           cterm=bold ctermbg=None ctermfg=119
@@ -210,4 +229,13 @@ omap <Leader>t <Plug>(easymotion-bd-wl)
 
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion "
 let g:EasyMotion_smartcase = 1
+
+let g:indentLine_enabled = 1
+
+" Vim
+let g:indentLine_color_term = 239
+
+" none X terminal
+let g:indentLine_color_tty_light = 7 " (default: 4)
+let g:indentLine_color_dark = 1 " (default: 2)
 
