@@ -104,12 +104,9 @@ alias agi='sudo apt-get install'
 alias hg='history | grep'
 alias fgrep='find . | grep'
 alias gc='git commit'
-alias runserver='python manage.py runserver'
+alias pyrun='python manage.py runserver'
+alias pytest='python manage.py test'
 alias pyman='python manage.py '
-
-
-
-
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -126,12 +123,7 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-export VAGRANT_LOG=info
-export VAGRANT_DEFAULT_PROVIDER=aws 
-export EC2_KEYPAIR=arkhangl # name only, not the file name
-export EC2_URL=https://ec2.eu-west-2.amazonaws.com
-export EC2_PRIVATE_KEY=$HOME/.ssh/arkhangl.pem
 
 export WORKON_HOME=/data/work/virtualenvs
-export PROJECT_HOME=/data/work/virtualenvs/Devel
+export PROJECT_HOME=/data/work/virtualenvs/
 source /usr/local/bin/virtualenvwrapper.sh
