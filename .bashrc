@@ -91,8 +91,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias ctags='ctags --languages=python --python-kinds=c'
-alias gentags='ctags -R *'
+
+alias genalltags='ctags -R *'
+alias ctagsp='ctags --languages=python --python-kinds=c'
+alias gentags='ctagsp -R *'
 
 alias ssh0251='ssh mgryshyn@vm30bsd0251.ibqa.sgg.cisco.com'
 alias ssh0024='ssh mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com'
@@ -107,6 +109,11 @@ alias gc='git commit'
 alias pyrun='python manage.py runserver'
 alias pytest='python manage.py test'
 alias pyman='python manage.py '
+
+alias ctags='ctags --languages=python --python-kinds=-iv'
+alias gentags='ctags -R *'
+
+alias 42='source ~/42project'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -127,3 +134,5 @@ fi
 export WORKON_HOME=/data/work/virtualenvs
 export PROJECT_HOME=/data/work/virtualenvs/
 source /usr/local/bin/virtualenvwrapper.sh
+
+export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"

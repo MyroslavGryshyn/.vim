@@ -25,7 +25,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'sjl/gundo.vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-surround'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'wincent/Command-T'
 Plugin 'kien/ctrlp.vim'
@@ -33,6 +32,9 @@ Plugin 'fisadev/vim-ctrlp-cmdpalette'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'Yggdroot/indentLine'
 Plugin 'majutsushi/tagbar'
+
+Plugin 'davidhalter/jedi-vim'
+Plugin 'Shougo/neocomplete.vim'
 
 call vundle#end()
 
@@ -112,7 +114,6 @@ nmap <F3> :TMToggle<CR>
 
 nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell
-nmap <leader>d :YcmCompleter GoTo<CR>
 nmap W :w <CR>
 nmap Q :q <CR>
 nmap Z :qa <CR>
@@ -133,17 +134,11 @@ vnoremap <c-]> :CtrlPtjumpVisual<cr>
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:tabman_number = 0
 
-let g:SuperTabDefaultCompletionType = "context"
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#completions_enabled = 0
-
-"YouCompleteMe settings from code.djangoproject.com/wiki/UsingVimWithDjango
-let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
-let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
-let g:ycm_complete_in_comments = 1 " Completion in comments
-let g:ycm_complete_in_strings = 1 " Completion in string
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#use_splits_not_buffers = 'top'
+let g:jedi#show_call_signatures = 0
 
 nnoremap <C-t> :tabnew<CR>              " new tab
 nnoremap <C-p> :tabprevious<CR>         " previous tab
@@ -154,7 +149,8 @@ inoremap <C-n> :<Esc>:tabnext<CR>i      " insert mode, next tab """"""
 map <leader><leader> :noh<CR>
 
 " CtrlP (new fuzzy finder)
-let g:ctrlp_map = '<c-j>'
+let g:ctrlp_map = '<c-g>' 
+nmap <Leader>g :CtrlP<CR>
 nmap <Leader>T :CtrlPBufTag<CR>
 nmap <Leader>t :CtrlPBufTagAll<CR>
 nmap <Leader>y :CtrlPLine<CR>
@@ -194,7 +190,9 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS shiftwidth=2 tabs
 autocmd FileType html,markdown,htmldjango setlocal omnifunc=htmlcomplete#CompleteTags shiftwidth=2 tabstop=2 colorcolumn=120
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS shiftwidth=2 tabstop=2 colorcolumn=80
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags shiftwidth=2 tabstop=2
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete colorcolumn=80
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete colorcolumn=73,80
+
+autocmd FileType python setlocal omnifunc=jedi#completions
 
 " nicer colors
 highlight DiffAdd           cterm=bold ctermbg=None ctermfg=119
@@ -239,3 +237,13 @@ let g:indentLine_color_term = 239
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
 
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.python =
+    \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
