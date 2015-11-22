@@ -1,5 +1,6 @@
 #want vi to be the default editor for readline                      
 set editing-mode vi                                            
+set show-all-if-ambiguous on
 
 # vi settings                                         
 $if mode=vi                
@@ -12,4 +13,9 @@ $if mode=vi
     # insert mode             
     set keymap vi-insert                          
     "jj": vi-movement-mode # remap escape   
+    "h": self-insert
+    "l": self-insert       
+    "G": self-insert
+    "j": self-insert
+
 $endif 

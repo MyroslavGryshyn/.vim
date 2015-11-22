@@ -1,11 +1,10 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-if [ -f /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh ]; then
-        source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+if [ -f /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
+        source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 fi
 
-setxkbmap -layout us -option ctrl:nocaps
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -101,7 +100,6 @@ alias ssh0024='ssh mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com'
 alias sshesa='ssh rtestuser@vm30esa0006.ibqa.sgg.cisco.com'
 alias sshadmin='ssh admin@vm30esa0006.ibqa.sgg.cisco.com'
 alias ssh26='ssh rtestuser@vm30esa0026.ibqa.sgg.cisco.com'
-alias tmux='tmux -2 attach || tmux -2 new'
 alias agi='sudo apt-get install'
 alias hg='history | grep'
 alias fgrep='find . | grep'
@@ -131,8 +129,13 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export WORKON_HOME=/data/work/virtualenvs
-export PROJECT_HOME=/data/work/virtualenvs/
+export PROJECT_HOME=$HOME/Dev
+export WORKON_HOME=$HOME/.virtualenvs
+export EDITOR=vim
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
+
 source /usr/local/bin/virtualenvwrapper.sh
 
 export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"

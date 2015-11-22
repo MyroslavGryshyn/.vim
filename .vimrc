@@ -26,7 +26,6 @@ Plugin 'sjl/gundo.vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-surround'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'wincent/Command-T'
 Plugin 'kien/ctrlp.vim'
 Plugin 'fisadev/vim-ctrlp-cmdpalette'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
@@ -42,10 +41,6 @@ set nocompatible
 let mapleader = "\<Space>"
 
 "Changing cursor type in Insert mode
-if has("autocmd")
-    au InsertEnter * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape ibeam"
-    au InsertLeave * silent execute "!gconftool-2 --type string --set /apps/gnome-terminal/profiles/Default/cursor_shape block"
-endif
 
 "Opens vsp on right side
 set splitright
@@ -175,75 +170,3 @@ endif
 if !isdirectory(&undodir)
     call mkdir(&undodir, "p")
 endif
-
-" Open the file on the last exit place
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif 
-
-" autodetect filetypes
-au BufRead,BufNewFile *.py        set filetype=python
-au BufRead,BufNewFile *.js        set filetype=javascript
-au BufRead,BufNewFile *.html      set filetype=htmldjango
-au BufRead,BufNewFile *.css       set filetype=css
-
-" Enable omni completion and set filetype indent settings. 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS shiftwidth=2 tabstop=2 colorcolumn=80
-autocmd FileType html,markdown,htmldjango setlocal omnifunc=htmlcomplete#CompleteTags shiftwidth=2 tabstop=2 colorcolumn=120
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS shiftwidth=2 tabstop=2 colorcolumn=80
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags shiftwidth=2 tabstop=2
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete colorcolumn=73,80
-
-autocmd FileType python setlocal omnifunc=jedi#completions
-
-" nicer colors
-highlight DiffAdd           cterm=bold ctermbg=None ctermfg=119
-highlight DiffDelete        cterm=bold ctermbg=None ctermfg=167
-highlight DiffChange        cterm=bold ctermbg=None ctermfg=227
-highlight SignifySignAdd    cterm=bold ctermbg=235  ctermfg=119
-highlight SignifySignDelete cterm=bold ctermbg=235  ctermfg=167
-highlight SignifySignChange cterm=bold ctermbg=235  ctermfg=227
-
-" Powerline setup
-set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim/
-set laststatus=2
-set term=xterm-256color
-set termencoding=utf-8
-set guifont=Ubuntu\ Mono\ derivative\ Powerline:10
-" set guifont=Ubuntu\ Mono
-let g:Powerline_symbols = 'fancy'
-
-let g:signify_vcs_list = ['git']
-
-"easy motion section
-nmap <Leader> <Plug>(easymotion-prefix)
-
-nmap / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-omap <Leader>t <Plug>(easymotion-bd-wl)
-
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion "
-let g:EasyMotion_smartcase = 1
-
-let g:indentLine_enabled = 1
-
-" Vim
-let g:indentLine_color_term = 239
-
-" none X terminal
-let g:indentLine_color_tty_light = 7 " (default: 4)
-let g:indentLine_color_dark = 1 " (default: 2)
-
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.python =
-    \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
