@@ -116,6 +116,7 @@ alias pyrun='python manage.py runserver'
 alias pytest='python manage.py test'
 alias pyman='python manage.py '
 
+alias gentagsall='ctags -R *'
 alias ctags='ctags --languages=python --python-kinds=-iv'
 alias gentags='ctags -R *'
 
