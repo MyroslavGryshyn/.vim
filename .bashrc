@@ -98,10 +98,16 @@ alias gentags='ctagsp -R *'
 
 alias ssh0251='ssh mgryshyn@vm30bsd0251.ibqa.sgg.cisco.com'
 alias ssh0024='ssh mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com'
+
+alias ssh0103='ssh mgryshyn@vm30bsd0103.ibeng.sgg.cisco.com'
+
 alias sshesa='ssh rtestuser@vm30esa0006.ibqa.sgg.cisco.com'
+
 alias sshadmin='ssh admin@vm30esa0006.ibqa.sgg.cisco.com'
+
+alias ssh0061esa='ssh rtestuser@vm30esa0061.ibqa.sgg.cisco.com'
+
 alias ssh26='ssh rtestuser@vm30esa0026.ibqa.sgg.cisco.com'
-alias tmux='tmux -2 attach || tmux -2 new'
 alias agi='sudo apt-get install'
 alias hg='history | grep'
 alias fgrep='find . | grep'
@@ -114,6 +120,8 @@ alias ctags='ctags --languages=python --python-kinds=-iv'
 alias gentags='ctags -R *'
 
 alias 42='source ~/42project'
+alias my_test='source ~/TEST'
+alias gotmux='~/.vim/gotmux.sh'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -131,8 +139,12 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export WORKON_HOME=/data/work/virtualenvs
-export PROJECT_HOME=/data/work/virtualenvs/
+
+export PROJECT_HOME=$HOME/Dev
+export WORKON_HOME=$HOME/.virtualenvs
+
+#export WORKON_HOME=/data/work/virtualenvs
+#export PROJECT_HOME=/data/work/virtualenvs/
 source /usr/local/bin/virtualenvwrapper.sh
 
 export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"

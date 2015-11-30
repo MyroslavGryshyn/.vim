@@ -32,6 +32,7 @@ Plugin 'fisadev/vim-ctrlp-cmdpalette'
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'Yggdroot/indentLine'
 Plugin 'majutsushi/tagbar'
+Plugin 'ervandew/supertab'
 
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/neocomplete.vim'
@@ -71,7 +72,6 @@ set encoding=utf-8
 set scrolloff=5
 set ruler
 set t_Co=256
-set completeopt=longest,menuone
 set shell=/bin/bash
 
 "Indents handling 
@@ -106,7 +106,13 @@ highlight LineNr ctermfg=239 ctermbg=233
 
 let g:indentLine_color_term=234
 
-inoremap jj <ESC>
+inoremap jj <ESC>l
+inoremap HH <C-o>I
+inoremap LL <C-o>A
+inoremap KK <C-o>O
+inoremap JJ <C-o>o
+inoremap CC <C-o>C
+inoremap SS <C-o>S
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap tt :TagbarToggle<CR>
@@ -208,7 +214,6 @@ set laststatus=2
 set term=xterm-256color
 set termencoding=utf-8
 set guifont=Ubuntu\ Mono\ derivative\ Powerline:10
-" set guifont=Ubuntu\ Mono
 let g:Powerline_symbols = 'fancy'
 
 let g:signify_vcs_list = ['git']
@@ -237,13 +242,17 @@ let g:indentLine_color_term = 239
 let g:indentLine_color_tty_light = 7 " (default: 4)
 let g:indentLine_color_dark = 1 " (default: 2)
 
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_at_startup = 0
+let g:neocomplete#enable_smart_case = 0
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
 let g:neocomplete#force_omni_input_patterns.python =
     \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
