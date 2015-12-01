@@ -35,10 +35,12 @@ Plugin 'ervandew/supertab'
 
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'Mizuchi/vim-ranger'
 
 call vundle#end()
 
 set nocompatible
+set noacd
 let mapleader = "\<Space>"
 
 "Changing cursor type in Insert mode
@@ -271,3 +273,5 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Mapping for ranger plugin
+nnoremap <leader>r :tabe %:p:h<cr>
