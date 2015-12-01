@@ -1,0 +1,13 @@
+[user]
+	name = MyroslavGryshyn
+	email = sergiy.1911@gmail.com
+[core]
+	editor = vim
+[push]
+	default = simple
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[alias]
+    d = difftool

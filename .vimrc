@@ -36,8 +36,10 @@ Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'Mizuchi/vim-ranger'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
+
 
 set nocompatible
 set noacd
@@ -126,6 +128,9 @@ nmap W :w <CR>
 nmap Q :q <CR>
 nmap Z :qa <CR>
 
+map <F8> :SyntasticCheck<CR>
+map <leader><F8> :SyntasticReset<CR>
+
 nmap <leader>u :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
 let g:gundo_help = 0
@@ -147,6 +152,13 @@ let g:jedi#smart_auto_mappings = 0
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#use_splits_not_buffers = 'top'
 let g:jedi#show_call_signatures = 0
+
+let g:syntastic_enable_signs = 0
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_mode_map = {"mode": "passive"}
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_loc_list_height = 5
 
 nnoremap <C-t> :tabnew<CR>              " new tab
 nnoremap <C-p> :tabprevious<CR>         " previous tab
