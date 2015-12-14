@@ -12,4 +12,8 @@ $if mode=vi
     # insert mode             
     set keymap vi-insert                          
     "jj": vi-movement-mode # remap escape   
+    "h": self-insert
+    "l": self-insert       
+    "G": self-insert
+    "j": self-insert
 $endif 
