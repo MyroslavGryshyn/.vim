@@ -149,3 +149,4 @@ export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
+export EDITOR=vim
