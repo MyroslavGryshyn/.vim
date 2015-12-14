@@ -129,6 +129,7 @@ vnoremap <c-]> :CtrlPtjumpVisual<cr>
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:tabman_number = 0
 
+let g:jedi#completions_enabled=1
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#smart_auto_mappings = 0
 let g:jedi#use_tabs_not_buffers = 1

@@ -89,7 +89,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
+alias gotmux='./gotmux.sh'
 
 alias genalltags='ctags -R *'
 alias ctagsp='ctags --languages=python --python-kinds=c'
@@ -110,8 +110,6 @@ alias pyman='python manage.py '
 
 alias ctags='ctags --languages=python --python-kinds=-iv'
 alias gentags='ctags -R *'
-
-alias 42='source ~/42project'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
