@@ -9,7 +9,7 @@ brew install python
 pip install powerline-status
 
 
-Turn off “Treat ambigious-width characters as double width” in Preferences –> Text.
+Turn off/on “Treat ambigious-width characters as double width” in Preferences –> Text.
 
 https://github.com/macvim-dev/macvim/releases
 Youcompleteme
