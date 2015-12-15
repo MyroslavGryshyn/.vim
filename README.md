@@ -7,3 +7,7 @@ To delete - :PluginClean
 
 brew install python
 pip install powerline-status
+
+brew install macvim --env-std --override-system-vim
+
+Youcompleteme
