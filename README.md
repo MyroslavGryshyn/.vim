@@ -7,7 +7,7 @@ To delete - :PluginClean
 
 brew install python
 pip install powerline-status
+Turn off “Treat ambigious-width characters as double width” in Preferences –> Text.
 
-brew install macvim --env-std --override-system-vim
-
+https://github.com/macvim-dev/macvim/releases
 Youcompleteme
