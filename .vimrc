@@ -1,5 +1,4 @@
 set nocompatible
-filetype off
 
 if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
     !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -32,12 +31,14 @@ Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'Yggdroot/indentLine'
 Plugin 'majutsushi/tagbar'
 
+Plugin 'ervandew/supertab'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'Mizuchi/vim-ranger'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
-set nocompatible
 let mapleader = "\<Space>"
 
 "Changing cursor type in Insert mode
@@ -144,6 +145,9 @@ inoremap <C-p> :<Esc>:tabprevious<CR>i  " insert mode, previous tab
 inoremap <C-n> :<Esc>:tabnext<CR>i      " insert mode, next tab """"""
 map <leader><leader> :noh<CR>
 
+nmap / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
 " CtrlP (new fuzzy finder)
 let g:ctrlp_map = '<c-g>' 
 nmap <Leader>g :CtrlP<CR>
@@ -173,3 +177,13 @@ if !isdirectory(&undodir)
 endif
 
 set mouse=a
+
+" Powerline setup
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
+set laststatus=2
+"set term=xterm-256color
+set termencoding=utf-8
+set guifont=Ubuntu\ Mono\ derivative\ Powerline:10
+let g:Powerline_symbols = 'fancy'
+
+let g:signify_vcs_list = ['git']

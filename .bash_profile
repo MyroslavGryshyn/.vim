@@ -3,4 +3,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxBxDxCxegedabagacad
 alias ls='ls -GFh'
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 source ~/.bashrc

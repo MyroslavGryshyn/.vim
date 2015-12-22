@@ -1,9 +1,6 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
+#/usr/local/lib/python2.7/site-packages/powerline/bindings/bash/power ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
-if [ -f /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
-        source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-fi
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -130,10 +127,9 @@ fi
 export PROJECT_HOME=$HOME/Dev
 export WORKON_HOME=$HOME/.virtualenvs
 export EDITOR=vim
+
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     source /usr/local/bin/virtualenvwrapper.sh
 fi
-
-source /usr/local/bin/virtualenvwrapper.sh
 
 export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
