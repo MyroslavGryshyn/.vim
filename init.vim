@@ -1,4 +1,4 @@
-set nocompatible
+filetype off
 
 if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
     !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -10,34 +10,27 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'craigemery/vim-autotag'
-Plugin 'gmarik/vundle'
-Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'honza/vim-snippets'
+Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'mileszs/ack.vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
 Plugin 'sjl/gundo.vim'
-Plugin 'Townk/vim-autoclose'
+Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-commentary.git'
+Plugin 'tpope/vim-repeat.git'
 Plugin 'tpope/vim-surround'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'kien/ctrlp.vim'
-Plugin 'fisadev/vim-ctrlp-cmdpalette'
-Plugin 'ivalkeen/vim-ctrlp-tjump'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'tpope/vim-fugitive'
 Plugin 'Yggdroot/indentLine'
-Plugin 'majutsushi/tagbar'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'thinca/vim-visualstar'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'chriskempson/base16-vim'
 Plugin 'edkolev/promptline.vim'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
-
-Plugin 'ervandew/supertab'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'Mizuchi/vim-ranger'
-Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/deoplete.nvim'
 
 call vundle#end()
 
@@ -72,7 +65,7 @@ set t_Co=256
 set completeopt=longest,menuone
 set shell=/bin/bash
 
-"Indents handling 
+"Indents handling
 set autoindent
 set tabstop=4
 set expandtab
@@ -121,7 +114,7 @@ nmap <leader>u :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
 let g:gundo_help = 0
 let g:gundo_close_on_revert = 1
-let g:gundo_width = 5 
+let g:gundo_width = 5
 
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
@@ -151,7 +144,7 @@ nmap / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
 " CtrlP (new fuzzy finder)
-let g:ctrlp_map = '<c-g>' 
+let g:ctrlp_map = '<c-g>'
 nmap <Leader>g :CtrlP<CR>
 nmap <Leader>T :CtrlPBufTag<CR>
 nmap <Leader>t :CtrlPBufTagAll<CR>
@@ -203,3 +196,5 @@ let g:promptline_preset = {
 let g:promptline_theme = 'airline'
 
 nnoremap <silent> - :nohl<CR>
+let g:python_host_prog = '/usr/bin/python2.7'
+let g:deoplete#enable_at_startup = 1

@@ -20,7 +20,6 @@ Plugin 'mileszs/ack.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
-Plugin 'SirVer/ultisnips'
 Plugin 'sjl/gundo.vim'
 Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-surround'
@@ -35,7 +34,7 @@ Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
 
 Plugin 'ervandew/supertab'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'Mizuchi/vim-ranger'
 Plugin 'scrooloose/syntastic'
 
@@ -102,7 +101,8 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=233
 highlight LineNr ctermfg=239 ctermbg=233
 
-let g:indentLine_color_term=234
+let g:indentLine_color_term=239
+let g:indentLine_char = '¦'
 
 inoremap jj <ESC>
 
@@ -115,7 +115,7 @@ nnoremap <leader>s :set spell
 nmap W :w <CR>
 nmap Q :q <CR>
 nmap Z :qa <CR>
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>vim <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 nmap <leader>u :GundoToggle<CR>
 let g:gundo_preview_bottom = 1

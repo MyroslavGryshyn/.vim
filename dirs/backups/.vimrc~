@@ -115,7 +115,6 @@ nnoremap <leader>s :set spell
 nmap W :w <CR>
 nmap Q :q <CR>
 nmap Z :qa <CR>
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 nmap <leader>u :GundoToggle<CR>
 let g:gundo_preview_bottom = 1

@@ -1,0 +1,11 @@
+description "Gunicorn server for superlists-staging.ottg.eu"
+
+start on net-device-up
+stop on shutdown
+
+respawn
+
+setuid mero
+chdir /home/mero/sites/superlists-site/source
+
+exec /home/mero/sites/.virtualenvs/superlists-site/bin/gunicorn  --bind unix:/tmp/superlists-site.socket superlists.wsgi:application

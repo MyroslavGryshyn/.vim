@@ -1,0 +1,642 @@
+: 1450194808:0;vim ~/.zshrc
+: 1450194955:0;cd ..
+: 1450194956:0;ll
+: 1450194963:0;vim .zshrc
+: 1450195022:0;tmux
+: 1450195051:0;vim .zshrc
+: 1450195135:0;cd .vim
+: 1450195156:0;workon test
+: 1450195164:0;ll ../Dev
+: 1450195326:0;cd ..
+: 1450195327:0;ll
+: 1450195331:0;vim .zshrc
+: 1450195534:0;cd .vim
+: 1450195545:0;cd bundle/
+: 1450195548:0;vim 
+: 1450195564:0;cd /usr/local/bin
+: 1450195565:0;ll
+: 1450195569:0;ll mvim
+: 1450195592:0;sudo find / | grep mvim
+: 1450195752:0;sudo find / | grep MacVim
+: 1450195809:0;cd /Users/mhrysh/Desktop/MacVim-7.4-2.dmg
+: 1450195811:0;ll
+: 1450195825:0;cd /Users/mhrysh/Desktop/
+: 1450195827:0;ll
+: 1450195843:0;tar xvzf MacVim-7.4-2.dmg Macvim
+: 1450195868:0;mvim
+: 1450195879:0;cd /usr/local/bin
+: 1450195880:0;ll
+: 1450195885:0;ll vim
+: 1450196073:0;cd .vim
+: 1450196089:0;cd ../Downloads
+: 1450196091:0;cd macvim-snapshot-86
+: 1450196092:0;ll
+: 1450196095:0;ll mvim
+: 1450196101:0;find . | grep mvim
+: 1450196124:0;cp src/MacVim/mvim /usr/local/bin
+: 1450196131:0;cd /usr/local/bin
+: 1450196132:0;ll
+: 1450196135:0;ll mvim
+: 1450196138:0;mvim
+: 1450196148:0;ll vim
+: 1450196151:0;vim
+: 1450196165:0;tmux
+: 1450196188:0;cd 
+: 1450196190:0;cd .vim
+: 1450196195:0;cd bundle
+: 1450196196:0;ll
+: 1450196202:0;vim 
+: 1450196342:0;cd 
+: 1450196354:0;vim .zshrc
+: 1450196608:0;cd 
+: 1450196610:0;cd .vim
+: 1450196705:0;vim ../.zshrc
+: 1450196810:0;sudo find / | grep "scripts/powerline"
+: 1450196936:0;uninstall_oh_my_zsh
+: 1450196956:0;vim
+: 1450196969:0;cd 
+: 1450196974:0;cd .vim/bundle/YouCompleteMe
+: 1450196998:0;brew install cmake
+: 1450197067:0;./install.py
+: 1450197096:0;sudo find / | grep scripts | grep powerline
+: 1450197104:0;sudo find / | grep scripts
+: 1450197153:0;sudo find / | grep powerline
+: 1450197161:0;vim
+: 1450197211:0;rm -rf YouCompleteMe/ E ,I#,I ?E
+: 1450197329:0;DYLD_FORCE_FLAT_NAMESPACE=1 vim
+: 1450197383:0;vim ~/.zshrc
+: 1450197478:0;otool -L /usr/local/bin/mvim
+: 1450197508:0;otool -L $(which mvim)
+: 1450197551:0;cd /usr/local/bin
+: 1450197556:0;cat mvim
+: 1450197581:0;DYLD_FORCE_FLAT_NAMESPACE=1 vim
+: 1450197638:0;fg
+: 1450197666:0;source ~/.zshrc
+: 1450197689:0;DYLD_FORCE_FLAT_NAMESPACE=1 vim
+: 1450198224:0;cd
+: 1450198229:0;vim .zshrc
+: 1450198278:0;cd
+: 1450198286:0;mvim .zshrc
+: 1450198347:0;cd .vim/bundle
+: 1450198353:0;rm -rf YouCompleteMe
+: 1450198369:0;brew cask uninstall --force macvim
+: 1450198401:0;brew uninstall -f vim
+: 1450198412:0;brew unlink python
+: 1450198439:0;brew cask install macvim
+: 1450198501:0;rm /usr/local/bin/mvim
+: 1450198505:0;brew cask install macvim
+: 1450198510:0;brew cask uninstall --force macvim
+: 1450198516:0;brew cask install macvim
+: 1450198537:0;cd /usr/local/bin/
+: 1450198546:0;ln -s mvim vim
+: 1450198550:0;rm vim
+: 1450198553:0;ln -s mvim vim
+: 1450198558:0;cd ~/.vim/bundle/YouCompleteMe
+: 1450198562:0;vim
+: 1450198600:0;cd
+: 1450198606:0;vim .zshrc
+: 1450198673:0;cd .vim
+: 1450198676:0;cd
+: 1450198677:0;cd .vim
+: 1450198723:0;vim .zshrc
+: 1450198750:0;an
+: 1450198807:0;cd
+: 1450198809:0;cd .vim
+: 1450198815:0;cd bundle/YouCompleteMe
+: 1450198819:0;./install.py
+: 1450198905:0;vim
+: 1450198930:0;ll
+: 1450198933:0;cd .vim
+: 1450198934:0;vim
+: 1450198952:0;vim .bashrc
+: 1450199022:0;vim
+: 1450199028:0;tmux
+: 1450199050:0;ps aux | grep powerline
+: 1450199058:0;kill -9 67710
+: 1450199062:0;ps aux | grep powerline
+: 1450199068:0;tmux
+: 1450199076:0;vim .tmux.conf
+: 1450199097:0;tmux
+: 1450199102:0;vim .tmux.conf
+: 1450199117:0;tmux
+: 1450199213:0;cd .zsh
+: 1450199258:0;vim .zshrc
+: 1450199337:0;\
+sfkjjdfjjjfj
+: 1450199346:0;find . | grep vi-mode
+: 1450199356:0;cd .oh-my-zsh/plugins
+: 1450199357:0;ll
+: 1450199363:0;cd vi-mode
+: 1450199365:0;ll
+: 1450199368:0;vim vi-mode.plugin.zsh
+: 1450199513:0;vim /Users/mhrysh/.oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh:46
+: 1450199520:0;vim /Users/mhrysh/.oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
+: 1450199622:0;iiiiihiijlhhjdd
+: 1450199624:0;vim /Users/mhrysh/.oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
+: 1450199882:0;tmux
+: 1450200049:0;pip uninstall powerline-status
+: 1450200059:0;\
+vim /Users/mhrysh/.oh-my-zsh/plugins/vi-mode/vi-mode.plugin.zsh
+: 1450200068:0;which python
+: 1450200078:0;brew link python
+: 1450200082:0;which python
+: 1450200088:0;brew install python
+: 1450200093:0;which python
+: 1450200099:0;python
+: 1450200106:0;python3
+: 1450200114:0;brew install python3
+: 1450200200:0;find / | grep powerline
+: 1450200216:0;cat .tmux.conf| grep powerline
+: 1450200229:0;cd /usr/local/lib/python2.7/site-packages/
+: 1450200230:0;ll
+: 1450200242:0;rm -rf powerline
+: 1450200246:0;rm -rf powerline_status-2.3.dist-info
+: 1450200247:0;ll
+: 1450200262:0;cd ~/tmux-powerline
+: 1450200277:0;mkdir ~/tmux-powerline
+: 1450200281:0;cd ~/tmux-powerline
+: 1450200288:0;git clone git://github.com/erikw/tmux-powerline.git
+: 1450200292:0;ll
+: 1450200309:0;tmux
+: 1450200317:0;cd ..
+: 1450200323:0;vim .tmux.conf
+: 1450200367:0;cd tmux-powerline
+: 1450200368:0;mc
+: 1450200398:0;cd tmux-powerline
+: 1450200405:0;cd ..
+: 1450200413:0;rm -rf tmux-powerline
+: 1450200426:0;git clone git://github.com/erikw/tmux-powerline.git
+: 1450200432:0;cd tmux-powerline
+: 1450200434:0;cd ..
+: 1450200436:0;tmux
+: 1450200458:0;vim .tmux.conf
+: 1450200484:0;tmux
+: 1450200551:0;cd tmux-powerline
+: 1450200551:0;ll
+: 1450200597:0;tmux
+: 1450200616:0;cd ..
+: 1450200621:0;rm -rf tmux-powerline
+: 1450200650:0;brew install python
+: 1450200661:0;pip install powerline-status
+: 1450200684:0;tmux
+: 1450200692:0;cd ..
+: 1450200695:0;vim .tmux.conf
+: 1450200717:0;tmux
+: 1450200724:0;vim .tmux.conf
+: 1450200740:0;brew unlink python
+: 1450200746:0;vim
+: 1450200751:0;tmux
+: 1450200757:0;vim .tmux.conf
+: 1450200774:0;tmux
+: 1450200778:0;vim .tmux.conf
+: 1450200795:0;ps aux | grep power
+: 1450200800:0;tmux
+: 1450200810:0;ps aux | grep powerline
+: 1450200822:0;vim .tmux.conf
+: 1450200857:0;source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
+: 1450200870:0;cd /usr/local/lib/python2.7/site-packages/powerline/
+: 1450200872:0;ll
+: 1450200907:0;find / | grep powerline.conf
+: 1450200911:0;sudo find / | grep powerline.conf
+: 1450201025:0;ll
+: 1450201046:0;vim ~/.tmux.conf
+: 1450201056:0;cd bindings
+: 1450201073:0;vim ~/.tmux.conf
+: 1450201082:0;cd tmux
+: 1450201083:0;ll
+: 1450201089:0;vim powerline.conf
+: 1450201093:0;pwd
+: 1450201099:0;vim powerline.conf
+: 1450201104:0;vim ~/.tmux.conf
+: 1450201127:0;tmux
+: 1450201136:0;vim ~/.tmux.conf
+: 1450201161:0;source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
+: 1450201209:0;cd ..
+: 1450201210:0;ll
+: 1450201214:0;cd zsh
+: 1450201215:0;ll
+: 1450201221:0;pwd
+: 1450201236:0;vim ~/.zshrc
+: 1450201262:0;tmux
+: 1450201284:0;vim ~/.zshrc
+: 1450201344:0;tmux
+: 1450201364:0;vim /usr/local/bin/powerline-config
+: 1450201377:0;tmux
+: 1450201390:0;vim /usr/local/bin/powerline-config
+: 1450201398:0;tmux
+: 1450201408:0;vim /usr/local/bin/powerline-config
+: 1450201438:0;vim .zshrc
+: 1450201461:0;tmux
+: 1450201469:0;hello
+: 1450201476:0;vim .zshrc
+: 1450201491:0;ll
+: 1450201497:0;vim .zshrc
+: 1450201521:0;cd .vim
+: 1450201533:0;vim .zshrc
+: 1450201546:0;cd .vim
+: 1450201561:0;vim
+: 1450201570:0;vim .vimrc
+: 1450201653:0;vim --version | grep +python
+: 1450201703:0;vim
+: 1450201744:0;sudo find / | grep config.json
+: 1450201757:0;sudo find . | grep config.json
+: 1450201763:0;cd powerline
+: 1450201764:0;ll
+: 1450201767:0;vim config.json
+: 1450201792:0;cd themes
+: 1450201793:0;ll
+: 1450201798:0;cd vim
+: 1450201799:0;ll
+: 1450201903:0;cd
+: 1450201907:0;vim .vimrc
+: 1450201930:0;vim
+: 1450201938:0;cd .vim
+: 1450201942:0;vim create_links
+: 1450202104:0;vim
+: 1450202124:0;vim .tmux.conf
+: 1450202180:0;vim
+: 1450203126:0;touch Tokens
+: 1450203130:0;vim Tokens
+: 1450203301:0;quit
+: 1450203304:0;exit
+: 1450203321:0;еу�гу�
+: 1450203327:0;tmux
+: 1450204722:0;cd Desktop
+: 1450204723:0;ll
+: 1450204727:0;openssl
+: 1450204750:0;openssl s_client -connect comodo.com:443 -CAfile certificate\(6\).cer
+: 1450204882:0;touch root.ca
+: 1450204887:0;vim root.ca
+: 1450204989:0;openssl s_client -connect comodo.com:443 -CAfile 6970
+: 1450205124:0;openssl s_client -connect comodo.com:443 -CAfile root.ca
+: 1450205155:0;q
+: 1450205258:0;sshesa
+: 1450205361:0;ll
+: 1450205364:0;cd tmp
+: 1450205369:0;mkdir tmp
+: 1450205372:0;cd tmp
+: 1450205398:0;scp rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/root/trustedca.pem .
+: 1450205433:0;openssl s_client -connect comodo.com:443 -CAfile trustedca.pem
+: 1450254544:0;quit
+: 1450254551:0;exit
+: 1450254558:0;ssh0024
+: 1450255296:0;cd Downloads
+: 1450255310:0;cd ../Desktop
+: 1450255311:0;ll
+: 1450255315:0;vim certificate\(6\).cer
+: 1450255473:0;scp certificate\(6\).cer mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com:/data/home/mgryshyn
+: 1450255495:0;ssh0024
+: 1450255549:0;exit
+: 1450256603:0;vim 
+: 1450256982:0;sshesa
+: 1450257051:0;cd tmp
+: 1450257052:0;ll
+: 1450257094:0;scp rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/root/ip.tar.gz .
+: 1450257116:0;tar xfzv ip.tar.gz ip
+: 1450257117:0;ll
+: 1450257172:0;scp rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/root/ip.tar.gz .
+: 1450257197:0;tar xvfz ip.tar.gz
+: 1450257198:0;ll
+: 1450257203:0;rm ip
+: 1450257205:0;rm ip.tar.gz
+: 1450257206:0;ll
+: 1450257279:0;scp rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/root/ip.tar.gz .
+: 1450257391:0;ll
+: 1450257411:0;mkdir ip
+: 1450257426:0;cp ip.tar.gz ip
+: 1450257429:0;ll ip
+: 1450257444:0;tar xvf ip.tar.gz ip
+: 1450257454:0;tar xvf ip.tar.gz ip/
+: 1450257481:0;tar xvf ip.tar.gz -C ip/
+: 1450257515:0;ll
+: 1450257521:0;rm ip.tar.gz
+: 1450257523:0;cd ip
+: 1450257524:0;ll
+: 1450257528:0;genalltags
+: 1450257565:0;cd ..
+: 1450257578:0;git clone https://github.com/universal-ctags/ctags.git
+: 1450257666:0;./autogen.sh
+: 1450257675:0;cd ctags
+: 1450257678:0;./autogen.sh
+: 1450257685:0;ll
+: 1450257690:0;./autogen.sh
+: 1450257736:0;cd ..
+: 1450257740:0;rm -rf ctags
+: 1450257743:0;brew tap universal-ctags/universal-ctags
+: 1450257749:0;brew install --HEAD universal-ctags
+: 1450260171:0;ll
+: 1450260174:0;cd ip
+: 1450260174:0;ll
+: 1450260184:0;vim ldap_client.py
+: 1450260219:0;sshesa
+: 1450260219:196;sshesa
+: 1450260417:0;sshadmin
+: 1450260674:0;genalltags
+: 1450260679:0;gentags
+: 1450260687:0;vim
+: 1450260735:0;which ctags
+: 1450260749:0;which genalltags
+: 1450260821:0;vim scp://rtestuser@vm30esa0006.ibqa.sgg.cisco.com//ip/ldap_client.py
+: 1450260891:0;vim scp://rtestuser@vm30esa0006.ibqa.sgg.cisco.com/ip/ldap_client.py
+: 1450260910:0;cd tmp/ip
+: 1450260911:0;ll
+: 1450260921:0;vim ldap_client.py
+: 1450260961:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450260219:999;sshesa
+: 1450261221:0;sshadmin
+: 1450261251:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450261294:0;vim
+: 1450261529:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450261546:0;sshesa
+: 1450264950:0;sshadmin
+: 1450264935:7;sshesa
+: 1450265126:0;ssh rtestuser@c380q03.ibqa.sgg.cisco.com
+: 1450266590:0;sshesa
+: 1450266597:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450266849:0;find . | grep sslip
+: 1450266860:0;find - name "sslip" .
+: 1450266866:0;find -name "sslip" 
+: 1450266869:0;find -name "sslip" . 
+: 1450266874:0;find . -name "sslip" 
+: 1450268139:0;vim .zshrc
+: 1450268810:0;sshadmin
+: 1450268892:0;fg
+: 1450269433:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450270672:0;sshadmin
+: 1450270716:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450271174:0;sshesa
+: 1450271416:0;sshadmin
+: 1450276408:0;sshesa
+: 1450276489:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/coro_ssl.py
+: 1450276494:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450276501:0;sshesa
+: 1450276859:0;cd tmp/ip
+: 1450276863:0;vim cli.py
+: 1450277496:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450277852:0;sshesa
+: 1450277871:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450280188:0;sshadmin
+: 1450280617:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450280864:0;sshesa
+: 1450281211:0;ssh0024
+: 1450281301:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450282014:0;sshesa
+: 1450282039:0;sshadmin
+: 1450282039:5;sshadmin
+: 1450282081:0;sshesa
+: 1450282622:0;ssh0024 2
+: 1450282627:0;ssh0024
+: 1450284016:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450284024:0;sshadmin
+: 1450284116:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450337943:0;sshesa
+: 1450337953:0;sshadmin
+: 1450338416:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450338467:0;vim scp://rtestuser@vm30esa0006.ibqa.cisco.com//ip/ldap_api.py
+: 1450338546:0;sshesa
+: 1450338648:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450339417:0;sshadmin
+: 1450339489:0;sshesa
+: 1450339666:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450339922:0;sshadmin
+: 1450340219:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/coro_ssl.py
+: 1450340556:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450340626:0;ssh0024
+: 1450340857:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450340935:0;cd tmp/esa
+: 1450340939:0;cd tmp/
+: 1450340942:0;cd ip
+: 1450340943:0;ll
+: 1450340985:0;scp mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com:/home/mgryshyn/work/main/phoebe/coroutine/coro_ssl.py .
+: 1450341013:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/coro_ssl.py
+: 1450341058:0;rm coro_ssl.py
+: 1450341059:0;ll
+: 1450341067:0;ll coro_ssl.py
+: 1450341077:0;scp mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com:/home/mgryshyn/work/main/phoebe/coroutine/coro_ssl.py .
+: 1450341089:0;ll coro_ssl.py
+: 1450341135:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/coro_ssl.py
+: 1450341458:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450282014:16;sshesa
+: 1450337953:4723;sshadmin
+: 1450342877:0;sshadmin
+: 1450342939:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450344734:0;sshadmin
+: 1450345086:0;ssesa
+: 1450345090:0;sshesa
+: 1450345242:0;sshadmin
+: 1450345584:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450346171:0;sshesa
+: 1450347915:0;sshadmin
+: 1450348118:0;sshesa
+: 1450348558:0;cd 
+: 1450348559:0;vim
+: 1450348761:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450349773:0;ssh0251
+: 1450350133:0;sshadmin
+: 1450351609:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450351830:0;scp ldap_api.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_api.py
+: 1450352567:0;brew install ack-grep
+: 1450352586:0;brew install ack
+: 1450352610:0;ack "omh"
+: 1450352620:0;ack -R  "omh"
+: 1450352656:0;ack -R  "clear_caches"
+: 1450352670:0;ack "clear_caches"
+: 1450355955:0;ack "remote_cmd_ldap"
+: 1450356348:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450356354:0;sshesa
+: 1450356359:0;sshadmin
+: 1450356583:0;sshesa
+: 1450356672:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450357256:0;sshesa
+: 1450357315:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450359508:0;sshadmin
+: 1450360122:0;fg
+: 1450360124:0;vim
+: 1450360617:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450361471:0;ssh0024
+: 1450364506:0;sshadmin
+: 1450364565:0;sshesa
+: 1450364639:0;scp rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py .
+: 1450364655:0;ll
+: 1450365127:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450365583:0;sshesa
+: 1450366361:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450366369:0;sshesa
+: 1450366382:0;sshadmin
+: 1450366382:19;sshadmin
+: 1450366403:0;sshesa
+: 1450366787:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450367632:0;vim tmp/ip/interface_controller.py
+: 1450367963:0;cd tmp/ip
+: 1450367980:0;ack "self.call("
+: 1450367991:0;ack -R "self.call("
+: 1450367996:0;ack -R "self\.call("
+: 1450368000:0;ack -R "self\.call"
+: 1450368045:0;ack -R "local_cache_update"
+: 1450368227:0;ack -R "ldap_localcache_update"
+: 1450368414:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450366369:8;sshesa
+: 1450366382:1814;sshadmin
+: 1450368432:0;sshadmin
+: 1450368490:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450369449:0;sshadmin
+: 1450369664:0;sshesa
+: 1450370345:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450370988:0;sshesa
+: 1450370988:12;sshesa
+: 1450371002:0;sshadmin
+: 1450371191:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450371340:0;sshadmin
+: 1450371573:0;sshesa
+: 1450373111:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450373118:0;sshadmin
+: 1450373157:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450373822:0;ack "subscribe_to_config_change"
+: 1450375149:0;sshesa
+: 1450375445:0;sshadmin
+: 1450375815:0;ack "clear_options)\
+
+: 1450375819:0;ack "clear_options"\
+
+: 1450375899:0;vim
+: 1450377072:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450377095:0;sshadmin
+: 1450377153:0;sshesa
+: 1450429053:0;ack "update_context"
+: 1450429315:0;j
+: 1450429335:0;vim
+: 1450429513:0;ssh0024
+: 1450430926:0;sshadmin
+: 1450431018:0;sshesa
+: 1450431501:0;cd tmp/ip
+: 1450431505:0;ack "ssl_certid"
+: 1450431546:0;j
+: 1450432146:0;sshesa
+: 1450435355:0;cd tmp/ip
+: 1450435368:0;ack "ldap_api.ssl_ctx"
+: 1450435502:0;ack "update_cert_key"
+: 1450435609:0;vim coro_httpd.py
+: 1450440597:0;ack "update_context"
+: 1450440766:0;sshesa
+: 1450441228:0;ack "oldvars"
+: 1450442315:0;sshesa
+: 1450442423:0;sshadmin
+: 1450444439:0;sshesa
+: 1450444444:0;sshadmin
+: 1450444539:0;sshesa
+: 1450446749:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450449700:0;sshadmin
+: 1450449882:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450450039:0;sshesa
+: 1450452240:0;ll
+: 1450452317:0;scp mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com:/home/mgryshyn/work/main/phoebe/pki/certs.py
+: 1450452321:0;scp mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com:/home/mgryshyn/work/main/phoebe/pki/certs.py .
+: 1450452406:0;scp certs.py mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com:/home/mgryshyn/work/main/phoebe/pki/certs.py 
+: 1450452491:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450453518:0;sshadmin
+: 1450453617:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450453848:0;cd
+: 1450453851:0;ll
+: 1450453855:0;mkdir configs
+: 1450453859:0;cd configs
+: 1450453866:0;mkdir esa
+: 1450453868:0;cd esa
+: 1450453924:0;scp rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/root/.ssh/authorized_keys
+: 1450453935:0;scp rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/root/.ssh/authorized_keys .
+: 1450453974:0;scp rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/root/.ssh/.cshrc .
+: 1450454022:0;sshesa
+: 1450454194:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450454279:0;sshadmin
+: 1450454329:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450690668:0;tmux a
+: 1450690673:0;tmux
+: 1450690710:0;sshesa
+: 1450690725:0;cd tmp/ip
+: 1450690731:0;vim cert.py
+: 1450691076:0;cd tmp/ip
+: 1450691077:0;ll
+: 1450691132:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450691328:0;vim
+: 1450691978:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450692454:0;cd tmp/ip
+: 1450692460:0;ack "if not cert.is_valid()"
+: 1450692650:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450692724:0;scp ldap_client.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/ldap_client.py
+: 1450698008:0;sshadmin
+: 1450690710:7326;sshesa
+: 1450698255:0;sshesa
+: 1450690710:0;sshesa
+: 1450698833:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450699443:0;vim certs.py
+: 1450699569:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450699731:0;j
+: 1450699734:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450701653:0;ll
+: 1450701682:0;sshesa
+: 1450703283:0;scp certs.py rtestuser@vm30esa0006.ibqa.sgg.cisco.com:/ip/certs.py
+: 1450703698:0;gotmux superlists
+: 1450703705:0;ll ~
+: 1450703715:0;ll | grep tmux
+: 1450703728:0;git branches
+: 1450703732:0;git branch
+: 1450703749:0;cd .vim
+: 1450703750:0;ll
+: 1450703762:0;cd 
+: 1450703763:0;ll
+: 1450703773:0;find / | grep gotmux
+: 1450703776:0;sudo find / | grep gotmux
+: 1450703811:0;workon superlists
+: 1450703811:0;workon superlists
+: 1450703816:0;cd Dev
+: 1450703816:0;cd Dev
+: 1450703818:0;ll
+: 1450703826:0;mkproject superlists
+: 1450709079:0;ll
+: 1450709083:0;cd ..
+: 1450709084:0;ll
+: 1450709122:0;git clone git@github.com:MyroslavGryshyn/superlists.git
+: 1450709164:0;ll superlists
+: 1450709167:0;cd superlists
+: 1450709179:0;cd ..
+: 1450709184:0;cd superlists
+: 1450709187:0;python
+: 1450709191:0;cd ..
+: 1450709192:0;ll
+: 1450709199:0;rmproject superlists
+: 1450709214:0;rmvirtualenv superlists
+: 1450709222:0;rm -rf superlists
+: 1450709222:0;ll
+: 1450709343:0;which python
+: 1450709350:0;whereis python3
+: 1450709361:0;j
+: 1450709396:0;whereis python3
+: 1450709406:0;python3
+: 1450709416:0;which python3
+: 1450709449:0;export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+: 1450709462:0;ps aux
+: 1450709469:0;ps aux | grep powerline
+: 1450709480:0;kill -9 62069
+: 1450709489:0;kill -9 6678
+: 1450709492:0;ps aux | grep powerline
+: 1450709502:0;history
+: 1450709521:0;tmux
+: 1450709524:0;cd
+: 1450709527:0;cd powerline/
+: 1450709528:0;ll
+: 1450709539:0;cd themes
+: 1450709540:0;ll
+: 1450709543:0;cd shell
+: 1450709544:0;ll
+: 1450709549:0;cd ..
+: 1450709561:0;ll
+: 1450709565:0;cd ..
+: 1450709566:0;ll
+: 1450709572:0;find . | grep zsh
+: 1450709581:0;bash
+: 1450709590:0;ll
+: 1450709592:0;cd ..
+: 1450709592:0;ll
+: 1450709604:0;vim .zshrc
+: 1450709661:0;ll
+: 1450709679:0;find . | grep zsh
+: 1450709696:0;vim .zsh_history
