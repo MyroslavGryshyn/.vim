@@ -8,42 +8,44 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+" Must have
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'craigemery/vim-autotag'
-Plugin 'gmarik/vundle'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'honza/vim-snippets'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'mileszs/ack.vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'SirVer/ultisnips'
-Plugin 'sjl/gundo.vim'
-Plugin 'Townk/vim-autoclose'
-Plugin 'tpope/vim-surround'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'kien/ctrlp.vim'
-Plugin 'fisadev/vim-ctrlp-cmdpalette'
-Plugin 'ivalkeen/vim-ctrlp-tjump'
-Plugin 'Yggdroot/indentLine'
-Plugin 'majutsushi/tagbar'
-Plugin 'edkolev/promptline.vim'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
-
-Plugin 'ervandew/supertab'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'Mizuchi/vim-ranger'
 Plugin 'scrooloose/syntastic'
+Plugin 'sjl/gundo.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Yggdroot/indentLine'
+Plugin 'tpope/vim-surround'
+Plugin 'ervandew/supertab'
+Plugin 'craigemery/vim-autotag'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'majutsushi/tagbar'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Townk/vim-autoclose'
+Plugin 'tpope/vim-commentary.git'
+
+" To tweak
+Plugin 'ivalkeen/vim-ctrlp-tjump'
+Plugin 'Mizuchi/vim-ranger'
+Plugin 'scrooloose/nerdcommenter'
+
+
+" Testing
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/promptline.vim'
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'dyng/ctrlsf.vim'
+
+" Neovim plugins
+Plugin 'Shougo/deoplete.nvim'
 
 call vundle#end()
 
 let mapleader = "\<Space>"
-
-"Changing cursor type in Insert mode
 
 "Opens vsp on right side
 set splitright

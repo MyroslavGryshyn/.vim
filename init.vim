@@ -8,35 +8,48 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+" Must have
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'honza/vim-snippets'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'easymotion/vim-easymotion'
 Plugin 'scrooloose/syntastic'
-Plugin 'SirVer/ultisnips'
 Plugin 'sjl/gundo.vim'
-Plugin 'Raimondi/delimitMate'
-Plugin 'tpope/vim-commentary.git'
-Plugin 'tpope/vim-repeat.git'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Yggdroot/indentLine'
 Plugin 'tpope/vim-surround'
+Plugin 'ervandew/supertab'
+Plugin 'craigemery/vim-autotag'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'majutsushi/tagbar'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'scrooloose/nerdtree'
+Plugin 'Townk/vim-autoclose'
+Plugin 'tpope/vim-commentary.git'
+
+" To tweak
+Plugin 'ivalkeen/vim-ctrlp-tjump'
+Plugin 'Mizuchi/vim-ranger'
+Plugin 'scrooloose/nerdcommenter'
+
+" Testing
+Plugin 'bling/vim-airline'
+Plugin 'edkolev/promptline.vim'
+Plugin 'edkolev/tmuxline.vim'
+" Plugin 'chriskempson/base16-vim'
 Plugin 'dyng/ctrlsf.vim'
 Plugin 'tpope/vim-fugitive'
-Plugin 'Yggdroot/indentLine'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'thinca/vim-visualstar'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'chriskempson/base16-vim'
-Plugin 'edkolev/promptline.vim'
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/tmuxline.vim'
+
+" Neovim plugins
 Plugin 'Shougo/deoplete.nvim'
+
 
 call vundle#end()
 
 let mapleader = "\<Space>"
-
-"Changing cursor type in Insert mode
 
 "Opens vsp on right side
 set splitright
