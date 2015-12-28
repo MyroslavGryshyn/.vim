@@ -110,7 +110,7 @@ highlight ColorColumn ctermbg=233
 highlight LineNr ctermfg=239 ctermbg=233
 
 let g:indentLine_color_term=243
-let g:indentLine_char = '|'
+let g:indentLine_char = '¦'
 
 " Moving in insert mode
 inoremap jj <ESC>

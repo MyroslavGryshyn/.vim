@@ -116,8 +116,8 @@ let g:indentLine_char = '¦'
 inoremap jj <ESC>
 inoremap HH <C-o>I
 inoremap LL <C-o>A
-inoremap KK <C-o>O
-inoremap JJ <C-o>o
+inoremap KK <C-o>k
+inoremap JJ <C-o>j
 inoremap CC <C-o>C
 inoremap SS <C-o>S
 
