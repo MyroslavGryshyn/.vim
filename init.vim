@@ -77,6 +77,7 @@ set ruler
 set t_Co=256
 set completeopt=longest,menuone
 set shell=/bin/bash
+set relativenumber
 
 "Indents handling
 set autoindent
@@ -108,7 +109,8 @@ set colorcolumn=80
 highlight ColorColumn ctermbg=233
 highlight LineNr ctermfg=239 ctermbg=233
 
-let g:indentLine_color_term=234
+let g:indentLine_color_term=243
+let g:indentLine_char = '¦'
 
 " Moving in insert mode
 inoremap jj <ESC>
@@ -159,8 +161,6 @@ nnoremap <C-t> :tabnew<CR>              " new tab
 nnoremap <C-p> :tabprevious<CR>         " previous tab
 nnoremap <C-n> :tabnext<CR>             " next tab
 inoremap <C-t> :<Esc>tabnew<CR>         " insert mode, new tab
-inoremap <C-p> :<Esc>:tabprevious<CR>i  " insert mode, previous tab
-inoremap <C-n> :<Esc>:tabnext<CR>i      " insert mode, next tab """"""
 
 nmap / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -263,3 +263,5 @@ nnoremap <leader>r :RangerChooser<CR>
  if has('nvim')
      nmap <BS> <C-W>h
  endif
+
+let g:SuperTabDefaultCompletionType = "<c-n>"
