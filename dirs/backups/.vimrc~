@@ -43,7 +43,6 @@ Plugin 'dyng/ctrlsf.vim'
 " Neovim plugins
 Plugin 'Shougo/deoplete.nvim'
 
-
 call vundle#end()
 
 let mapleader = "\<Space>"

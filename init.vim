@@ -110,7 +110,14 @@ highlight LineNr ctermfg=239 ctermbg=233
 
 let g:indentLine_color_term=234
 
+" Moving in insert mode
 inoremap jj <ESC>
+inoremap HH <C-o>I
+inoremap LL <C-o>A
+inoremap KK <C-o>O
+inoremap JJ <C-o>o
+inoremap CC <C-o>C
+inoremap SS <C-o>S
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap tt :TagbarToggle<CR>
@@ -145,6 +152,8 @@ let g:jedi#smart_auto_mappings = 0
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#use_splits_not_buffers = 'top'
 let g:jedi#show_call_signatures = 0
+
+
 
 nnoremap <C-t> :tabnew<CR>              " new tab
 nnoremap <C-p> :tabprevious<CR>         " previous tab
@@ -249,3 +258,8 @@ function! RangeChooser()
 endfunction
 command! -bar RangerChooser call RangeChooser()
 nnoremap <leader>r :RangerChooser<CR>
+
+" Fix trouble in neovim
+ if has('nvim')
+     nmap <BS> <C-W>h
+ endif

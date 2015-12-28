@@ -205,3 +205,14 @@ let g:promptline_preset = {
 let g:promptline_theme = 'airline'
 
 nnoremap <silent> - :nohl<CR>
+
+" For MacVim
+if has("gui_running")
+  syntax on
+  set hlsearch
+  colorscheme macvim
+  set bs=2
+  set ai
+  set ruler
+endif
+
