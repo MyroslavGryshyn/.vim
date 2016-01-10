@@ -107,6 +107,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias gotmux='./gotmux.sh'
+alias gs='git status'
 
 alias genalltags='ctags -R *'
 alias ctagsp='ctags --languages=python --python-kinds=c'
