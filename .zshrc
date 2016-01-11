@@ -158,3 +158,4 @@ fi
 export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
 
 bindkey -M viins 'jj' vi-cmd-mode
+export NVIM_TUI_ENABLE_TRUE_COLOR=1

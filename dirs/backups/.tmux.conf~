@@ -1,11 +1,13 @@
-run-shell "powerline-daemon -q"
-
-source "/usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf"
-
 setw -g mode-keys vi
 
+set-option -g default-terminal "screen-256color"
+set-option -g status on
+set-option -g status-interval 2
+set-option -g status-utf8 on
+set-option -g status-justify "left"
+
 unbind-key C-b
-set -g prefix C-j
+set -g prefix C-a
 
 # Smart pane switching with awareness of vim splits
 is_vim='echo "#{pane_current_command}" | grep -iqE "(^|\/)g?(view|n?vim?)(diff)?$"'
@@ -18,9 +20,6 @@ bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 bind C-] setw synchronize-panes on
 bind C-[ setw synchronize-panes off 
 
-bind C-S-n next-window
-bind C-S-p previous-window
-
 #Tmux plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -29,8 +28,3 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 
 #Initializing tmux plugin manager
 run '~/.tmux/plugins/tpm/tpm'
-
-bind j resize-pane -D 10
-bind k resize-pane -U 10
-bind l resize-pane -L 10
-bind h resize-pane -R 10
