@@ -26,11 +26,11 @@ Plugin 'Townk/vim-autoclose'
 Plugin 'tpope/vim-commentary.git'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'morhetz/gruvbox'
+Plugin 'w0ng/vim-hybrid'
 
 " To tweak
 Plugin 'ivalkeen/vim-ctrlp-tjump'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'hallettj/jslint.vim'
 
 " Testing
 Plugin 'bling/vim-airline'
@@ -41,6 +41,7 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'thinca/vim-visualstar'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'bronson/vim-trailing-whitespace'
 
 call vundle#end()
 
@@ -66,12 +67,11 @@ set hlsearch
 set path+=**
 set nofoldenable
 set number
-set encoding=utf-8
 set scrolloff=5
 set ruler
 set t_Co=256
 set completeopt=longest,menuone
-set shell=/bin/bash
+set shell=/bin/zsh
 set relativenumber
 
 "Indents handling
@@ -86,9 +86,11 @@ set switchbuf=usetab
 "Helps to insert higlighted in other apps text into vim with just p
 set clipboard=unnamed
 
-colorscheme gruvbox
+
+colorscheme hybrid
+" colorscheme gruvbox
 set background=dark
-let g:gruvbox_contrast_dark='hard'
+" let g:gruvbox_contrast_dark='hard'
 
 "Let's find ctag files
 set tags=tags;
@@ -120,9 +122,12 @@ inoremap JJ <C-o>o
 inoremap CC <C-o>C
 inoremap SS <C-o>S
 
+nnoremap <leader>q :bdelete<cr>
+
 nmap <F2> :NERDTreeToggle<CR>
 nmap tt :TagbarToggle<CR>
 nmap <F3> :TMToggle<CR>
+nmap 00 :SyntasticToggleMode<CR>
 
 nnoremap <leader>f 1z=
 nnoremap <leader>s :set spell
@@ -222,7 +227,7 @@ let g:promptline_preset = {
 let g:promptline_theme = 'airline'
 
 nnoremap <silent> - :nohl<CR>
-let g:python_host_prog = '/usr/bin/python2.7'
+let g:python_host_prog = '/usr/bin/python'
 " let g:deoplete#enable_at_startup = 1
 
 nmap <leader>ff :CtrlSF 
@@ -234,8 +239,11 @@ let g:ctrlsf_winsize = '100%'
 " Fix trouble in neovim
  if has('nvim')
      nmap <BS> <C-W>h
+     nmap <bs> :<c-u>TmuxNavigateLeft<cr>
  endif
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_use_vim_stdout = 0
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
