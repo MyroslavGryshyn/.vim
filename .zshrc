@@ -12,8 +12,6 @@ export ZSH=/Users/miroslav/.oh-my-zsh
 ZSH_THEME="agnoster"
 # ZSH_THEME="robbyrussell"
 
-# source "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
