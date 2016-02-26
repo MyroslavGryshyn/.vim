@@ -227,7 +227,7 @@ let g:promptline_preset = {
 let g:promptline_theme = 'airline'
 
 nnoremap <silent> - :nohl<CR>
-let g:python_host_prog = '/usr/bin/python'
+let g:python_host_prog = '/usr/local/bin/python'
 " let g:deoplete#enable_at_startup = 1
 
 nmap <leader>ff :CtrlSF 
