@@ -38,10 +38,11 @@ Plugin 'edkolev/promptline.vim'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'dyng/ctrlsf.vim'
-Plugin 'tpope/vim-fugitive'
 Plugin 'thinca/vim-visualstar'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'jmcantrell/vim-virtualenv'
 
 call vundle#end()
 
@@ -247,3 +248,19 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_use_vim_stdout = 0
 let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+let g:SimpylFold_docstring_preview = 1
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
