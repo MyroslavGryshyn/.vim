@@ -10,7 +10,7 @@ export ZSH=/Users/miroslav/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-# ZSH_THEME="robbyrussell"
+# ZSH_THEME="solarized"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -159,3 +159,6 @@ export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
 bindkey -M viins 'jj' vi-cmd-mode
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
+
+# Removing prompt_hg from original theme(it gives to many errors)
+prompt_hg() {}

@@ -72,7 +72,7 @@ set scrolloff=5
 set ruler
 set t_Co=256
 set completeopt=longest,menuone
-set shell=/bin/zsh
+set shell=/usr/local/bin/zsh
 set relativenumber
 
 "Indents handling
@@ -229,7 +229,6 @@ let g:promptline_theme = 'airline'
 
 nnoremap <silent> - :nohl<CR>
 let g:python_host_prog = '/usr/local/bin/python'
-" let g:deoplete#enable_at_startup = 1
 
 nmap <leader>ff :CtrlSF 
 nmap <leader>ft :CtrlSFToggle<CR>
