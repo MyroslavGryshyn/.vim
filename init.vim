@@ -247,10 +247,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_use_vim_stdout = 0
-<<<<<<< HEAD
 let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
-=======
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 set foldmethod=indent
 set foldlevel=99
@@ -267,4 +264,3 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
->>>>>>> mac
