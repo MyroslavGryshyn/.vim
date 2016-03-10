@@ -162,3 +162,4 @@ defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 # Removing prompt_hg from original theme(it gives to many errors)
 prompt_hg() {}
+export PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin/:$PATH"
