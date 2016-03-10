@@ -1,0 +1,201 @@
+let mapleader = "\<Space>"
+
+"Opens vsp on right side
+set splitright
+
+set autoindent
+set tabstop=4
+
+set pastetoggle=<F10>
+
+" autocompletion of files and commands behaves like shell
+" (complete only the common part, list the options that match)
+set wildmode=list:longest
+
+" save file when Vim loses focus
+au FocusLost * :wa
+
+set colorcolumn=80
+" highlight ColorColumn ctermbg=233
+" highlight LineNr ctermfg=239 ctermbg=233
+
+let g:indentLine_color_term=243
+let g:indentLine_char = '¦'
+
+nnoremap <leader>v :vsplit<CR>
+
+" Moving in insert mode
+inoremap jj <ESC>
+inoremap HH <C-o>I
+inoremap LL <C-o>A
+inoremap KK <C-o>O
+inoremap JJ <C-o>o
+inoremap CC <C-o>C
+inoremap SS <C-o>S
+
+nnoremap <leader>q :bdelete<cr>
+
+nmap <F2> :NERDTreeToggle<CR>
+nmap tt :TagbarToggle<CR>
+nmap <F3> :TMToggle<CR>
+nmap 00 :SyntasticToggleMode<CR>
+
+nnoremap <leader>f 1z=
+nnoremap <leader>s :set spell
+nmap W :w <CR>
+nmap Q :q <CR>
+nmap Z :qa <CR>
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>j :YcmCompleter GoToDeclaration<CR>
+
+nmap <leader>u :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
+let g:gundo_help = 0
+let g:gundo_close_on_revert = 1
+let g:gundo_width = 5
+
+" insert blank lines
+nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
+nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
+
+nnoremap <c-]> :CtrlPtjump<cr>
+vnoremap <c-]> :CtrlPtjumpVisual<cr>
+
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+let g:tabman_number = 0
+
+nmap / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" CtrlP (new fuzzy finder)
+let g:ctrlp_map = '<c-g>'
+nmap <Leader>g :CtrlP<CR>
+nmap <Leader>T :CtrlPBufTag<CR>
+nmap <Leader>t :CtrlPBufTagAll<CR>
+nmap <Leader>y :CtrlPLine<CR>
+nmap <Leader>f :CtrlPMRUFiles<CR>
+nmap <Leader>c :CtrlPCmdPalette<CR>
+
+"Better backup, swap and undos storage
+set directory=~/.vim/dirs/tmp     " directory to place swap files in
+set backup                        " make backup files
+set backupdir=~/.vim/dirs/backups " where to put backup files
+set undofile                      " persistent undos - undo after you re-open the file
+set undodir=~/.vim/dirs/undos
+set viminfo+=n~/.vim/dirs/viminfo
+
+" Create needed directories if they don't exist
+if !isdirectory(&backupdir)
+    call mkdir(&backupdir, "p")
+endif
+if !isdirectory(&directory)
+    call mkdir(&directory, "p")
+endif
+if !isdirectory(&undodir)
+    call mkdir(&undodir, "p")
+endif
+
+set mouse=a
+
+noremap n nzz
+noremap N Nzz
+noremap <Up> 2<C-y>
+noremap <Down> 2<C-e>
+nnoremap <silent> - :nohl<CR>
+
+" Make vim understand Cyrilic
+set keymap=ukrainian-jcuken
+set iminsert=0
+set imsearch=0
+
+let g:airline#extensions#tmuxline#enabled = 0
+let g:airline_powerline_fonts = 1
+
+let g:promptline_preset = {
+        \'a' : [ promptline#slices#host() ],
+        \'b' : [ promptline#slices#user() ],
+        \'c' : [ promptline#slices#cwd() ],
+        \'y' : [ promptline#slices#vcs_branch() ]}
+let g:promptline_theme = 'airline'
+
+let g:python_host_prog = '/usr/local/bin/python'
+
+nmap <leader>ff :CtrlSF 
+nmap <leader>ft :CtrlSFToggle<CR>
+nmap <leader>F :CtrlSF <c-r><c-w>
+let g:ctrlsf_position = 'bottom'
+let g:ctrlsf_winsize = '100%'
+
+" Fix trouble in neovim
+ if has('nvim')
+     nmap <BS> <C-W>h
+     nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+ endif
+
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_use_vim_stdout = 0
+let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
+
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+let g:SimpylFold_docstring_preview = 1
+
+" easy system clipboard copy/paste
+noremap <space>y "*y
+noremap <space>Y "*Y
+noremap <space>p "*p
+noremap <space>P "*P
+
+" easy window navigation
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-k> <c-w>k
+nnoremap <c-p> gT
+nnoremap <c-n> gt
+
+" options
+nnoremap cow :action EditorToggleUseSoftWraps<cr>
+nnoremap col :action EditorToggleShowWhitespaces<cr>
+
+" actions
+nnoremap <space>q :action CloseContent<cr>
+nnoremap <space>Q :action ReopenClosedTab<cr>
+nnoremap <space>\ :action VimFilePrevious<cr>
+nnoremap <space>e :action SearchEverywhere<cr>
+nnoremap <space>E :action Switcher<cr>
+nnoremap <space>t :action FileStructurePopup<cr>
+nnoremap <space>T :action GotoSymbol<cr>
+nnoremap <space>a :action GotoAction<cr>
+nnoremap <space>b :action ToggleLineBreakpoint<cr>
+
+" code navigation
+nnoremap <space>] :action GotoImplementation<cr>
+nnoremap <space>[ :action GotoSuperMethod<cr>
+nnoremap <space>u :action FindUsages<cr>
+nnoremap <space>gt :action GotoTest<cr>
+nnoremap <space>k :action HighlightUsagesInFile<cr>
+nnoremap \r :action RunClass<cr>
+nnoremap \R :action Run<cr>
+nnoremap \d :action DebugClass<cr>
+nnoremap \D :action Debug<cr>
+nnoremap \c :action CheckStyleCurrentFileAction<cr>
+
+" code refactoring
+nnoremap <space>rr :action RenameElement<cr>
+
+" built-in navigation to navigated items works better
+nnoremap g<c-o> :action Back<cr>
+nnoremap g<c-i> :action Forward<cr>
+" but preserve ideavim defaults
+
+" built in search looks better
+nnoremap / :action Find<cr>
+" but preserve ideavim search
+nnoremap g/ /
