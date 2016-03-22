@@ -4,9 +4,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Python
-
-
 " Navigation
 Plug 'scrooloose/nerdtree'
 Plug 'dyng/ctrlsf.vim'
@@ -14,22 +11,25 @@ Plug 'kien/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 
-Plug 'scrooloose/syntastic'
-Plug 'hynek/vim-python-pep8-indent'
-Plug 'nvie/vim-flake8'
-
+"Syntax
+Plug 'scrooloose/syntastic', { 'for': 'python' }
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'nvie/vim-flake8', { 'for': 'python' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
+Plug 'ervandew/supertab', { 'for': 'python' }
+Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 
 Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
 Plug 'craigemery/vim-autotag'
 Plug 'majutsushi/tagbar'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
+
+" Themes
 Plug 'morhetz/gruvbox'
 Plug 'w0ng/vim-hybrid'
 
@@ -37,7 +37,6 @@ Plug 'w0ng/vim-hybrid'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 
 " Testing
-Plug 'Shougo/deoplete.nvim'
 Plug 'bling/vim-airline'
 Plug 'edkolev/promptline.vim'
 Plug 'edkolev/tmuxline.vim'
@@ -91,10 +90,11 @@ set switchbuf=usetab
 set clipboard=unnamed
 
 
-colorscheme hybrid
+colorscheme gruvbox
+
 " colorscheme gruvbox
 set background=dark
-" let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_dark='soft'
 
 "Let's find ctag files
 set tags=tags;
@@ -264,6 +264,5 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
+" Enable Silver search
 let g:ackprg = 'ag --nogroup --nocolor --column'
-
-
