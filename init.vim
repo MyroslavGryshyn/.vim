@@ -14,13 +14,18 @@ Plug 'easymotion/vim-easymotion'
 "Syntax
 Plug 'scrooloose/syntastic', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'nvie/vim-flake8', { 'for': 'python' }
+Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
+
+" Airlines
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
 
 Plug 'tpope/vim-surround'
 Plug 'craigemery/vim-autotag'
@@ -32,14 +37,12 @@ Plug 'tpope/vim-commentary'
 " Themes
 Plug 'morhetz/gruvbox'
 Plug 'w0ng/vim-hybrid'
+Plug 'chriskempson/base16-vim'
 
 " To tweak
 Plug 'ivalkeen/vim-ctrlp-tjump'
 
-" Testing
-Plug 'bling/vim-airline'
-Plug 'edkolev/promptline.vim'
-Plug 'edkolev/tmuxline.vim'
+
 Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-unimpaired'
 Plug 'bronson/vim-trailing-whitespace'
@@ -90,7 +93,9 @@ set switchbuf=usetab
 set clipboard=unnamed
 
 
-colorscheme gruvbox
+" colorscheme gruvbox
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-ocean
 
 " colorscheme gruvbox
 set background=dark
@@ -214,17 +219,16 @@ set keymap=ukrainian-jcuken
 set iminsert=0
 set imsearch=0
 
+let g:airline#extensions#syntastic#enabled = 0
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline_theme='base16'
 
-let g:promptline_preset = {
-        \'a' : [ promptline#slices#host() ],
-        \'b' : [ promptline#slices#user() ],
-        \'c' : [ promptline#slices#cwd() ],
-        \'y' : [ promptline#slices#vcs_branch() ]}
-let g:promptline_theme = 'airline'
-
-let g:python_host_prog = '/usr/bin/python'
+let g:python_host_prog = 'python'
 let g:deoplete#enable_at_startup = 1
 
 let g:ctrlsf_position = 'bottom'
@@ -237,14 +241,6 @@ let g:ctrlsf_winsize = '100%'
  endif
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
-let g:jedi#popup_select_first = 0
-let g:jedi#show_call_signatures = "2"
-let g:jedi#goto_command = "<leader>jd"
-let g:jedi#documentation_command = "''"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = ""
-let g:jedi#rename_command = "<leader>r"
 
 set foldmethod=indent
 set foldlevel=99
