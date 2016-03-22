@@ -5,20 +5,29 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Python
+
+
+" Navigation
+Plug 'scrooloose/nerdtree'
+Plug 'dyng/ctrlsf.vim'
+Plug 'kien/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
+
 Plug 'scrooloose/syntastic'
-Plug 'sjl/gundo.vim'
-Plug 'kien/ctrlp.vim'
-Plug 'Yggdroot/indentLine'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'nvie/vim-flake8'
+
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
+
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'craigemery/vim-autotag'
-Plug 'hynek/vim-python-pep8-indent'
 Plug 'majutsushi/tagbar'
-Plug 'nvie/vim-flake8'
 Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'scrooloose/nerdtree'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
 Plug 'morhetz/gruvbox'
@@ -26,14 +35,12 @@ Plug 'w0ng/vim-hybrid'
 
 " To tweak
 Plug 'ivalkeen/vim-ctrlp-tjump'
-Plug 'scrooloose/nerdcommenter'
 
 " Testing
+Plug 'Shougo/deoplete.nvim'
 Plug 'bling/vim-airline'
 Plug 'edkolev/promptline.vim'
 Plug 'edkolev/tmuxline.vim'
-Plug 'chriskempson/base16-vim'
-Plug 'dyng/ctrlsf.vim'
 Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-unimpaired'
 Plug 'bronson/vim-trailing-whitespace'
@@ -134,9 +141,6 @@ nmap Q :q <CR>
 nmap Z :qa <CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
-nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>j :YcmCompleter GoToDeclaration<CR>
-
 nmap <leader>u :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
 let g:gundo_help = 0
@@ -226,7 +230,7 @@ let g:promptline_theme = 'airline'
 
 nnoremap <silent> - :nohl<CR>
 let g:python_host_prog = '/usr/bin/python'
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 nmap <leader>ff :CtrlSF -filetype py 
 nmap <leader>ft :CtrlSFToggle<CR>
@@ -242,9 +246,13 @@ let g:ctrlsf_winsize = '100%'
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_use_vim_stdout = 0
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:jedi#popup_select_first = 0
+let g:jedi#show_call_signatures = "2"
+let g:jedi#goto_command = "<leader>jd"
+let g:jedi#documentation_command = "''"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#completions_command = ""
+let g:jedi#rename_command = "<leader>r"
 
 set foldmethod=indent
 set foldlevel=99
@@ -263,3 +271,5 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+
