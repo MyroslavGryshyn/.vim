@@ -142,10 +142,6 @@ nmap Z :qa <CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 nmap <leader>u :GundoToggle<CR>
-let g:gundo_preview_bottom = 1
-let g:gundo_help = 0
-let g:gundo_close_on_revert = 1
-let g:gundo_width = 5
 
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
@@ -153,21 +149,6 @@ nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<C
 
 nnoremap <c-]> :CtrlPtjump<cr>
 vnoremap <c-]> :CtrlPtjumpVisual<cr>
-
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-let g:tabman_number = 0
-
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_auto_trigger = 1
-let g:ycm_filepath_completion_use_working_dir = 1
-let g:ycm_disable_for_files_larger_than_kb = 0
-
-" let g:jedi#completions_enabled=1
-" let g:jedi#auto_vim_configuration = 0
-" let g:jedi#smart_auto_mappings = 0
-" let g:jedi#use_tabs_not_buffers = 1
-" let g:jedi#use_splits_not_buffers = 'top'
-" let g:jedi#show_call_signatures = 0
 
 nnoremap <C-t> :tabnew<CR>              " new tab
 nnoremap <C-p> :tabprevious<CR>         " previous tab
@@ -185,6 +166,27 @@ nmap <Leader>t :CtrlPBufTagAll<CR>
 nmap <Leader>y :CtrlPLine<CR>
 nmap <Leader>f :CtrlPMRUFiles<CR>
 nmap <Leader>c :CtrlPCmdPalette<CR>
+
+noremap n nzz
+noremap N Nzz
+noremap <Up> 2<C-y>
+noremap <Down> 2<C-e>
+nnoremap <silent> - :nohl<CR>
+
+nnoremap <silent> - :nohl<CR>
+nmap <leader>ff :CtrlSF -filetype py 
+nmap <leader>ft :CtrlSFToggle<CR>
+nmap <leader>F :CtrlSF <c-r><c-w>
+
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+let g:tabman_number = 0
+
+let g:jedi#completions_enabled=1
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#use_splits_not_buffers = 'top'
+let g:jedi#show_call_signatures = 0
 
 "Better backup, swap and undos storage
 set directory=~/.vim/dirs/tmp     " directory to place swap files in
@@ -207,12 +209,6 @@ endif
 
 set mouse=a
 
-noremap n nzz
-noremap N Nzz
-noremap <Up> 2<C-y>
-noremap <Down> 2<C-e>
-nnoremap <silent> - :nohl<CR>
-
 " Make vim understand Cyrilic
 set keymap=ukrainian-jcuken
 set iminsert=0
@@ -228,13 +224,9 @@ let g:promptline_preset = {
         \'y' : [ promptline#slices#vcs_branch() ]}
 let g:promptline_theme = 'airline'
 
-nnoremap <silent> - :nohl<CR>
 let g:python_host_prog = '/usr/bin/python'
 let g:deoplete#enable_at_startup = 1
 
-nmap <leader>ff :CtrlSF -filetype py 
-nmap <leader>ft :CtrlSFToggle<CR>
-nmap <leader>F :CtrlSF <c-r><c-w>
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '100%'
 
@@ -256,8 +248,10 @@ let g:jedi#rename_command = "<leader>r"
 
 set foldmethod=indent
 set foldlevel=99
+
 " Enable folding with the spacebar
 nnoremap <space> za
+
 let g:SimpylFold_docstring_preview = 1
 
 "python with virtualenv support
