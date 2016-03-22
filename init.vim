@@ -1,50 +1,46 @@
-if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
-    !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+if empty(glob("~/.config/nvim/autoload/plug.vim"))
+    !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
-call vundle#begin()
-
-" Must have
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'scrooloose/syntastic'
-Plugin 'sjl/gundo.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'tpope/vim-surround'
-Plugin 'ervandew/supertab'
-Plugin 'craigemery/vim-autotag'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'majutsushi/tagbar'
-Plugin 'nvie/vim-flake8'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Townk/vim-autoclose'
-Plugin 'tpope/vim-commentary.git'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'morhetz/gruvbox'
-Plugin 'w0ng/vim-hybrid'
+" Python
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'easymotion/vim-easymotion'
+Plug 'scrooloose/syntastic'
+Plug 'sjl/gundo.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
+Plug 'craigemery/vim-autotag'
+Plug 'hynek/vim-python-pep8-indent'
+Plug 'majutsushi/tagbar'
+Plug 'nvie/vim-flake8'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'scrooloose/nerdtree'
+Plug 'Townk/vim-autoclose'
+Plug 'tpope/vim-commentary'
+Plug 'morhetz/gruvbox'
+Plug 'w0ng/vim-hybrid'
 
 " To tweak
-Plugin 'ivalkeen/vim-ctrlp-tjump'
-Plugin 'scrooloose/nerdcommenter'
+Plug 'ivalkeen/vim-ctrlp-tjump'
+Plug 'scrooloose/nerdcommenter'
 
 " Testing
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/promptline.vim'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'dyng/ctrlsf.vim'
-Plugin 'thinca/vim-visualstar'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'jmcantrell/vim-virtualenv'
+Plug 'bling/vim-airline'
+Plug 'edkolev/promptline.vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'chriskempson/base16-vim'
+Plug 'dyng/ctrlsf.vim'
+Plug 'thinca/vim-visualstar'
+Plug 'tpope/vim-unimpaired'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tmhedberg/SimpylFold'
+Plug 'jmcantrell/vim-virtualenv'
 
-call vundle#end()
+call plug#end()
 
 let mapleader = "\<Space>"
 
@@ -111,6 +107,7 @@ set colorcolumn=80
 
 let g:indentLine_color_term=243
 let g:indentLine_char = '¦'
+let g:indentLine_faster = 1
 
 nnoremap <leader>v :vsplit<CR>
 
@@ -231,7 +228,7 @@ nnoremap <silent> - :nohl<CR>
 let g:python_host_prog = '/usr/bin/python'
 " let g:deoplete#enable_at_startup = 1
 
-nmap <leader>ff :CtrlSF 
+nmap <leader>ff :CtrlSF -filetype py 
 nmap <leader>ft :CtrlSFToggle<CR>
 nmap <leader>F :CtrlSF <c-r><c-w>
 let g:ctrlsf_position = 'bottom'
@@ -264,3 +261,5 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+let g:ackprg = 'ag --nogroup --nocolor --column'

@@ -2,3 +2,7 @@
 doc/tags
 dirs/
 bundle/
+undos/
+viminfo
+plugin/autotag.pyc
+.vim/plugged/
