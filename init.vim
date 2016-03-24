@@ -1,50 +1,56 @@
-if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
-    !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+filetype on
+if empty(glob("~/.config/nvim/autoload/plug.vim"))
+    !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
-call vundle#begin()
+" Navigation
+Plug 'scrooloose/nerdtree'
+Plug 'dyng/ctrlsf.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'easymotion/vim-easymotion'
 
-" Must have
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'scrooloose/syntastic'
-Plugin 'sjl/gundo.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'tpope/vim-surround'
-Plugin 'ervandew/supertab'
-Plugin 'craigemery/vim-autotag'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'majutsushi/tagbar'
-Plugin 'nvie/vim-flake8'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Townk/vim-autoclose'
-Plugin 'tpope/vim-commentary.git'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'morhetz/gruvbox'
-Plugin 'w0ng/vim-hybrid'
+"Syntax
+Plug 'scrooloose/syntastic', { 'for': 'python' }
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
+Plug 'ervandew/supertab', { 'for': 'python' }
+Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
+
+" Airlines
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+
+" Good plugins
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'Townk/vim-autoclose'
+Plug 'tpope/vim-commentary'
+
+" Themes
+Plug 'morhetz/gruvbox'
+Plug 'w0ng/vim-hybrid'
+Plug 'chriskempson/base16-vim'
 
 " To tweak
-Plugin 'ivalkeen/vim-ctrlp-tjump'
-Plugin 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-obsession'
+Plug 'ivalkeen/vim-ctrlp-tjump'
+Plug 'craigemery/vim-autotag'
 
-" Testing
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/promptline.vim'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'chriskempson/base16-vim'
-Plugin 'dyng/ctrlsf.vim'
-Plugin 'thinca/vim-visualstar'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'jmcantrell/vim-virtualenv'
+Plug 'thinca/vim-visualstar'
+Plug 'tpope/vim-unimpaired'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tmhedberg/SimpylFold'
+Plug 'jmcantrell/vim-virtualenv'
 
-call vundle#end()
+call plug#end()
 
 let mapleader = "\<Space>"
 
@@ -88,10 +94,13 @@ set switchbuf=usetab
 set clipboard=unnamed
 
 
-colorscheme hybrid
+" colorscheme gruvbox
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-ocean
+
 " colorscheme gruvbox
 set background=dark
-" let g:gruvbox_contrast_dark='hard'
+let g:gruvbox_contrast_dark='soft'
 
 "Let's find ctag files
 set tags=tags;
@@ -111,6 +120,7 @@ set colorcolumn=80
 
 let g:indentLine_color_term=243
 let g:indentLine_char = '¦'
+let g:indentLine_faster = 1
 
 nnoremap <leader>v :vsplit<CR>
 
@@ -130,21 +140,12 @@ nmap tt :TagbarToggle<CR>
 nmap <F3> :TMToggle<CR>
 nmap 00 :SyntasticToggleMode<CR>
 
-nnoremap <leader>f 1z=
-nnoremap <leader>s :set spell
 nmap W :w <CR>
 nmap Q :q <CR>
 nmap Z :qa <CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
-nnoremap <leader>jd :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>j :YcmCompleter GoToDeclaration<CR>
-
 nmap <leader>u :GundoToggle<CR>
-let g:gundo_preview_bottom = 1
-let g:gundo_help = 0
-let g:gundo_close_on_revert = 1
-let g:gundo_width = 5
 
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
@@ -152,21 +153,6 @@ nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<C
 
 nnoremap <c-]> :CtrlPtjump<cr>
 vnoremap <c-]> :CtrlPtjumpVisual<cr>
-
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-let g:tabman_number = 0
-
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_auto_trigger = 1
-let g:ycm_filepath_completion_use_working_dir = 1
-let g:ycm_disable_for_files_larger_than_kb = 0
-
-" let g:jedi#completions_enabled=1
-" let g:jedi#auto_vim_configuration = 0
-" let g:jedi#smart_auto_mappings = 0
-" let g:jedi#use_tabs_not_buffers = 1
-" let g:jedi#use_splits_not_buffers = 'top'
-" let g:jedi#show_call_signatures = 0
 
 nnoremap <C-t> :tabnew<CR>              " new tab
 nnoremap <C-p> :tabprevious<CR>         " previous tab
@@ -178,12 +164,31 @@ omap / <Plug>(easymotion-tn)
 
 " CtrlP (new fuzzy finder)
 let g:ctrlp_map = '<c-g>'
-nmap <Leader>g :CtrlP<CR>
 nmap <Leader>T :CtrlPBufTag<CR>
 nmap <Leader>t :CtrlPBufTagAll<CR>
 nmap <Leader>y :CtrlPLine<CR>
 nmap <Leader>f :CtrlPMRUFiles<CR>
-nmap <Leader>c :CtrlPCmdPalette<CR>
+
+noremap n nzz
+noremap N Nzz
+noremap <Up> 2<C-y>
+noremap <Down> 2<C-e>
+nnoremap <silent> - :nohl<CR>
+
+nnoremap <silent> - :nohl<CR>
+nmap <leader>ff :CtrlSF -filetype py 
+nmap <leader>ft :CtrlSFToggle<CR>
+nmap <leader>F :CtrlSF <c-r><c-w>
+
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+let g:tabman_number = 0
+
+let g:jedi#completions_enabled=1
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#use_tabs_not_buffers = 1
+let g:jedi#use_splits_not_buffers = 'top'
+let g:jedi#show_call_signatures = 0
 
 "Better backup, swap and undos storage
 set directory=~/.vim/dirs/tmp     " directory to place swap files in
@@ -206,33 +211,23 @@ endif
 
 set mouse=a
 
-noremap n nzz
-noremap N Nzz
-noremap <Up> 2<C-y>
-noremap <Down> 2<C-e>
-nnoremap <silent> - :nohl<CR>
-
 " Make vim understand Cyrilic
 set keymap=ukrainian-jcuken
 set iminsert=0
 set imsearch=0
 
+let g:airline#extensions#syntastic#enabled = 0
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline_theme='base16'
 
-let g:promptline_preset = {
-        \'a' : [ promptline#slices#host() ],
-        \'b' : [ promptline#slices#user() ],
-        \'c' : [ promptline#slices#cwd() ],
-        \'y' : [ promptline#slices#vcs_branch() ]}
-let g:promptline_theme = 'airline'
+let g:python_host_prog = 'python'
+let g:deoplete#enable_at_startup = 1
 
-nnoremap <silent> - :nohl<CR>
-let g:python_host_prog = '/usr/local/bin/python'
-
-nmap <leader>ff :CtrlSF 
-nmap <leader>ft :CtrlSFToggle<CR>
-nmap <leader>F :CtrlSF <c-r><c-w>
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '100%'
 
@@ -244,24 +239,13 @@ let g:ctrlsf_winsize = '100%'
 
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_use_vim_stdout = 0
-let g:ycm_path_to_python_interpreter = '/usr/local/bin/python'
-
 set foldmethod=indent
 set foldlevel=99
+
 " Enable folding with the spacebar
 nnoremap <space> za
+
 let g:SimpylFold_docstring_preview = 1
 
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
-
-let g:ackprg = 'ag --vimgrep'
+" Enable Silver search
+let g:ackprg = 'ag --nogroup --nocolor --column'
