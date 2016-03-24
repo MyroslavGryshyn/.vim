@@ -140,8 +140,6 @@ nmap tt :TagbarToggle<CR>
 nmap <F3> :TMToggle<CR>
 nmap 00 :SyntasticToggleMode<CR>
 
-nnoremap <leader>f 1z=
-nnoremap <leader>s :set spell
 nmap W :w <CR>
 nmap Q :q <CR>
 nmap Z :qa <CR>
@@ -169,7 +167,7 @@ let g:ctrlp_map = '<c-g>'
 nmap <Leader>T :CtrlPBufTag<CR>
 nmap <Leader>t :CtrlPBufTagAll<CR>
 nmap <Leader>y :CtrlPLine<CR>
-nmap <C-f> :CtrlPMRUFiles<CR>
+nmap <Leader>f :CtrlPMRUFiles<CR>
 
 noremap n nzz
 noremap N Nzz
