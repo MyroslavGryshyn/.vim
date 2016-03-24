@@ -1,3 +1,4 @@
+filetype on
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
     !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
@@ -27,10 +28,9 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
+" Good plugins
 Plug 'tpope/vim-surround'
-Plug 'craigemery/vim-autotag'
 Plug 'majutsushi/tagbar'
-Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
 
@@ -40,8 +40,9 @@ Plug 'w0ng/vim-hybrid'
 Plug 'chriskempson/base16-vim'
 
 " To tweak
+Plug 'tpope/vim-obsession'
 Plug 'ivalkeen/vim-ctrlp-tjump'
-
+Plug 'craigemery/vim-autotag'
 
 Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-unimpaired'
@@ -165,12 +166,10 @@ omap / <Plug>(easymotion-tn)
 
 " CtrlP (new fuzzy finder)
 let g:ctrlp_map = '<c-g>'
-nmap <Leader>g :CtrlP<CR>
 nmap <Leader>T :CtrlPBufTag<CR>
 nmap <Leader>t :CtrlPBufTagAll<CR>
 nmap <Leader>y :CtrlPLine<CR>
-nmap <Leader>f :CtrlPMRUFiles<CR>
-nmap <Leader>c :CtrlPCmdPalette<CR>
+nmap <C-f> :CtrlPMRUFiles<CR>
 
 noremap n nzz
 noremap N Nzz
@@ -249,16 +248,6 @@ set foldlevel=99
 nnoremap <space> za
 
 let g:SimpylFold_docstring_preview = 1
-
-"python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
 
 " Enable Silver search
 let g:ackprg = 'ag --nogroup --nocolor --column'

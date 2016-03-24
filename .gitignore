@@ -6,3 +6,6 @@ undos/
 viminfo
 plugin/autotag.pyc
 .vim/plugged/
+.init.vim-rplugin~
+autoload/
+plugged/
