@@ -11,6 +11,7 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
+Plug 'wesQ3/vim-windowswap'
 
 "Syntax
 Plug 'scrooloose/syntastic', { 'for': 'python' }
