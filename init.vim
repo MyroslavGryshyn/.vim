@@ -172,6 +172,20 @@ nmap <Leader>f :CtrlPMRUFiles<CR>
 
 noremap n nzz
 noremap N Nzz
+"
+"  Damian Conway's Die Blinkënmatchen: highlight matches
+nnoremap <silent> n n:call HLNext(0.1)<cr>
+nnoremap <silent> N N:call HLNext(0.1)<cr>
+
+function! HLNext (blinktime)
+  let target_pat = '\c\%#'.@/
+  let ring = matchadd('ErrorMsg', target_pat, 101)
+  redraw
+  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+  call matchdelete(ring)
+  redraw
+endfunction
+
 noremap <Up> 2<C-y>
 noremap <Down> 2<C-e>
 nnoremap <silent> - :nohl<CR>
