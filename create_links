@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 
 ln -s ~/.vim/.tmux.conf ~/.tmux.conf
 ln -s ~/.vim/.bash_profile ~/.bash_profile
@@ -7,5 +7,5 @@ ln -s ~/.vim/.vimrc ~/.vimrc
 ln -s ~/.vim/.inputrc ~/.inputrc
 ln -s ~/.vim/.inputrc ~/.inputrc
 ln -s ~/.vim/init.vim  ~/init.vim
+rm ~/.zshrc
 ln -s ~/.vim/.zshrc  ~/.zshrc
-ln -s ~/.vim/.ideamivrc  ~/.ideamivrc

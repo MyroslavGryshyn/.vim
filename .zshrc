@@ -3,7 +3,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/miroslav/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -158,7 +158,6 @@ export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
 
 bindkey -M viins 'jj' vi-cmd-mode
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
-defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 # Removing prompt_hg from original theme(it gives to many errors)
 prompt_hg() {}
