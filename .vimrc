@@ -1,49 +1,54 @@
-set nocompatible
-
-if !isdirectory(expand("~/.vim/bundle/Vundle.vim/.git"))
-    !git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+filetype on
+if empty(glob("~/.config/nvim/autoload/plug.vim"))
+    !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin('~/.vim/plugged')
 
-call vundle#begin()
+" Navigation
+Plug 'scrooloose/nerdtree'
+Plug 'dyng/ctrlsf.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'easymotion/vim-easymotion'
+Plug 'wesQ3/vim-windowswap'
 
-" Must have
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'scrooloose/syntastic'
-Plugin 'sjl/gundo.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Yggdroot/indentLine'
-Plugin 'tpope/vim-surround'
-Plugin 'ervandew/supertab'
-Plugin 'craigemery/vim-autotag'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'majutsushi/tagbar'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'nvie/vim-flake8'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Townk/vim-autoclose'
-Plugin 'tpope/vim-commentary.git'
+"Syntax
+Plug 'scrooloose/syntastic', { 'for': 'python' }
+Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
+Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
+Plug 'ervandew/supertab', { 'for': 'python' }
+
+" Airlines
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Good plugins
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'Townk/vim-autoclose'
+Plug 'tpope/vim-commentary'
+
+" Themes
+Plug 'morhetz/gruvbox'
+Plug 'w0ng/vim-hybrid'
 
 " To tweak
-Plugin 'ivalkeen/vim-ctrlp-tjump'
-Plugin 'Mizuchi/vim-ranger'
-Plugin 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-obsession'
+Plug 'ivalkeen/vim-ctrlp-tjump'
+Plug 'craigemery/vim-autotag'
 
+Plug 'thinca/vim-visualstar'
+Plug 'tpope/vim-unimpaired'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'tmhedberg/SimpylFold'
+Plug 'jmcantrell/vim-virtualenv'
 
-" Testing
-Plugin 'bling/vim-airline'
-Plugin 'edkolev/promptline.vim'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'dyng/ctrlsf.vim'
-
-" Neovim plugins
-Plugin 'Shougo/deoplete.nvim'
-
-call vundle#end()
+call plug#end()
 
 let mapleader = "\<Space>"
 
@@ -67,14 +72,14 @@ set hlsearch
 set path+=**
 set nofoldenable
 set number
-set encoding=utf-8
 set scrolloff=5
 set ruler
 set t_Co=256
 set completeopt=longest,menuone
-set shell=/bin/bash
+set shell=/usr/local/bin/zsh
+set relativenumber
 
-"Indents handling 
+"Indents handling
 set autoindent
 set tabstop=4
 set expandtab
@@ -86,7 +91,9 @@ set switchbuf=usetab
 "Helps to insert higlighted in other apps text into vim with just p
 set clipboard=unnamed
 
-colorscheme myhyb
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark='soft'
 
 "Let's find ctag files
 set tags=tags;
@@ -101,29 +108,37 @@ set wildmode=list:longest
 au FocusLost * :wa
 
 set colorcolumn=80
-highlight ColorColumn ctermbg=233
-highlight LineNr ctermfg=239 ctermbg=233
+" highlight ColorColumn ctermbg=233
+" highlight LineNr ctermfg=239 ctermbg=233
 
-let g:indentLine_color_term=234
+let g:indentLine_color_term=243
+let g:indentLine_char = '¦'
+let g:indentLine_faster = 1
 
+nnoremap <leader>v :vsplit<CR>
+
+" Moving in insert mode
 inoremap jj <ESC>
+inoremap HH <C-o>I
+inoremap LL <C-o>A
+inoremap KK <C-o>O
+inoremap JJ <C-o>o
+inoremap CC <C-o>C
+inoremap SS <C-o>S
+
+nnoremap <leader>q :bdelete<cr>
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap tt :TagbarToggle<CR>
 nmap <F3> :TMToggle<CR>
+nmap 00 :SyntasticToggleMode<CR>
 
-nnoremap <leader>f 1z=
-nnoremap <leader>s :set spell
 nmap W :w <CR>
 nmap Q :q <CR>
 nmap Z :qa <CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 nmap <leader>u :GundoToggle<CR>
-let g:gundo_preview_bottom = 1
-let g:gundo_help = 0
-let g:gundo_close_on_revert = 1
-let g:gundo_width = 5 
 
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
@@ -131,6 +146,46 @@ nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<C
 
 nnoremap <c-]> :CtrlPtjump<cr>
 vnoremap <c-]> :CtrlPtjumpVisual<cr>
+
+nnoremap <C-t> :tabnew<CR>              " new tab
+nnoremap <C-p> :tabprevious<CR>         " previous tab
+nnoremap <C-n> :tabnext<CR>             " next tab
+inoremap <C-t> :<Esc>tabnew<CR>         " insert mode, new tab
+
+nmap / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" CtrlP (new fuzzy finder)
+let g:ctrlp_map = '<c-g>'
+nmap <Leader>T :CtrlPBufTag<CR>
+nmap <Leader>t :CtrlPBufTagAll<CR>
+nmap <Leader>y :CtrlPLine<CR>
+nmap <Leader>f :CtrlPMRUFiles<CR>
+
+noremap n nzz
+noremap N Nzz
+"
+"  Damian Conway's Die Blinkënmatchen: highlight matches
+nnoremap <silent> n n:call HLNext(0.1)<cr>
+nnoremap <silent> N N:call HLNext(0.1)<cr>
+
+function! HLNext (blinktime)
+  let target_pat = '\c\%#'.@/
+  let ring = matchadd('ErrorMsg', target_pat, 101)
+  redraw
+  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+  call matchdelete(ring)
+  redraw
+endfunction
+
+noremap <Up> 2<C-y>
+noremap <Down> 2<C-e>
+nnoremap <silent> - :nohl<CR>
+
+nnoremap <silent> - :nohl<CR>
+nmap <leader>ff :CtrlSF -filetype py 
+nmap <leader>ft :CtrlSFToggle<CR>
+nmap <leader>F :CtrlSF <c-r><c-w>
 
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:tabman_number = 0
@@ -141,25 +196,6 @@ let g:jedi#smart_auto_mappings = 0
 let g:jedi#use_tabs_not_buffers = 1
 let g:jedi#use_splits_not_buffers = 'top'
 let g:jedi#show_call_signatures = 0
-
-nnoremap <C-t> :tabnew<CR>              " new tab
-nnoremap <C-p> :tabprevious<CR>         " previous tab
-nnoremap <C-n> :tabnext<CR>             " next tab
-inoremap <C-t> :<Esc>tabnew<CR>         " insert mode, new tab
-inoremap <C-p> :<Esc>:tabprevious<CR>i  " insert mode, previous tab
-inoremap <C-n> :<Esc>:tabnext<CR>i      " insert mode, next tab """"""
-
-nmap / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-
-" CtrlP (new fuzzy finder)
-let g:ctrlp_map = '<c-g>' 
-nmap <Leader>g :CtrlP<CR>
-nmap <Leader>T :CtrlPBufTag<CR>
-nmap <Leader>t :CtrlPBufTagAll<CR>
-nmap <Leader>y :CtrlPLine<CR>
-nmap <Leader>f :CtrlPMRUFiles<CR>
-nmap <Leader>c :CtrlPCmdPalette<CR>
 
 "Better backup, swap and undos storage
 set directory=~/.vim/dirs/tmp     " directory to place swap files in
@@ -182,37 +218,40 @@ endif
 
 set mouse=a
 
-noremap n nzz
-noremap N Nzz
-noremap <Up> 2<C-y>
-noremap <Down> 2<C-e>
-nnoremap <silent> - :nohl<CR>
-
 " Make vim understand Cyrilic
 set keymap=ukrainian-jcuken
 set iminsert=0
 set imsearch=0
 
-let g:airline_theme='powerlineish'
-let g:airline#extensions#tmuxline#enabled = 0
+let g:airline#extensions#syntastic#enabled = 0
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_tabs = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tab_min_count = 2
+let g:airline_theme='base16'
 
-let g:promptline_preset = {
-        \'a' : [ promptline#slices#host() ],
-        \'b' : [ promptline#slices#user() ],
-        \'c' : [ promptline#slices#cwd() ],
-        \'y' : [ promptline#slices#vcs_branch() ]}
-let g:promptline_theme = 'airline'
+let g:python_host_prog = 'python'
+let g:deoplete#enable_at_startup = 1
 
-nnoremap <silent> - :nohl<CR>
+let g:ctrlsf_position = 'bottom'
+let g:ctrlsf_winsize = '100%'
 
-" For MacVim
-if has("gui_running")
-  syntax on
-  set hlsearch
-  colorscheme macvim
-  set bs=2
-  set ai
-  set ruler
-endif
+" Fix trouble in neovim
+ if has('nvim')
+     nmap <BS> <C-W>h
+     nmap <bs> :<c-u>TmuxNavigateLeft<cr>
+ endif
 
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+let g:SimpylFold_docstring_preview = 1
+
+" Enable Silver search
+let g:ackprg = 'ag --nogroup --nocolor --column'

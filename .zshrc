@@ -161,4 +161,7 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # Removing prompt_hg from original theme(it gives to many errors)
 prompt_hg() {}
-export PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin/:$PATH"
+
+export P4USER=mgryshyn
+export P4PORT=enclave.cisco.com:2666
+export P4CONFIG=P4ENV
