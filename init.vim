@@ -146,8 +146,6 @@ nmap Q :q <CR>
 nmap Z :qa <CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
-nmap <leader>u :GundoToggle<CR>
-
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
 nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
@@ -193,7 +191,7 @@ nnoremap <silent> - :nohl<CR>
 nnoremap <silent> - :nohl<CR>
 nmap <leader>ff :CtrlSF -filetype py 
 nmap <leader>ft :CtrlSFToggle<CR>
-nmap <leader>F :CtrlSF <c-r><c-w>
+nmap <leader>F :CtrlSF -filetype py <c-r><c-w>
 
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:tabman_number = 0
