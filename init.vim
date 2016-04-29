@@ -16,8 +16,8 @@ Plug 'wesQ3/vim-windowswap'
 "Syntax
 Plug 'scrooloose/syntastic', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
@@ -238,7 +238,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_theme='base16'
 
-let g:python_host_prog = 'python'
+" let g:python_host_prog = 'python'
 let g:deoplete#enable_at_startup = 1
 
 let g:ctrlsf_position = 'bottom'
