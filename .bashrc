@@ -134,3 +134,5 @@ if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
 fi
 
 export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

@@ -115,6 +115,7 @@ alias gentags='ctagsp -R *'
 
 alias ssh0251='ssh mgryshyn@vm30bsd0251.ibqa.sgg.cisco.com'
 alias ssh0024='ssh mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com'
+alias ssh0024t='ssh testuser@vm30bsd0024.ibqa.sgg.cisco.com'
 alias ssh0248='ssh mgryshyn@vm30bsd0248.ibqa.sgg.cisco.com'
 alias sshesa='ssh rtestuser@vm30esa0006.ibqa.sgg.cisco.com'
 alias sshadmin='ssh admin@vm30esa0006.ibqa.sgg.cisco.com'
@@ -162,3 +163,11 @@ export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
 bindkey -M viins 'jj' vi-cmd-mode
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -g ""'
+_fzf_compgen_path() {
+  ag -g "" "$1"
+}
+export TERM='screen-256color'
+export ATLAS_TOKEN="p7EUKH4pLCaINQ.atlasv1.2fdrTjW4PShXy8cpzkBG8lz5i91XCVF1f4h0kTZiSD4ywUIBCuSdulB0myh8MPyxUEw"

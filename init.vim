@@ -12,6 +12,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'wesQ3/vim-windowswap'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 "Syntax
 Plug 'scrooloose/syntastic', { 'for': 'python' }
@@ -23,6 +24,7 @@ Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
+Plug 'fisadev/vim-isort', { 'for': 'python' }
 
 " Airlines
 Plug 'bling/vim-airline'
@@ -262,3 +264,6 @@ let g:SimpylFold_docstring_preview = 1
 
 " Enable Silver search
 let g:ackprg = 'ag --nogroup --nocolor --column'
+set rtp+=~/.fzf
+
+let g:vim_isort_map = '<C-i>'
