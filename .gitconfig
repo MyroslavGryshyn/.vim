@@ -3,3 +3,5 @@
 [user]
 	name = mero
 	email = sergiy.1911@gmail.com
+[merge]
+	tool = vimdiff

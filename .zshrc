@@ -3,7 +3,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/miroslav/.oh-my-zsh
+export ZSH=/Users/mhrysh/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -113,6 +113,8 @@ alias gentags='ctagsp -R *'
 
 alias ssh0251='ssh mgryshyn@vm30bsd0251.ibqa.sgg.cisco.com'
 alias ssh0024='ssh mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com'
+alias ssh0024t='ssh testuser@vm30bsd0024.ibqa.sgg.cisco.com'
+alias ssh0248='ssh mgryshyn@vm30bsd0248.ibqa.sgg.cisco.com'
 alias sshesa='ssh rtestuser@vm30esa0006.ibqa.sgg.cisco.com'
 alias sshadmin='ssh admin@vm30esa0006.ibqa.sgg.cisco.com'
 alias ssh380admin='ssh admin@c380q21.ibqa.sgg.cisco.com'
@@ -160,6 +162,8 @@ bindkey -M viins 'jj' vi-cmd-mode
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
-# Removing prompt_hg from original theme(it gives to many errors)
-prompt_hg() {}
-export PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin/:$PATH"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='ag -g ""'
+_fzf_compgen_path() {
+  ag -g "" "$1"
+}
