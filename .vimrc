@@ -1,6 +1,7 @@
-filetype on
-if empty(glob("~/.config/nvim/autoload/plug.vim"))
-    !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+filetype off
+if empty(glob("~/.vim/autoload/plug.vim"))
+    !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+	        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -49,6 +50,8 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'jmcantrell/vim-virtualenv'
 
 call plug#end()
+
+filetype on
 
 let mapleader = "\<Space>"
 
