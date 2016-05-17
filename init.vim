@@ -17,14 +17,14 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 "Syntax
 Plug 'scrooloose/syntastic', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
-Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 Plug 'fisadev/vim-isort', { 'for': 'python' }
+Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
+Plug 'zchee/deoplete-jedi'
 
 " Airlines
 Plug 'bling/vim-airline'
@@ -198,13 +198,6 @@ nmap <leader>F :CtrlSF -filetype py <c-r><c-w>
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:tabman_number = 0
 
-let g:jedi#completions_enabled=1
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#smart_auto_mappings = 0
-let g:jedi#use_tabs_not_buffers = 1
-let g:jedi#use_splits_not_buffers = 'top'
-let g:jedi#show_call_signatures = 0
-
 "Better backup, swap and undos storage
 set directory=~/.vim/dirs/tmp     " directory to place swap files in
 set backup                        " make backup files
@@ -240,8 +233,10 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_theme='base16'
 
-" let g:python_host_prog = 'python'
+
 let g:deoplete#enable_at_startup = 1
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '100%'
