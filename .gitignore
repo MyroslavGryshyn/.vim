@@ -2,3 +2,5 @@
 doc/tags
 dirs/
 bundle/
+autoload/
+plugged/
