@@ -10,9 +10,7 @@ export ZSH=/Users/$USER/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-# ZSH_THEME="robbyrussell"
-
-# source "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
+# ZSH_THEME="solarized"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -169,5 +167,3 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 _fzf_compgen_path() {
   ag -g "" "$1"
 }
-export TERM='screen-256color'
-export ATLAS_TOKEN="p7EUKH4pLCaINQ.atlasv1.2fdrTjW4PShXy8cpzkBG8lz5i91XCVF1f4h0kTZiSD4ywUIBCuSdulB0myh8MPyxUEw"

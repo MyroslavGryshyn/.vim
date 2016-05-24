@@ -22,9 +22,10 @@ Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
+Plug 'tell-k/vim-autopep8', { 'for': 'python' }
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
-Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 
 " Airlines
 Plug 'bling/vim-airline'
@@ -36,6 +37,7 @@ Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
+Plug 'wesQ3/vim-windowswap'
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -44,6 +46,8 @@ Plug 'chriskempson/base16-vim'
 
 " To tweak
 Plug 'tpope/vim-obsession'
+Plug 'janko-m/vim-test'
+Plug 'benmills/vimux'
 Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'craigemery/vim-autotag'
 
@@ -52,6 +56,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tmhedberg/SimpylFold'
 Plug 'jmcantrell/vim-virtualenv'
+
+Plug 'fisadev/vim-isort'
 
 call plug#end()
 
@@ -81,7 +87,7 @@ set scrolloff=5
 set ruler
 set t_Co=256
 set completeopt=longest,menuone
-set shell=/bin/zsh
+set shell=/usr/local/bin/zsh
 set relativenumber
 
 "Indents handling
@@ -259,6 +265,15 @@ let g:SimpylFold_docstring_preview = 1
 
 " Enable Silver search
 let g:ackprg = 'ag --nogroup --nocolor --column'
+
+let test#python#runner = 'djangonose'
+let test#strategy = "vimux"
+
+nmap <silent> <leader>tn :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
 set rtp+=~/.fzf
 
 let g:vim_isort_map = '<C-i>'
