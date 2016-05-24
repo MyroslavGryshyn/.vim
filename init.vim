@@ -11,18 +11,21 @@ Plug 'dyng/ctrlsf.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
+Plug 'wesQ3/vim-windowswap'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 "Syntax
 Plug 'scrooloose/syntastic', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 Plug 'tell-k/vim-autopep8', { 'for': 'python' }
+Plug 'fisadev/vim-isort', { 'for': 'python' }
 
 " Airlines
 Plug 'bling/vim-airline'
@@ -151,8 +154,6 @@ nmap Q :q <CR>
 nmap Z :qa <CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
-nmap <leader>u :GundoToggle<CR>
-
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
 nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
@@ -177,6 +178,20 @@ nmap <Leader>f :CtrlPMRUFiles<CR>
 
 noremap n nzz
 noremap N Nzz
+"
+"  Damian Conway's Die Blinkënmatchen: highlight matches
+nnoremap <silent> n n:call HLNext(0.1)<cr>
+nnoremap <silent> N N:call HLNext(0.1)<cr>
+
+function! HLNext (blinktime)
+  let target_pat = '\c\%#'.@/
+  let ring = matchadd('ErrorMsg', target_pat, 101)
+  redraw
+  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+  call matchdelete(ring)
+  redraw
+endfunction
+
 noremap <Up> 2<C-y>
 noremap <Down> 2<C-e>
 nnoremap <silent> - :nohl<CR>
@@ -184,7 +199,7 @@ nnoremap <silent> - :nohl<CR>
 nnoremap <silent> - :nohl<CR>
 nmap <leader>ff :CtrlSF -filetype py 
 nmap <leader>ft :CtrlSFToggle<CR>
-nmap <leader>F :CtrlSF <c-r><c-w>
+nmap <leader>F :CtrlSF -filetype py <c-r><c-w>
 
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:tabman_number = 0
@@ -231,7 +246,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_theme='base16'
 
-let g:python_host_prog = 'python'
+" let g:python_host_prog = 'python'
 let g:deoplete#enable_at_startup = 1
 
 let g:ctrlsf_position = 'bottom'
@@ -264,5 +279,6 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
+set rtp+=~/.fzf
 
 let g:vim_isort_map = '<C-i>'
