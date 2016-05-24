@@ -54,6 +54,8 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'tmhedberg/SimpylFold'
 Plug 'jmcantrell/vim-virtualenv'
 
+Plug 'fisadev/vim-isort'
+
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -262,3 +264,5 @@ nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
+
+let g:vim_isort_map = '<C-i>'
