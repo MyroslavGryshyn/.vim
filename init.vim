@@ -241,8 +241,8 @@ let g:airline_theme='base16'
 
 
 let g:deoplete#enable_at_startup = 1
-let g:python_host_prog = `which python`
-let g:python3_host_prog = `which python3`
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '100%'
