@@ -79,61 +79,6 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-#Use up 2 or up 3 instead of ../..
-upup(){ DEEP=$1; [ -z "${DEEP}" ] && { DEEP=1; }; for i in $(seq 1 ${DEEP}); do cd ../; done; }
-alias up='upup'
-
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias gotmux='./gotmux.sh'
-alias gs='git status'
-
-alias genalltags='ctags -R *'
-alias ctagsp='ctags --languages=python --python-kinds=c'
-alias gentags='ctagsp -R *'
-
-alias ssh0251='ssh mgryshyn@vm30bsd0251.ibqa.sgg.cisco.com'
-alias ssh0024='ssh mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com'
-alias ssh0024t='ssh testuser@vm30bsd0024.ibqa.sgg.cisco.com'
-alias ssh0248='ssh mgryshyn@vm30bsd0248.ibqa.sgg.cisco.com'
-alias sshesa='ssh rtestuser@vm30esa0006.ibqa.sgg.cisco.com'
-alias sshadmin='ssh admin@vm30esa0006.ibqa.sgg.cisco.com'
-alias ssh380admin='ssh admin@c380q21.ibqa.sgg.cisco.com'
-alias ssh380='ssh rtestuser@c380q21.ibqa.sgg.cisco.com'
-alias sshdo_root='ssh root@146.185.168.143'
-alias sshdo='ssh mero@146.185.168.143'
-alias agi='sudo apt-get install'
-alias hg='history | grep'
-alias fgrep='find . | grep'
-alias gc='git commit'
-alias pyrun='python manage.py runserver'
-alias pytest='python manage.py test'
-alias pyman='python manage.py '
-
-alias ctags='ctags --languages=python --python-kinds=-iv'
-alias gentags='ctags -R *'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
