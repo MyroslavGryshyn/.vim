@@ -11,5 +11,7 @@ brew install fzf
 brew install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+brew install the_silver_searcher
+
 bash create_links.sh
 cp karabiner/private.xml /Users/mhrysh/Library/Application\ Support/Karabiner/
