@@ -27,7 +27,6 @@ Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 
-
 " Airlines
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -114,9 +113,7 @@ set pastetoggle=<F10>
 
 " autocompletion of files and commands behaves like shell
 " (complete only the common part, list the options that match)
-" set wildmode=list:longest
-set wildmenu
-set wildmode=full
+set wildmode=list:longest
 
 " save file when Vim loses focus
 au FocusLost * :wa
@@ -266,5 +263,3 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 set rtp+=~/.fzf
 
 let g:vim_isort_map = '<C-i>'
-
-let g:jedi#completions_enabled = 0
