@@ -34,7 +34,9 @@ alias sshdo_root='ssh root@146.185.168.143'
 alias sshdo='ssh mero@146.185.168.143'
 
 alias hg='history | grep'
+alias pg='ps aux | grep'
 alias fgrep='find . | grep'
 alias pyrun='python manage.py runserver'
 alias pytest='python manage.py test'
 alias pyman='python manage.py '
+

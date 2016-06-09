@@ -5,3 +5,7 @@
 	email = sergiy.1911@gmail.com
 [merge]
 	tool = vimdiff
+[core]
+	trustctime = false
+[mergetool]
+	trustExitCode = true
