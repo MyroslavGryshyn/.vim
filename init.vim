@@ -112,7 +112,9 @@ set pastetoggle=<F10>
 
 " autocompletion of files and commands behaves like shell
 " (complete only the common part, list the options that match)
-set wildmode=list:longest
+" set wildmode=list:longest
+set wildmenu
+set wildmode=full
 
 " save file when Vim loses focus
 au FocusLost * :wa
