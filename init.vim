@@ -144,6 +144,8 @@ nmap tt :TagbarToggle<CR>
 nmap <F3> :TMToggle<CR>
 nmap 00 :SyntasticToggleMode<CR>
 
+let NERDTreeShowHidden=1
+
 nmap W :w <CR>
 nmap Q :q <CR>
 nmap Z :qa <CR>
