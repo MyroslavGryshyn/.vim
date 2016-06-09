@@ -25,6 +25,8 @@ Plug 'ervandew/supertab', { 'for': 'python' }
 Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
+
 
 " Airlines
 Plug 'bling/vim-airline'
@@ -264,3 +266,5 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 set rtp+=~/.fzf
 
 let g:vim_isort_map = '<C-i>'
+
+let g:jedi#completions_enabled = 0

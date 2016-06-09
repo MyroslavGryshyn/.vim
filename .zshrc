@@ -56,7 +56,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(git vi-mode zsh-256color)
 
 # User configuration
 
@@ -79,6 +79,7 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+<<<<<<< HEAD
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -135,6 +136,8 @@ alias pyman='python manage.py '
 alias ctags='ctags --languages=python --python-kinds=-iv'
 alias gentags='ctags -R *'
 
+=======
+>>>>>>> fa85490b6f240f8238aacf9855583dd6689eb970
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -172,3 +175,9 @@ _fzf_compgen_path() {
 }
 export TERM='screen-256color'
 export ATLAS_TOKEN="p7EUKH4pLCaINQ.atlasv1.2fdrTjW4PShXy8cpzkBG8lz5i91XCVF1f4h0kTZiSD4ywUIBCuSdulB0myh8MPyxUEw"
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+source $HOME/.config/base16-shell/base16-ocean.dark.sh
