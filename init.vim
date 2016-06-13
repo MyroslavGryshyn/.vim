@@ -265,3 +265,4 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 set rtp+=~/.fzf
 
 let g:vim_isort_map = '<C-i>'
+let g:ctrlp_max_files=20000
