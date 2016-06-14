@@ -108,6 +108,13 @@ alias pyman='python manage.py '
 alias ctags='ctags --languages=python --python-kinds=-iv'
 alias gentags='ctags -R *'
 
+alias cli="/data/bin/runas admin /data/bin/cli.sh"
+alias ts="/data/bin/ts"
+alias ll="ls -la"
+alias hr="/data/bin/heimdall_svc recycle"
+alias hs="/data/bin/heimdall_svc status"
+alias h="/data/bin/heimdall_svc"
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
