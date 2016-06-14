@@ -121,4 +121,6 @@ export ATLAS_TOKEN="p7EUKH4pLCaINQ.atlasv1.2fdrTjW4PShXy8cpzkBG8lz5i91XCVF1f4h0k
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-source $HOME/.config/base16-shell/base16-ocean.dark.sh
+if [ -f $HOME/.config/base16-shell/base16-ocean.dark.sh ]; then
+    source $HOME/.config/base16-shell/base16-ocean.dark.sh
+fi
