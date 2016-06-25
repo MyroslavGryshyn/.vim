@@ -1,4 +1,4 @@
-filetype on
+filetype off
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
     !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
@@ -8,11 +8,11 @@ call plug#begin('~/.vim/plugged')
 " Navigation
 Plug 'scrooloose/nerdtree'
 Plug 'dyng/ctrlsf.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'wesQ3/vim-windowswap'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 "Syntax
 Plug 'scrooloose/syntastic', { 'for': 'python' }
@@ -26,6 +26,11 @@ Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
+
+"Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 
 " Airlines
 Plug 'bling/vim-airline'
@@ -155,9 +160,6 @@ nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
 nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
 
-nnoremap <c-]> :CtrlPtjump<cr>
-vnoremap <c-]> :CtrlPtjumpVisual<cr>
-
 nnoremap <C-t> :tabnew<CR>              " new tab
 nnoremap <C-p> :tabprevious<CR>         " previous tab
 nnoremap <C-n> :tabnext<CR>             " next tab
@@ -166,12 +168,27 @@ inoremap <C-t> :<Esc>tabnew<CR>         " insert mode, new tab
 nmap / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
-" CtrlP (new fuzzy finder)
-let g:ctrlp_map = '<c-g>'
-nmap <Leader>T :CtrlPBufTag<CR>
-nmap <Leader>t :CtrlPBufTagAll<CR>
-nmap <Leader>y :CtrlPLine<CR>
-nmap <Leader>f :CtrlPMRUFiles<CR>
+" FZF PLUGIN SETTINGS
+nnoremap <C-g> :Files<CR>
+nnoremap <leader>f :GFiles<CR>
+nnoremap <leader>fg :Commits<CR>
+nnoremap <leader>fa :Ag<space>
+nnoremap <leader>fe :GFiles?<CR>
+nnoremap <leader>fi :Lines<CR>
+nnoremap <leader>fr :Locate<space>
+nnoremap <leader>bb :Buffers<CR>
+nnoremap <leader>tt :BTags<CR>
+nnoremap <leader>T :Tags<CR>
+nnoremap <leader>rr :History<CR>
+nnoremap <leader>ft :History:<CR>
+nnoremap <leader>fs :History/<CR>
+nnoremap <leader>cc :Commands<CR>
+let g:fzf_tags_command = 'ctags -R'
+" Mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+" FZF END
 
 noremap n nzz
 noremap N Nzz
@@ -266,3 +283,9 @@ set rtp+=~/.fzf
 
 let g:vim_isort_map = '<C-i>'
 let g:ctrlp_max_files=20000
+
+" FUGITIVE SETTINGS
+nnoremap ,ww :Gwrite<CR>
+nnoremap ,oo :Gcommit<CR>
+nnoremap ,ss :Gstatus<CR>
+" END FUGITIVE
