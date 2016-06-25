@@ -40,3 +40,5 @@ alias pyrun='python manage.py runserver'
 alias pytest='python manage.py test'
 alias pyman='python manage.py '
 
+alias st='ssh rtestuser@esa003.auto.sgg.cisco.com'
+alias sshesa026='ssh rtestuser@vm30esa0026.ibqa.sgg.cisco.com'
