@@ -9,3 +9,4 @@ plugin/autotag.pyc
 .init.vim-rplugin~
 autoload/
 plugged/
+.netrwhist
