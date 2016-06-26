@@ -18,6 +18,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'scrooloose/syntastic', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
+Plug 'tell-k/vim-autopep8', { 'for': 'python' } "Use F8
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
@@ -179,8 +180,8 @@ nnoremap <leader>fr :Locate<space>
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>tt :BTags<CR>
 nnoremap <leader>T :Tags<CR>
-nnoremap <leader>rr :History<CR>
-nnoremap <leader>ft :History:<CR>
+nnoremap <leader>hh :History<CR>
+nnoremap <leader>ht :History:<CR>
 nnoremap <leader>fs :History/<CR>
 nnoremap <leader>cc :Commands<CR>
 let g:fzf_tags_command = 'ctags -R'
