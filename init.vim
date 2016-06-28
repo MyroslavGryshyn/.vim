@@ -173,7 +173,7 @@ omap / <Plug>(easymotion-tn)
 nnoremap <C-g> :Files<CR>
 nnoremap <leader>f :GFiles<CR>
 nnoremap <leader>fg :Commits<CR>
-nnoremap <leader>fa :Ag<space>
+nnoremap <leader>ag :Ag<space>
 nnoremap <leader>fe :GFiles?<CR>
 nnoremap <leader>fi :Lines<CR>
 nnoremap <leader>fr :Locate<space>
