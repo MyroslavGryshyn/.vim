@@ -1,2 +1,12 @@
-bundle/
+*.py[cod]
+doc/tags
 dirs/
+bundle/
+undos/
+viminfo
+plugin/autotag.pyc
+.vim/plugged/
+.init.vim-rplugin~
+autoload/
+plugged/
+.netrwhist
