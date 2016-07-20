@@ -15,7 +15,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'wesQ3/vim-windowswap'
 
 "Syntax
-Plug 'scrooloose/syntastic', { 'for': 'python' }
+" Plug 'scrooloose/syntastic', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'tell-k/vim-autopep8', { 'for': 'python' } "Use F8
