@@ -299,3 +299,12 @@ let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
 let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 "END SURROUND
+
+autocmd FileType css setlocal shiftwidth=2 tabstop=2 colorcolumn=80
+autocmd FileType gitcommit setlocal colorcolumn=51 textwidth=72
+autocmd FileType html,markdown,htmldjango,jinja setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 colorcolumn=80
+autocmd FileType python setlocal colorcolumn=73,80
+autocmd FileType rst setlocal filetype=text
+autocmd FileType text setlocal shiftwidth=2 textwidth=80 colorcolumn=80
+autocmd FileType xml setlocal shiftwidth=4 tabstop=4
