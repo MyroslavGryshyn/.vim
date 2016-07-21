@@ -27,6 +27,7 @@ Plug 'fisadev/vim-isort', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
+Plug 'pgdouyon/vim-evanesco'
 
 "Git
 Plug 'airblade/vim-gitgutter'
@@ -86,7 +87,7 @@ set nofoldenable
 set number
 set scrolloff=5
 set ruler
-set t_Co=256
+" set t_Co=256
 set completeopt=longest,menuone
 set shell=/bin/zsh
 set relativenumber
@@ -172,23 +173,37 @@ omap / <Plug>(easymotion-tn)
 " FZF PLUGIN SETTINGS
 nnoremap <C-g> :Files<CR>
 nnoremap <leader>f :GFiles<CR>
-nnoremap <leader>fg :Commits<CR>
+nnoremap <leader>gc :Commits<CR>
 nnoremap <leader>ag :Ag<space>
-nnoremap <leader>fe :GFiles?<CR>
-nnoremap <leader>fi :Lines<CR>
+ "Git status
+nnoremap <leader>gs :GFiles?<CR>
+nnoremap <leader>l :Lines<CR>
 nnoremap <leader>fr :Locate<space>
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>tt :BTags<CR>
 nnoremap <leader>T :Tags<CR>
 nnoremap <leader>hh :History<CR>
-nnoremap <leader>ht :History:<CR>
-nnoremap <leader>fs :History/<CR>
+nnoremap <leader>: :History:<CR>
+nnoremap <leader>/ :History/<CR>
 nnoremap <leader>cc :Commands<CR>
 let g:fzf_tags_command = 'ctags -R'
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'String'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'String'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 " FZF END
 
 noremap n nzz

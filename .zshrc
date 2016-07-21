@@ -56,7 +56,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode zsh-256color)
+plugins=(git vi-mode)
 
 # User configuration
 
@@ -121,6 +121,5 @@ export ATLAS_TOKEN="p7EUKH4pLCaINQ.atlasv1.2fdrTjW4PShXy8cpzkBG8lz5i91XCVF1f4h0k
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-if [ -f $HOME/.config/base16-shell/base16-ocean.dark.sh ]; then
-    source $HOME/.config/base16-shell/base16-ocean.dark.sh
-fi
+source $HOME/.config/base16-shell/scripts/base16-ocean.sh
+alias tmux="TERM=screen-256color-bce tmux"
