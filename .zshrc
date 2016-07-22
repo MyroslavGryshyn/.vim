@@ -110,7 +110,7 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='ag -g ""'
+export FZF_DEFAULT_COMMAND='ag -g "" --hidden'
 _fzf_compgen_path() {
   ag -g "" "$1"
 }
