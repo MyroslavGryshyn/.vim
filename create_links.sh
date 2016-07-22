@@ -11,3 +11,5 @@ ln -s ~/.vim/.tmux.conf ~/.tmux.conf
 ln -s ~/.vim/.vimrc ~/.vimrc
 ln -s ~/.vim/.zshrc  ~/.zshrc
 ln -s .vim/.bash_aliases ~/.bash_aliases
+ln -s .vim/.agignore ~/.agignore
+
