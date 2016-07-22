@@ -28,6 +28,7 @@ Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'pgdouyon/vim-evanesco'
+Plug 'yggdroot/indentline', {'for': 'python'}
 
 "Git
 Plug 'airblade/vim-gitgutter'
