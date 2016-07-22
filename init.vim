@@ -23,7 +23,7 @@ Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
-Plug 'fisadev/vim-isort', { 'for': 'python' }
+Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
@@ -298,7 +298,9 @@ let g:SimpylFold_docstring_preview = 1
 let g:ackprg = 'ag --nogroup --nocolor --column'
 set rtp+=~/.fzf
 
-let g:vim_isort_map = '<C-i>'
+nnoremap <C-i> :<c-u>ImpSort!<cr>
+autocmd BufWritePre *.py ImpSort! "Sort imports on closing file
+
 let g:ctrlp_max_files=20000
 
 " FUGITIVE SETTINGS
