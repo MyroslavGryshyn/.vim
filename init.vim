@@ -288,11 +288,11 @@ autocmd BufRead,BufNewFile *.py set filetype=python
 let g:ctrlp_max_files=20000
 
 " FUGITIVE SETTINGS
-nnoremap <leader>w :Gwrite<CR>
-nnoremap <leader>cc :Gcommit<CR>
-nnoremap <leader>ss :Gstatus<CR>
-nnoremap <leader>dd :Gdiff<CR>
-nnoremap <leader>ll :Gblame<CR>
+nnoremap ,w :Gwrite<CR>
+nnoremap ,c :Gcommit<CR>
+nnoremap ,s :Gstatus<CR>
+nnoremap ,d :Gdiff<CR>
+nnoremap ,b :Gblame<CR>
 " END FUGITIVE
 
 "SURROUND SETTINGS
