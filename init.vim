@@ -89,7 +89,7 @@ set nofoldenable
 set number
 set scrolloff=5
 set ruler
-" set t_Co=256
+set t_Co=256
 set completeopt=longest,menuone
 set shell=/bin/zsh
 set relativenumber
@@ -106,14 +106,10 @@ set switchbuf=usetab
 "Helps to insert higlighted in other apps text into vim with just p
 set clipboard=unnamed
 
-
-" colorscheme gruvbox
 let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-ocean
 
-" colorscheme gruvbox
 set background=dark
-let g:gruvbox_contrast_dark='soft'
 
 "Let's find ctag files
 set tags=tags;
@@ -128,14 +124,18 @@ set wildmode=list:longest
 au FocusLost * :wa
 
 set colorcolumn=80
-" highlight ColorColumn ctermbg=233
-" highlight LineNr ctermfg=239 ctermbg=233
 
+" Indent settings
 let g:indentLine_color_term=239
 let g:indentLine_char = '¦'
 let g:indentLine_faster = 1
 
 nnoremap <leader>v :vsplit<CR>
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+
+nmap W :w <CR>
+nmap Q :q <CR>
+nmap Z :qa <CR>
 
 " Moving in insert mode
 inoremap jj <ESC>
@@ -146,19 +146,10 @@ inoremap JJ <C-o>o
 inoremap CC <C-o>C
 inoremap SS <C-o>S
 
-nnoremap <leader>q :bdelete<cr>
-
 nmap <F2> :NERDTreeToggle<CR>
 nmap tt :TagbarToggle<CR>
-nmap <F3> :TMToggle<CR>
-nmap 00 :SyntasticToggleMode<CR>
 
 let NERDTreeShowHidden=1
-
-nmap W :w <CR>
-nmap Q :q <CR>
-nmap Z :qa <CR>
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
@@ -210,28 +201,17 @@ let g:fzf_colors =
 
 noremap n nzz
 noremap N Nzz
-"
-"  Damian Conway's Die Blinkënmatchen: highlight matches
-nnoremap <silent> n n:call HLNext(0.1)<cr>
-nnoremap <silent> N N:call HLNext(0.1)<cr>
-
-function! HLNext (blinktime)
-  let target_pat = '\c\%#'.@/
-  let ring = matchadd('ErrorMsg', target_pat, 101)
-  redraw
-  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-  call matchdelete(ring)
-  redraw
-endfunction
 
 noremap <Up> 2<C-y>
 noremap <Down> 2<C-e>
 nnoremap <silent> - :nohl<CR>
 
-nnoremap <silent> - :nohl<CR>
 nmap <leader>ff :CtrlSF -filetype py 
 nmap <leader>ft :CtrlSFToggle<CR>
 nmap <leader>F :CtrlSF -filetype py <c-r><c-w>
+
+let g:ctrlsf_position = 'bottom'
+let g:ctrlsf_winsize = '100%'
 
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 let g:tabman_number = 0
@@ -258,10 +238,11 @@ endif
 set mouse=a
 
 " Make vim understand Cyrilic
-set keymap=ukrainian-jcuken
+set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 
+"Airline settings
 let g:airline#extensions#syntastic#enabled = 0
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
@@ -271,13 +252,11 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_theme='base16'
 
-
 let g:deoplete#enable_at_startup = 1
+
+" Python hosts
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
-
-let g:ctrlsf_position = 'bottom'
-let g:ctrlsf_winsize = '100%'
 
 " Fix trouble in neovim
  if has('nvim')
@@ -299,13 +278,17 @@ let g:SimpylFold_docstring_preview = 1
 let g:ackprg = 'ag --nogroup --nocolor --column'
 set rtp+=~/.fzf
 
+"Impsort settings
 nnoremap <C-i> :<c-u>ImpSort!<cr>
 autocmd BufWritePre *.py ImpSort! "Sort imports on closing file
+
+" autodetect python filetype
+autocmd BufRead,BufNewFile *.py set filetype=python
 
 let g:ctrlp_max_files=20000
 
 " FUGITIVE SETTINGS
-nnoremap <leader>ww :Gwrite<CR>
+nnoremap <leader>w :Gwrite<CR>
 nnoremap <leader>cc :Gcommit<CR>
 nnoremap <leader>ss :Gstatus<CR>
 nnoremap <leader>dd :Gdiff<CR>
