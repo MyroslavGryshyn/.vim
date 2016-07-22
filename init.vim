@@ -25,10 +25,11 @@ Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
 Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
+Plug 'yggdroot/indentline', {'for': 'python'}
+Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'pgdouyon/vim-evanesco'
-Plug 'yggdroot/indentline', {'for': 'python'}
 
 "Git
 Plug 'airblade/vim-gitgutter'
