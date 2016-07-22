@@ -130,7 +130,7 @@ set colorcolumn=80
 " highlight ColorColumn ctermbg=233
 " highlight LineNr ctermfg=239 ctermbg=233
 
-let g:indentLine_color_term=243
+let g:indentLine_color_term=239
 let g:indentLine_char = '¦'
 let g:indentLine_faster = 1
 
@@ -186,7 +186,7 @@ nnoremap <leader>T :Tags<CR>
 nnoremap <leader>hh :History<CR>
 nnoremap <leader>: :History:<CR>
 nnoremap <leader>/ :History/<CR>
-nnoremap <leader>cc :Commands<CR>
+nnoremap <leader>c :Commands<CR>
 let g:fzf_tags_command = 'ctags -R'
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -302,9 +302,11 @@ let g:vim_isort_map = '<C-i>'
 let g:ctrlp_max_files=20000
 
 " FUGITIVE SETTINGS
-nnoremap ,ww :Gwrite<CR>
-nnoremap ,oo :Gcommit<CR>
-nnoremap ,ss :Gstatus<CR>
+nnoremap <leader>ww :Gwrite<CR>
+nnoremap <leader>cc :Gcommit<CR>
+nnoremap <leader>ss :Gstatus<CR>
+nnoremap <leader>dd :Gdiff<CR>
+nnoremap <leader>ll :Gblame<CR>
 " END FUGITIVE
 
 "SURROUND SETTINGS
