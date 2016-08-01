@@ -28,6 +28,7 @@ Plug 'yggdroot/indentline', {'for': 'python'}
 Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
+Plug 'ruanyl/vim-fixmyjs', { 'do': 'npm i fixmyjs -g' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'pgdouyon/vim-evanesco'
@@ -244,7 +245,7 @@ set iminsert=0
 set imsearch=0
 
 "Airline settings
-let g:airline#extensions#syntastic#enabled = 0
+let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -329,3 +330,8 @@ endfunction
 autocmd FileType javascript let b:syntastic_javascript_jscs_args =
     \ get(g:, 'syntastic_javascript_jscs_args', '') .
     \ FindConfig('-c', '.jscsrc', expand('<amatch>:p:h', 1))
+
+let g:fixmyjs_rc_path = FindConfig('-c', '.jscsrc', expand('<amatch>:p:h', 1))
+
+let g:fixmyjs_engine = 'jscs'
+noremap <Leader><Leader>f :Fixmyjs<CR>
