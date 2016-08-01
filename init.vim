@@ -13,6 +13,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'wesQ3/vim-windowswap'
+Plug 'szw/vim-maximizer'
 
 "Syntax
 Plug 'scrooloose/syntastic', { 'for': ['python', 'javascript'] }
