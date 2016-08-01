@@ -20,7 +20,6 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'tell-k/vim-autopep8', { 'for': 'python' } "Use F8
 Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
 Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
@@ -316,3 +315,5 @@ autocmd FileType xml setlocal shiftwidth=4 tabstop=4
 
 nmap st :SyntasticToggleMode<CR>
 set diffopt+=vertical
+
+let g:syntastic_javascript_checkers=['jscs']
