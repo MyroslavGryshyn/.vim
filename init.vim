@@ -317,5 +317,15 @@ autocmd FileType xml setlocal shiftwidth=4 tabstop=4
 nmap st :SyntasticToggleMode<CR>
 set diffopt+=vertical
 
+" JSCS SETTINGS
 let g:syntastic_javascript_checkers=['jscs']
-" let g:jscs_config = ".jscsrc"
+
+"Finding .jscs from root upwards
+function! FindConfig(prefix, what, where)
+    let cfg = findfile(a:what, escape(a:where, ' ') . ';')
+    return cfg !=# '' ? ' ' . a:prefix . ' ' . cfg : ''
+endfunction
+
+autocmd FileType javascript let b:syntastic_javascript_jscs_args =
+    \ get(g:, 'syntastic_javascript_jscs_args', '') .
+    \ FindConfig('-c', '.jscsrc', expand('<amatch>:p:h', 1))
