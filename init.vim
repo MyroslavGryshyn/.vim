@@ -15,7 +15,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'wesQ3/vim-windowswap'
 
 "Syntax
-" Plug 'scrooloose/syntastic', { 'for': 'python' }
+Plug 'scrooloose/syntastic', { 'for': ['python', 'javascript'] }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'tell-k/vim-autopep8', { 'for': 'python' } "Use F8
@@ -27,6 +27,7 @@ Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 Plug 'yggdroot/indentline', {'for': 'python'}
 Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'pgdouyon/vim-evanesco'
@@ -312,3 +313,6 @@ autocmd FileType python setlocal colorcolumn=73,80
 autocmd FileType rst setlocal filetype=text
 autocmd FileType text setlocal shiftwidth=2 textwidth=80 colorcolumn=80
 autocmd FileType xml setlocal shiftwidth=4 tabstop=4
+
+nmap st :SyntasticToggleMode<CR>
+set diffopt+=vertical
