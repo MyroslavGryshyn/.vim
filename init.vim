@@ -27,6 +27,7 @@ Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
 Plug 'yggdroot/indentline', {'for': 'python'}
 Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'pgdouyon/vim-evanesco'
@@ -317,3 +318,4 @@ nmap st :SyntasticToggleMode<CR>
 set diffopt+=vertical
 
 let g:syntastic_javascript_checkers=['jscs']
+" let g:jscs_config = ".jscsrc"
