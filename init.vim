@@ -38,6 +38,7 @@ Plug 'pgdouyon/vim-evanesco'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
+Plug 'djoshea/vim-autoread'
 
 " Airlines
 Plug 'bling/vim-airline'
@@ -96,6 +97,7 @@ set t_Co=256
 set completeopt=longest,menuone
 set shell=/bin/zsh
 set relativenumber
+set autoread
 
 "Indents handling
 set autoindent
@@ -211,7 +213,9 @@ nnoremap <silent> - :nohl<CR>
 
 nmap <leader>ff :CtrlSF -filetype py 
 nmap <leader>ft :CtrlSFToggle<CR>
-nmap <leader>F :CtrlSF -filetype py <c-r><c-w>
+nmap <leader>j :CtrlSF -filetype py <c-r><c-w>
+
+nmap <leader><leader>r :checktime<CR>
 
 let g:ctrlsf_position = 'bottom'
 let g:ctrlsf_winsize = '100%'
