@@ -32,7 +32,7 @@ Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
 Plug 'ruanyl/vim-fixmyjs', { 'do': 'npm i fixmyjs -g' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
-Plug 'pgdouyon/vim-evanesco'
+" Plug 'pgdouyon/vim-evanesco'
 
 "Git
 Plug 'airblade/vim-gitgutter'
@@ -289,8 +289,10 @@ set rtp+=~/.fzf
 nnoremap <C-i> :<c-u>ImpSort!<cr>
 autocmd BufWritePre *.py ImpSort! "Sort imports on closing file
 
-" autodetect python filetype
+" autodetect python, js and html filetype
 autocmd BufRead,BufNewFile *.py set filetype=python
+autocmd BufRead,BufNewFile *.js set filetype=javascript
+autocmd BufRead,BufNewFile *.html set filetype=html
 
 let g:ctrlp_max_files=20000
 
