@@ -18,7 +18,8 @@ alias l='ls -CF'
 
 # git aliases
 alias gs='git status'
-alias gc='git commit'
+alias gc='git commit -am'
+alias gch='git checkout'
 
 alias gentags='ctagsp -R *'
 
