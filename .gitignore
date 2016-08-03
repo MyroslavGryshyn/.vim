@@ -10,3 +10,4 @@ plugin/autotag.pyc
 autoload/
 plugged/
 .netrwhist
+.vim
