@@ -32,6 +32,10 @@ Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
 Plug 'ruanyl/vim-fixmyjs', { 'do': 'npm i fixmyjs -g' }
 Plug 'zchee/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
+Plug 'mattn/emmet-vim'
+Plug 'burnettk/vim-angular'
+Plug 'Valloric/YouCompleteMe'
+Plug 'marijnh/tern_for_vim'
 " Plug 'pgdouyon/vim-evanesco'
 
 "Git
