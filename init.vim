@@ -211,9 +211,9 @@ noremap <Up> 2<C-y>
 noremap <Down> 2<C-e>
 nnoremap <silent> - :nohl<CR>
 
-nmap <leader>ff :CtrlSF -filetype py 
+nmap <leader>ff :CtrlSF 
 nmap <leader>ft :CtrlSFToggle<CR>
-nmap <leader>j :CtrlSF -filetype py <c-r><c-w>
+nmap <leader>j :CtrlSF <c-r><c-w>
 
 nmap <leader><leader>r :checktime<CR>
 
