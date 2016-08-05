@@ -106,7 +106,6 @@ fi
 export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
 
 bindkey -M viins 'jj' vi-cmd-mode
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
 defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -114,12 +113,9 @@ export FZF_DEFAULT_COMMAND='ag -g "" --hidden'
 _fzf_compgen_path() {
   ag -g "" "$1"
 }
-export TERM='screen-256color'
-export ATLAS_TOKEN="p7EUKH4pLCaINQ.atlasv1.2fdrTjW4PShXy8cpzkBG8lz5i91XCVF1f4h0kTZiSD4ywUIBCuSdulB0myh8MPyxUEw"
+
+alias tmux="TERM=xterm-256color tmux"
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-ocean.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
-source $HOME/.config/base16-shell/scripts/base16-ocean.sh
-alias tmux="TERM=screen-256color-bce tmux"
