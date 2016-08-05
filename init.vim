@@ -30,9 +30,8 @@ Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
 Plug 'ruanyl/vim-fixmyjs', { 'do': 'npm i fixmyjs -g' }
-Plug 'zchee/deoplete-jedi'
-Plug 'davidhalter/jedi-vim'
 Plug 'mattn/emmet-vim'
+Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'burnettk/vim-angular'
 Plug 'Valloric/YouCompleteMe'
 Plug 'marijnh/tern_for_vim'
