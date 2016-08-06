@@ -345,3 +345,5 @@ let g:fixmyjs_rc_path = FindConfig('-c', '.jscsrc', expand('<amatch>:p:h', 1))
 
 let g:fixmyjs_engine = 'jscs'
 noremap <Leader><Leader>f :Fixmyjs<CR>
+
+let g:used_javascript_libs = 'angular,angularui,angularuirouter,backbone'
