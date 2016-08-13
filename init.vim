@@ -62,7 +62,6 @@ Plug 'chriskempson/base16-vim'
 
 " To tweak
 Plug 'tpope/vim-obsession'
-Plug 'ivalkeen/vim-ctrlp-tjump'
 Plug 'craigemery/vim-autotag'
 
 Plug 'thinca/vim-visualstar'
