@@ -56,7 +56,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode pip pyenv python sudo zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git vi-mode pip pyenv python sudo zsh-syntax-highlighting zsh-autosuggestions z)
 
 # User configuration
 
@@ -109,6 +109,8 @@ bindkey -M viins 'jj' vi-cmd-mode
 defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.key-binding.zsh ] && source ~/.key-binding.zsh
+
 export FZF_DEFAULT_COMMAND='ag -g "" --hidden'
 _fzf_compgen_path() {
   ag -g "" "$1"
