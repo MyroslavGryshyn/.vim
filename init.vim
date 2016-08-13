@@ -24,7 +24,7 @@ Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
 Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
-Plug 'Shougo/deoplete.nvim', { 'for': 'python' }
+Plug 'Shougo/deoplete.nvim', { 'for': ['python', 'javascript'] }
 Plug 'yggdroot/indentline', {'for': 'python'}
 Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -33,9 +33,10 @@ Plug 'ruanyl/vim-fixmyjs', { 'do': 'npm i fixmyjs -g' }
 Plug 'mattn/emmet-vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'burnettk/vim-angular'
-Plug 'Valloric/YouCompleteMe'
 Plug 'marijnh/tern_for_vim'
-" Plug 'pgdouyon/vim-evanesco'
+Plug 'davidhalter/jedi-vim'
+Plug 'zchee/deoplete-jedi'
+Plug 'carlitux/deoplete-ternjs'
 
 "Git
 Plug 'airblade/vim-gitgutter'
@@ -289,7 +290,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 set rtp+=~/.fzf
 
 "Impsort settings
-nnoremap <C-i> :<c-u>ImpSort!<cr>
+nnoremap <leader>ii :<c-u>ImpSort!<cr>
 autocmd BufWritePre *.py ImpSort! "Sort imports on closing file
 
 " autodetect python, js and html filetype
@@ -345,5 +346,19 @@ let g:fixmyjs_rc_path = FindConfig('-c', '.jscsrc', expand('<amatch>:p:h', 1))
 
 let g:fixmyjs_engine = 'jscs'
 noremap <Leader><Leader>f :Fixmyjs<CR>
+
+" DEOPLETE SETTINGS
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#auto_complete_start_length = 0
+let g:auto_complete_start_length = 0
+let g:deoplete#enable_refresh_always = 1
+let g:deoplete#enable_debug = 1
+let g:deoplete#enable_profile = 1
+
+" DEOPLETE TERN SETTINGS
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
+
+let g:tern#command = ["/usr/local/bin/node", expand('<sfile>:h') . '/plugged/tern_for_vim/node_modules/tern/bin/tern', '--no-port-file']
 
 let g:used_javascript_libs = 'angular,angularui,angularuirouter,backbone'
