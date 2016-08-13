@@ -38,6 +38,9 @@ Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs'
 
+" Tags
+Plug 'ludovicchabant/vim-gutentags'
+
 "Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -361,3 +364,8 @@ let g:tern#arguments = ["--persistent"]
 let g:tern#command = ["/usr/local/bin/node", expand('<sfile>:h') . '/plugged/tern_for_vim/node_modules/tern/bin/tern', '--no-port-file']
 
 let g:used_javascript_libs = 'angular,angularui,angularuirouter,backbone'
+
+" GUTENTAGS SETTINGS
+let g:gutentags_project_info = []
+call add(g:gutentags_project_info, {'type': 'python', 'file': 'requirements.txt'})
+" END GUTENTAGS
