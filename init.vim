@@ -25,7 +25,7 @@ Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
 Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': ['python', 'javascript'] }
-Plug 'yggdroot/indentline', {'for': 'python'}
+Plug 'yggdroot/indentline', {'for': ['python', 'html', 'javascript']}
 Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
@@ -37,6 +37,7 @@ Plug 'marijnh/tern_for_vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs'
+Plug 'gregsexton/MatchTag', { 'for': 'html' }
 
 " Tags
 Plug 'ludovicchabant/vim-gutentags'
@@ -66,6 +67,7 @@ Plug 'chriskempson/base16-vim'
 " To tweak
 Plug 'tpope/vim-obsession'
 Plug 'craigemery/vim-autotag'
+
 
 Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-unimpaired'
@@ -369,3 +371,6 @@ let g:used_javascript_libs = 'angular,angularui,angularuirouter,backbone'
 let g:gutentags_project_info = []
 call add(g:gutentags_project_info, {'type': 'python', 'file': 'requirements.txt'})
 " END GUTENTAGS
+
+" Test
+runtime macros/matchit.vim
