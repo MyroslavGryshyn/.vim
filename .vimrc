@@ -81,7 +81,7 @@ set scrolloff=5
 set ruler
 set t_Co=256
 set completeopt=longest,menuone
-set shell=/usr/local/bin/zsh
+set shell=/bin/csh
 set relativenumber
 
 "Indents handling
