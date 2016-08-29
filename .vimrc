@@ -58,9 +58,6 @@ let mapleader = "\<Space>"
 "Opens vsp on right side
 set splitright
 
-u allow plugins by file type
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-ocean
 filetype on
 filetype plugin on
 filetype indent on
