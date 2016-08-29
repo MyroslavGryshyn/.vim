@@ -47,6 +47,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tmhedberg/SimpylFold'
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -57,7 +58,9 @@ let mapleader = "\<Space>"
 "Opens vsp on right side
 set splitright
 
-" allow plugins by file type
+u allow plugins by file type
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-ocean
 filetype on
 filetype plugin on
 filetype indent on
@@ -93,10 +96,8 @@ set switchbuf=usetab
 "Helps to insert higlighted in other apps text into vim with just p
 set clipboard=unnamed
 
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark='soft'
-
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-ocean
 "Let's find ctag files
 set tags=tags;
 
