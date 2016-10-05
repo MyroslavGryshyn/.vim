@@ -43,7 +43,6 @@ Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-unimpaired'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'tmhedberg/SimpylFold'
-Plug 'jmcantrell/vim-virtualenv'
 Plug 'chriskempson/base16-vim'
 
 call plug#end()
