@@ -17,10 +17,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'scrooloose/syntastic', { 'for': 'python' }
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
 Plug 'ervandew/supertab', { 'for': 'python' }
 
 " Airlines
