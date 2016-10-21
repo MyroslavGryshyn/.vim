@@ -11,3 +11,4 @@ autoload/
 plugged/
 .netrwhist
 .vim
+tags

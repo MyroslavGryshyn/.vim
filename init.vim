@@ -22,10 +22,10 @@ Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'tell-k/vim-autopep8', { 'for': 'python' } "Use F8
 Plug 'hdima/python-syntax', { 'for': 'python' }
 Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
-Plug 'ervandew/supertab', { 'for': 'python' }
+Plug 'ervandew/supertab'
 Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
-Plug 'Shougo/deoplete.nvim', { 'for': ['python', 'javascript'] }
-Plug 'yggdroot/indentline', {'for': 'python'}
+Plug 'Shougo/deoplete.nvim', { 'for': ['python', 'html', 'javascript', 'typescript'] }
+Plug 'yggdroot/indentline', {'for': ['python', 'html']}
 Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
@@ -37,6 +37,8 @@ Plug 'marijnh/tern_for_vim'
 Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
 Plug 'carlitux/deoplete-ternjs'
+Plug 'leafgarland/typescript-vim'
+Plug 'mhartington/deoplete-typescript'
 
 " Tags
 Plug 'ludovicchabant/vim-gutentags'
@@ -114,8 +116,15 @@ set cursorline
 set showmatch
 set switchbuf=usetab
 
-"Helps to insert higlighted in other apps text into vim with just p
-set clipboard=unnamed
+" Yank to system clipboard
+nnoremap gy "+y
+vnoremap gy "+y
+vnoremap gY "+Y
+nnoremap gY "+y$
+" Paste from system clipboard
+nnoremap gp "+p
+vnoremap gp "+p
+nnoremap gP "+P
 
 let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-ocean
@@ -190,7 +199,7 @@ nnoremap <leader>hh :History<CR>
 nnoremap <leader>: :History:<CR>
 nnoremap <leader>/ :History/<CR>
 nnoremap <leader>c :Commands<CR>
-let g:fzf_tags_command = 'ctags -R'
+let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=test'
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -298,6 +307,7 @@ autocmd BufWritePre *.py ImpSort! "Sort imports on closing file
 " autodetect python, js and html filetype
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd BufRead,BufNewFile *.js set filetype=javascript
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
 autocmd BufRead,BufNewFile *.html set filetype=html
 
 let g:ctrlp_max_files=20000
@@ -352,7 +362,7 @@ noremap <Leader><Leader>f :Fixmyjs<CR>
 " DEOPLETE SETTINGS
 let g:deoplete#enable_ignore_case = 1
 let g:deoplete#auto_complete_start_length = 0
-let g:auto_complete_start_length = 0
+let g:auto_complete_start_length = 2
 let g:deoplete#enable_refresh_always = 1
 let g:deoplete#enable_debug = 1
 let g:deoplete#enable_profile = 1
