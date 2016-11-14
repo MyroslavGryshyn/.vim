@@ -5,6 +5,9 @@ rm  ~/.zshrc
 rm ~/.bash_aliases
 rm ~/.vimrc
 rm  ~/init.vim
+rm ~/.agignore
+rm ~/.key-binding.zsh
+
 
 ln -s ~/.vim/init.vim  ~/init.vim
 ln -s ~/.vim/.tmux.conf ~/.tmux.conf

@@ -3,7 +3,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/$USER/.oh-my-zsh
+export ZSH=/home/$USER/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -65,7 +65,6 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
 source $ZSH/oh-my-zsh.sh
 
-
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -88,13 +87,6 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
 export PROJECT_HOME=$HOME/Dev
 export WORKON_HOME=$HOME/.virtualenvs
 export EDITOR=vim
@@ -106,7 +98,6 @@ fi
 export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
 
 bindkey -M viins 'jj' vi-cmd-mode
-defaults write com.sublimetext.3 ApplePressAndHoldEnabled -bool false
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.key-binding.zsh ] && source ~/.key-binding.zsh
@@ -136,3 +127,5 @@ z() {
 zz() {
   cd "$(_z -l 2>&1 | sed 's/^[0-9,.]* *//' | fzf -q $_last_z_args)"
 }
+
+setxkbmap -option 'caps:ctrl_modifier'
