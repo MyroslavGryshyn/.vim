@@ -43,3 +43,6 @@ alias pyman='python manage.py '
 
 alias st='ssh rtestuser@esa003.auto.sgg.cisco.com'
 alias sshesa026='ssh rtestuser@vm30esa0026.ibqa.sgg.cisco.com'
+
+alias pbcopy='xclip -sel clip'
+alias pbpaste='xclip -sel clip -o'

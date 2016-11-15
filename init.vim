@@ -374,3 +374,13 @@ call add(g:gutentags_project_info, {'type': 'python', 'file': 'requirements.txt'
 
 " Test
 runtime macros/matchit.vim
+
+" Yank to system clipboard
+nnoremap gy "+y
+vnoremap gy "+y
+vnoremap gY "+Y
+nnoremap gY "+y$
+" Paste from system clipboard
+nnoremap gp "+p
+vnoremap gp "+p
+nnoremap gP "+P
