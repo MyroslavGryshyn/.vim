@@ -23,25 +23,12 @@ alias gch='git checkout'
 
 alias gentags='ctagsp -R *'
 
-alias ssh0251='ssh mgryshyn@vm30bsd0251.ibqa.sgg.cisco.com'
-alias ssh0024='ssh mgryshyn@vm30bsd0024.ibqa.sgg.cisco.com'
-alias ssh0024t='ssh testuser@vm30bsd0024.ibqa.sgg.cisco.com'
-alias ssh0248='ssh mgryshyn@vm30bsd0248.ibqa.sgg.cisco.com'
-alias sshesa='ssh rtestuser@vm30esa0006.ibqa.sgg.cisco.com'
-alias sshadmin='ssh admin@vm30esa0006.ibqa.sgg.cisco.com'
-alias ssh380admin='ssh admin@c380q21.ibqa.sgg.cisco.com'
-alias ssh380='ssh rtestuser@c380q21.ibqa.sgg.cisco.com'
-alias sshdo_root='ssh root@146.185.168.143'
-alias sshdo='ssh mero@146.185.168.143'
-
 alias hg='history | grep'
 alias pg='ps aux | grep'
 alias fgrep='find . | grep'
 alias pyrun='python manage.py runserver'
 alias pytest='python manage.py test'
+alias pyshell='python manage.py shell'
 alias pyman='python manage.py '
-
-alias st='ssh rtestuser@esa003.auto.sgg.cisco.com'
-alias sshesa026='ssh rtestuser@vm30esa0026.ibqa.sgg.cisco.com'
 
 alias pipr='pip install -r requirements.txt'

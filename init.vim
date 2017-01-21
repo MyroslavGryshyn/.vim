@@ -30,15 +30,14 @@ Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
 Plug 'ruanyl/vim-fixmyjs', { 'do': 'npm i fixmyjs -g' }
-Plug 'mattn/emmet-vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'burnettk/vim-angular'
-Plug 'marijnh/tern_for_vim'
-Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
-Plug 'carlitux/deoplete-ternjs'
-Plug 'leafgarland/typescript-vim'
-Plug 'mhartington/deoplete-typescript'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'burnettk/vim-angular', { 'for': 'javascript' }
+Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+Plug 'gregsexton/MatchTag', { 'for': 'html' }
 
 " Tags
 Plug 'ludovicchabant/vim-gutentags'
@@ -68,6 +67,7 @@ Plug 'chriskempson/base16-vim'
 " To tweak
 Plug 'tpope/vim-obsession'
 Plug 'craigemery/vim-autotag'
+
 
 Plug 'thinca/vim-visualstar'
 Plug 'tpope/vim-unimpaired'
@@ -379,3 +379,6 @@ let g:used_javascript_libs = 'angular,angularui,angularuirouter,backbone'
 let g:gutentags_project_info = []
 call add(g:gutentags_project_info, {'type': 'python', 'file': 'requirements.txt'})
 " END GUTENTAGS
+
+" Test
+runtime macros/matchit.vim
