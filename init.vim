@@ -14,6 +14,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'wesQ3/vim-windowswap'
 Plug 'szw/vim-maximizer' "Use F3
+Plug 'tpope/vim-eunuch'
 
 "Syntax
 Plug 'scrooloose/syntastic', { 'for': ['python', 'javascript'] }
@@ -21,35 +22,36 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'tell-k/vim-autopep8', { 'for': 'python' } "Use F8
 Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'vim-scripts/django.vim', { 'for': 'htmldjango'}
-Plug 'ervandew/supertab'
-Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
 Plug 'Shougo/deoplete.nvim', { 'for': ['python', 'html', 'javascript', 'typescript'] }
-Plug 'yggdroot/indentline', {'for': ['python', 'html']}
+Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
+Plug 'yggdroot/indentline'
+
 Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
 Plug 'ruanyl/vim-fixmyjs', { 'do': 'npm i fixmyjs -g' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'burnettk/vim-angular', { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['html', 'javascript'] }
 Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'gregsexton/MatchTag', { 'for': 'html' }
+Plug 'KabbAmine/gulp-vim', { 'for': 'javascript' }
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ekalinin/Dockerfile.vim'
 
-" Tags
-Plug 'ludovicchabant/vim-gutentags'
+Plug 'moll/vim-node', { 'for': 'javascript' }
+Plug 'maksimr/vim-jsbeautify'
+Plug 'Chiel92/vim-autoformat'
 
 "Git
-Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'djoshea/vim-autoread'
 
 " Airlines
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
@@ -193,7 +195,7 @@ nnoremap <leader>gs :GFiles?<CR>
 nnoremap <leader>l :Lines<CR>
 nnoremap <leader>fr :Locate<space>
 nnoremap <leader>bb :Buffers<CR>
-nnoremap <leader>tt :BTags<CR>
+nnoremap <leader>tt :Windows<CR>
 nnoremap <leader>T :Tags<CR>
 nnoremap <leader>hh :History<CR>
 nnoremap <leader>: :History:<CR>
@@ -278,7 +280,7 @@ let g:deoplete#enable_at_startup = 1
 
 " Python hosts
 let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 
 " Fix trouble in neovim
  if has('nvim')
@@ -302,12 +304,12 @@ set rtp+=~/.fzf
 
 "Impsort settings
 nnoremap <leader>ii :<c-u>ImpSort!<cr>
-autocmd BufWritePre *.py ImpSort! "Sort imports on closing file
 
 " autodetect python, js and html filetype
 autocmd BufRead,BufNewFile *.py set filetype=python
 autocmd BufRead,BufNewFile *.js set filetype=javascript
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
+autocmd BufRead,BufNewFile *.yml set filetype=yaml
 autocmd BufRead,BufNewFile *.html set filetype=html
 
 let g:ctrlp_max_files=20000
@@ -318,6 +320,8 @@ nnoremap ,c :Gcommit<CR>
 nnoremap ,s :Gstatus<CR>
 nnoremap ,d :Gdiff<CR>
 nnoremap ,b :Gblame<CR>
+nnoremap ,l :Glog<CR>
+nnoremap ,la :Glog --<CR>
 " END FUGITIVE
 
 "SURROUND SETTINGS
@@ -332,17 +336,17 @@ let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 colorcolumn=80
 autocmd FileType gitcommit setlocal colorcolumn=51 textwidth=72
 autocmd FileType html,markdown,htmldjango,jinja setlocal shiftwidth=2 tabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 colorcolumn=80
+autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 colorcolumn=80
 autocmd FileType python setlocal colorcolumn=73,80
 autocmd FileType rst setlocal filetype=text
 autocmd FileType text setlocal shiftwidth=2 textwidth=80 colorcolumn=80
 autocmd FileType xml setlocal shiftwidth=4 tabstop=4
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 colorcolumn=80
 
 nmap st :SyntasticToggleMode<CR>
 set diffopt+=vertical
 
-" JSCS SETTINGS
-let g:syntastic_javascript_checkers=['jscs']
+let g:syntastic_javascript_checkers = ['eslint']
 
 "Finding .jscs from root upwards
 function! FindConfig(prefix, what, where)
@@ -350,14 +354,7 @@ function! FindConfig(prefix, what, where)
     return cfg !=# '' ? ' ' . a:prefix . ' ' . cfg : ''
 endfunction
 
-autocmd FileType javascript let b:syntastic_javascript_jscs_args =
-    \ get(g:, 'syntastic_javascript_jscs_args', '') .
-    \ FindConfig('-c', '.jscsrc', expand('<amatch>:p:h', 1))
-
-let g:fixmyjs_rc_path = FindConfig('-c', '.jscsrc', expand('<amatch>:p:h', 1))
-
-let g:fixmyjs_engine = 'jscs'
-noremap <Leader><Leader>f :Fixmyjs<CR>
+autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') !=# '' ? ['eslint'] : []
 
 " DEOPLETE SETTINGS
 let g:deoplete#enable_ignore_case = 1
@@ -367,18 +364,21 @@ let g:deoplete#enable_refresh_always = 1
 let g:deoplete#enable_debug = 1
 let g:deoplete#enable_profile = 1
 
-" DEOPLETE TERN SETTINGS
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+" Yank to system clipboard
+nnoremap gy "+y
+vnoremap gy "+y
+vnoremap gY "+Y
+nnoremap gY "+y$
+" Paste from system clipboard
+nnoremap gp "+p
+vnoremap gp "+p
+nnoremap gP "+P
 
-let g:tern#command = ["/usr/local/bin/node", expand('<sfile>:h') . '/plugged/tern_for_vim/node_modules/tern/bin/tern', '--no-port-file']
+" map <c-f> :call JsBeautify()<cr>
+noremap <F7> :Autoformat<CR>
 
-let g:used_javascript_libs = 'angular,angularui,angularuirouter,backbone'
+noremap <Leader><Leader>f :Fixmyjs<CR>
 
-" GUTENTAGS SETTINGS
-let g:gutentags_project_info = []
-call add(g:gutentags_project_info, {'type': 'python', 'file': 'requirements.txt'})
-" END GUTENTAGS
+let g:fixmyjs_use_local = 1
 
-" Test
-runtime macros/matchit.vim
+let g:autoformat_verbosemode=1
