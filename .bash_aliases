@@ -32,3 +32,11 @@ alias pyshell='python manage.py shell'
 alias pyman='python manage.py '
 
 alias pipr='pip install -r requirements.txt'
+
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
+
+
+alias micebook-dev="ssh -i ~/.ssh/micebook-development.pem ubuntu@ec2-54-154-228-174.eu-west-1.compute.amazonaws.com"
+alias micebook-stage="ssh -i ~/.ssh/micebook-development.pem ubuntu@ec2-54-154-228-174.eu-west-1.compute.amazonaws.com"
+
+alias gl="git log --oneline --graph --date=short --pretty"

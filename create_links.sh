@@ -18,3 +18,6 @@ ln -s ~/.vim/.bash_aliases ~/.bash_aliases
 ln -s ~/.vim/.agignore ~/.agignore
 ln -s ~/.vim/.key-binding.zsh ~/.key-binding.zsh
 ln -s ~/.vim/.gitignore  ~/.gitignore
+
+# Installing plugins for zsh
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions

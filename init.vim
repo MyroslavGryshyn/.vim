@@ -22,7 +22,17 @@ Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
 Plug 'tell-k/vim-autopep8', { 'for': 'python' } "Use F8
 Plug 'hdima/python-syntax', { 'for': 'python' }
-Plug 'Shougo/deoplete.nvim', { 'for': ['python', 'html', 'javascript', 'typescript'] }
+
+" Autocomplete engines {{{
+function! DoRemote(arg)
+    UpdateRemotePlugins
+endfunction
+
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'ervandew/supertab'
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
 Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
 Plug 'yggdroot/indentline'
 
@@ -32,10 +42,8 @@ Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
 Plug 'ruanyl/vim-fixmyjs', { 'do': 'npm i fixmyjs -g' }
 Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['html', 'javascript'] }
-Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
+" Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'gregsexton/MatchTag', { 'for': 'html' }
 Plug 'KabbAmine/gulp-vim', { 'for': 'javascript' }
 Plug 'editorconfig/editorconfig-vim'
@@ -112,11 +120,11 @@ set autoread
 "Indents handling
 set autoindent
 set tabstop=4
-set expandtab
 set shiftwidth=4
 set cursorline
 set showmatch
 set switchbuf=usetab
+set expandtab
 
 " Yank to system clipboard
 nnoremap gy "+y
@@ -177,10 +185,10 @@ let NERDTreeShowHidden=1
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
 nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
 
-nnoremap <C-t> :tabnew<CR>              " new tab
-nnoremap <C-p> :tabprevious<CR>         " previous tab
-nnoremap <C-n> :tabnext<CR>             " next tab
-inoremap <C-t> :<Esc>tabnew<CR>         " insert mode, new tab
+nnoremap <C-t> :tabnew<CR>
+nnoremap <C-p> :tabprevious<CR>
+nnoremap <C-n> :tabnext<CR>
+inoremap <C-t> :<Esc>tabnew<CR>
 
 nmap / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -276,11 +284,9 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_theme='base16'
 
-let g:deoplete#enable_at_startup = 1
-
 " Python hosts
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 " Fix trouble in neovim
  if has('nvim')
@@ -356,13 +362,14 @@ endfunction
 
 autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') !=# '' ? ['eslint'] : []
 
-" DEOPLETE SETTINGS
+
+" Deoplete settings
+let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
+let deoplete#tag#cache_limit_size = 5000000
+let g:neoinclude#ctags_commands = 'tags'
 let g:deoplete#auto_complete_start_length = 0
-let g:auto_complete_start_length = 2
 let g:deoplete#enable_refresh_always = 1
-let g:deoplete#enable_debug = 1
-let g:deoplete#enable_profile = 1
 
 " Yank to system clipboard
 nnoremap gy "+y
