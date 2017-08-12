@@ -40,3 +40,4 @@ alias micebook-dev="ssh -i ~/.ssh/micebook-development.pem ubuntu@ec2-54-154-228
 alias micebook-stage="ssh -i ~/.ssh/micebook-development.pem ubuntu@ec2-54-154-228-174.eu-west-1.compute.amazonaws.com"
 
 alias gl="git log --oneline --graph --date=short --pretty"
+alias leo="cd ~/tmp/LeoPort/ && ./gradlew run && cd -"

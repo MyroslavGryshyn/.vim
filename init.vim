@@ -1,13 +1,17 @@
+" Autoinstall vim-plug {{{
+" -------------------------------------------------------------
 filetype off
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
     !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
+" }}}
 
+" Plugins {{{
+" -------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
-" Navigation
+" Navigation plugins {{{
 Plug 'scrooloose/nerdtree'
-Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -15,75 +19,97 @@ Plug 'easymotion/vim-easymotion'
 Plug 'wesQ3/vim-windowswap'
 Plug 'szw/vim-maximizer' "Use F3
 Plug 'tpope/vim-eunuch'
+" }}}
 
-"Syntax
-Plug 'scrooloose/syntastic', { 'for': ['python', 'javascript'] }
+" Syntax plugins {{{
+Plug 'raimon49/requirements.txt.vim',{ 'for': 'requirements'}
+Plug 'elzr/vim-json',                { 'for': 'json'}
+Plug 'scrooloose/syntastic',         { 'for': 'javascript' }
+" }}}
+
+" Python plugins {{{
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
-Plug 'nvie/vim-flake8', { 'for': 'python' } "Use F7
-Plug 'tell-k/vim-autopep8', { 'for': 'python' } "Use F8
-Plug 'hdima/python-syntax', { 'for': 'python' }
+Plug 'nvie/vim-flake8',              { 'for': 'python' } "Use F7
+Plug 'tell-k/vim-autopep8',          { 'for': 'python' } "Use F8
+Plug 'tweekmonster/impsort.vim',     { 'for': 'python' }
+Plug 'yevhen-m/python-syntax',       { 'for': 'python'}
+Plug 'zchee/deoplete-jedi',          { 'for': 'python' }
+Plug 'davidhalter/jedi-vim',         { 'for': 'python' }
+" }}}
 
 " Autocomplete engines {{{
 function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-Plug 'ervandew/supertab'
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'Shougo/deoplete.nvim',         {'do': function('DoRemote')}
+Plug 'Shougo/neco-syntax'
+" }}}
 
-Plug 'tweekmonster/impsort.vim', { 'for': 'python' }
-Plug 'yggdroot/indentline'
-
+" Html plugins {{{
 Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'mklabs/jscs.vim', { 'do': 'npm i jscs -g' }
-Plug 'ruanyl/vim-fixmyjs', { 'do': 'npm i fixmyjs -g' }
-Plug 'mattn/emmet-vim', { 'for': 'html' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['html', 'javascript'] }
-" Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'gregsexton/MatchTag', { 'for': 'html' }
-Plug 'KabbAmine/gulp-vim', { 'for': 'javascript' }
-Plug 'editorconfig/editorconfig-vim'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
+" }}}
+
+" Useful plugins {{{
+Plug 'ervandew/supertab'
+Plug 'yggdroot/indentline'
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'Townk/vim-autoclose'
+Plug 'tpope/vim-commentary'
+" }}}
+
+" Docker plugins {{{
 Plug 'ekalinin/Dockerfile.vim'
+" }}}
 
-Plug 'moll/vim-node', { 'for': 'javascript' }
-Plug 'maksimr/vim-jsbeautify'
+" Autoformat plugins {{{
 Plug 'Chiel92/vim-autoformat'
+" }}}
 
-"Git
+" Git plugins {{{
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'djoshea/vim-autoread'
+" }}}
 
 " Airlines
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
-" Good plugins
-Plug 'tpope/vim-surround'
-Plug 'majutsushi/tagbar'
-Plug 'Townk/vim-autoclose'
-Plug 'tpope/vim-commentary'
+" Themes {{{
+Plug 'yevhen-m/base16-vim'
+" }}}
 
-" Themes
-Plug 'morhetz/gruvbox'
-Plug 'w0ng/vim-hybrid'
-Plug 'chriskempson/base16-vim'
-
-" To tweak
+" Session plugins {{{
 Plug 'tpope/vim-obsession'
-Plug 'craigemery/vim-autotag'
-
+" }}}
 
 Plug 'thinca/vim-visualstar'
-Plug 'tpope/vim-unimpaired'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'tmhedberg/SimpylFold'
 Plug 'jmcantrell/vim-virtualenv'
+
+" Tag plugins {{{
+Plug 'ludovicchabant/vim-gutentags'
+" }}}
+
+" Test plugins {{{
+Plug 'janko-m/vim-test'
+" }}}
+
+" Dispatch plugins {{{
+Plug 'tpope/vim-dispatch'
+Plug 'aliev/vim-compiler-python'
+Plug 'radenling/vim-dispatch-neovim'
+" }}}
+
+" Snippets plugins {{{
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+" }}}
 
 call plug#end()
 
@@ -136,10 +162,12 @@ nnoremap gp "+p
 vnoremap gp "+p
 nnoremap gP "+P
 
-let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-ocean
 
+" Colorscheme {{{
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-eighties
 set background=dark
+" }}}
 
 "Let's find ctag files
 set tags=tags;
@@ -227,6 +255,7 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
 " FZF END
 
 noremap n nzz
@@ -283,10 +312,11 @@ let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_min_count = 2
 let g:airline_theme='base16'
+let g:airline_section_warning = '%{gutentags#statusline()}'
 
 " Python hosts
-let g:python_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python')
+let g:python_host_prog = glob('~/.virtualenvs/neovim2/bin/python')
 
 " Fix trouble in neovim
  if has('nvim')
@@ -341,18 +371,22 @@ let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 colorcolumn=80
 autocmd FileType gitcommit setlocal colorcolumn=51 textwidth=72
-autocmd FileType html,markdown,htmldjango,jinja setlocal shiftwidth=2 tabstop=2
+" autocmd FileType html,markdown,htmldjango,jinja setlocal shiftwidth=4 tabstop=4
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 colorcolumn=80
-autocmd FileType python setlocal colorcolumn=73,80
+autocmd FileType python setlocal colorcolumn=80,120
 autocmd FileType rst setlocal filetype=text
 autocmd FileType text setlocal shiftwidth=2 textwidth=80 colorcolumn=80
 autocmd FileType xml setlocal shiftwidth=4 tabstop=4
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 colorcolumn=80
 
-nmap st :SyntasticToggleMode<CR>
 set diffopt+=vertical
 
+" Syntastic {{{
+nmap st :SyntasticToggleMode<CR>
 let g:syntastic_javascript_checkers = ['eslint']
+autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') !=# '' ? ['eslint'] : []
+let g:syntastic_python_flake8_args='--ignore=E501,E999'
+" }}}
 
 "Finding .jscs from root upwards
 function! FindConfig(prefix, what, where)
@@ -360,16 +394,14 @@ function! FindConfig(prefix, what, where)
     return cfg !=# '' ? ' ' . a:prefix . ' ' . cfg : ''
 endfunction
 
-autocmd FileType javascript let b:syntastic_checkers = findfile('.eslintrc', '.;') !=# '' ? ['eslint'] : []
-
-
-" Deoplete settings
+" Deoplete settings {{{
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_ignore_case = 1
-let deoplete#tag#cache_limit_size = 5000000
 let g:neoinclude#ctags_commands = 'tags'
 let g:deoplete#auto_complete_start_length = 0
 let g:deoplete#enable_refresh_always = 1
+let deoplete#tag#cache_limit_size = 50000000
+" }}}
 
 " Yank to system clipboard
 nnoremap gy "+y
@@ -381,11 +413,40 @@ nnoremap gp "+p
 vnoremap gp "+p
 nnoremap gP "+P
 
-" map <c-f> :call JsBeautify()<cr>
-noremap <F7> :Autoformat<CR>
+" Autoformat settings {{{
+" -------------------------------------------------------------
+noremap <leader>ss :Autoformat<CR>
+vnoremap <leader>ss :'<,'>Autoformat<CR>
 
-noremap <Leader><Leader>f :Fixmyjs<CR>
+let g:formatters_html= ['tidy']
+let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
+let g:formatters_python = ['autopep8']
 
-let g:fixmyjs_use_local = 1
+" }}}
 
-let g:autoformat_verbosemode=1
+" Gutentags settings {{{
+let g:gutentags_enabled = 1
+nnoremap cot :GutentagsToggle<cr>
+autocmd FileType GV GutentagsDisable
+command! GutentagsEnable :let g:gutentags_enabled=1<bar>echom "Gutentags enabled."
+command! GutentagsDisable :let g:gutentags_enabled=0<bar>echom "Gutentags disabled."
+command! GutentagsToggle
+            \ :let g:gutentags_enabled=!g:gutentags_enabled
+            \ <bar>echom "Gutentags ".(g:gutentags_enabled ? "enabled." : "disabled.")
+" }}}
+
+" Vim test runner settings {{{
+let test#python#runner = 'djangotest'
+let test#strategy = "vimux"
+
+nnoremap <leader>t :TestNearest --keepdb<CR>
+nnoremap <leader>tf :TestFile --keepdb<CR>
+
+" }}}
+
+autocmd BufNewFile,BufRead *.json set ft=javascript
+
+set nocursorcolumn
+set nocursorline
+set norelativenumber
+syntax sync minlines=256
