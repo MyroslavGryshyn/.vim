@@ -24,7 +24,7 @@ Plug 'tpope/vim-eunuch'
 " Syntax plugins {{{
 Plug 'raimon49/requirements.txt.vim',{ 'for': 'requirements'}
 Plug 'elzr/vim-json',                { 'for': 'json'}
-Plug 'scrooloose/syntastic',         { 'for': 'javascript' }
+Plug 'scrooloose/syntastic',         { 'for': 'python' }
 " }}}
 
 " Python plugins {{{
@@ -98,6 +98,7 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Test plugins {{{
 Plug 'janko-m/vim-test'
+Plug 'benmills/vimux'
 " }}}
 
 " Dispatch plugins {{{
@@ -305,7 +306,7 @@ set iminsert=0
 set imsearch=0
 
 "Airline settings
-let g:airline#extensions#syntastic#enabled = 1
+" let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#tmuxline#enabled = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -437,7 +438,7 @@ command! GutentagsToggle
 " }}}
 
 " Vim test runner settings {{{
-let test#python#runner = 'djangotest'
+let test#python#runner = 'nosetest'
 let test#strategy = "vimux"
 
 nnoremap <leader>t :TestNearest --keepdb<CR>
