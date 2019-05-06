@@ -27,7 +27,6 @@ alias hg='history | grep'
 alias pg='ps aux | grep'
 alias fgrep='find . | grep'
 alias pyrun='python manage.py runserver'
-alias pytest='python manage.py test'
 alias pyshell='python manage.py shell'
 alias pyman='python manage.py '
 
@@ -41,3 +40,8 @@ alias micebook-stage="ssh -i ~/.ssh/micebook-development.pem ubuntu@ec2-54-154-2
 
 alias gl="git log --oneline --graph --date=short --pretty"
 alias leo="cd ~/tmp/LeoPort/ && ./gradlew run && cd -"
+
+alias eth="/Users/mero/.virtualenvs/playground/bin/python /Users/mero/Dev/playground/crypto.py"
+# alias remap80="echo '
+# rdr pass inet proto tcp from any to any port 80 -> 127.0.0.1 port 8080
+# ' | sudo pfctl -ef -"

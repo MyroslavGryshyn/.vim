@@ -99,6 +99,7 @@ export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
 
 bindkey -M viins 'jj' vi-cmd-mode
 
+set -o vi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.key-binding.zsh ] && source ~/.key-binding.zsh
 
@@ -201,7 +202,7 @@ fzf-show() {
     {}
     FZF-EOF"
 }
-bindkey -s '^g^l' 'fzf-show\n'
+bindkey -s '^s' 'fzf-show\n'
 
 
 join-lines() {
@@ -227,16 +228,32 @@ unset -f bind-git-helper
 fkill() {
   ps -ef | sed 1d | fzf -m | awk '{print $2}' | xargs kill -${1:-9}
 }
-# Change tmux session
-fs() {
-  local session
-  session=$(tmux list-sessions -F "#{session_name}" | \
-    fzf --query="$1" --select-1 --exit-0) &&
-  tmux switch-client -t "$session"
-}
 # Integration with z
 unalias z 2> /dev/null
 z() {
   [ $# -gt 0 ] && _z "$*" && return
   cd "$(_z -l 2>&1 | fzf +s --tac --query "$*" | sed 's/^[0-9,.]* *//')"
 }
+
+# Search by public IP
+function pubip {
+  if [ $# -ge 1 ] ; then
+    if [ $# -lt 2 ] ; then region=eu-west-1 ; else region=$2 ; fi
+      if [ $# -lt 3 ] ; then profile=default ; else profile=$3 ; fi
+        aws ec2 describe-instances --query 'Reservations[].Instances[].PublicIpAddress' --output text --instance-ids $1 --region $region --profile $profile
+  fi
+}
+
+export PYTHON_VERSION=2.7.14
+export RUN_ENV=DEV
+
+eval $(thefuck --alias)
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+export XDG_CONFIG_HOME=$HOME

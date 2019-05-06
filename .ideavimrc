@@ -58,7 +58,7 @@ let g:gundo_width = 5
 
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
-nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
+nnoremap <silent> OO :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
 
 nnoremap <c-]> :CtrlPtjump<cr>
 vnoremap <c-]> :CtrlPtjumpVisual<cr>

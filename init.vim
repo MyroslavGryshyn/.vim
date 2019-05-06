@@ -1,8 +1,8 @@
 " Autoinstall vim-plug {{{
 " -------------------------------------------------------------
 filetype off
-if empty(glob("~/.config/nvim/autoload/plug.vim"))
-    !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if empty(glob("~/nvim/autoload/plug.vim"))
+    !curl -fLo ~/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 " }}}
 
@@ -14,25 +14,39 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'easymotion/vim-easymotion'
 Plug 'wesQ3/vim-windowswap'
 Plug 'szw/vim-maximizer' "Use F3
 Plug 'tpope/vim-eunuch'
+Plug 'danro/rename.vim'
 " }}}
 
 " Syntax plugins {{{
+Plug 'ntpeters/vim-better-whitespace',
 Plug 'raimon49/requirements.txt.vim',{ 'for': 'requirements'}
 Plug 'elzr/vim-json',                { 'for': 'json'}
-Plug 'scrooloose/syntastic',         { 'for': 'python' }
+Plug 'w0rp/ale',
+Plug 'editorconfig/editorconfig-vim',
+Plug 'rcrooloose/syntastic',
 " }}}
+
+" JS plugins {{{
+Plug 'raimon49/requirements.txt.vim',{ 'for': 'requirements'}
+Plug 'elzr/vim-json',                { 'for': 'json'}
+Plug 'pangloss/vim-javascript',       { 'for': 'javascript' }
+Plug 'mxw/vim-jsx',                   { 'for': 'javascript' }
+Plug 'chemzqm/vim-jsx-improve',       { 'for': 'javascript' }
+Plug 'epilande/vim-react-snippets',   { 'for': 'javascript' }
+" }}}
+
 
 " Python plugins {{{
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 Plug 'nvie/vim-flake8',              { 'for': 'python' } "Use F7
-Plug 'tell-k/vim-autopep8',          { 'for': 'python' } "Use F8
+Plug 'tell-k/vim-autopep8',          { 'for': 'python' }
 Plug 'tweekmonster/impsort.vim',     { 'for': 'python' }
-Plug 'yevhen-m/python-syntax',       { 'for': 'python'}
 Plug 'zchee/deoplete-jedi',          { 'for': 'python' }
 Plug 'davidhalter/jedi-vim',         { 'for': 'python' }
 " }}}
@@ -43,13 +57,14 @@ function! DoRemote(arg)
 endfunction
 
 Plug 'Shougo/deoplete.nvim',         {'do': function('DoRemote')}
-Plug 'Shougo/neco-syntax'
+" Plug 'Shougo/neco-syntax'
 " }}}
 
 " Html plugins {{{
 Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
 Plug 'gregsexton/MatchTag', { 'for': 'html' }
-Plug 'mattn/emmet-vim', { 'for': 'html' }
+Plug 'mattn/emmet-vim'
+Plug 'mitsuhiko/vim-jinja', { 'for': 'html' }
 " }}}
 
 " Useful plugins {{{
@@ -74,15 +89,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'djoshea/vim-autoread'
+Plug 'airblade/vim-gitgutter'
 " }}}
 
-" Airlines
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'edkolev/tmuxline.vim'
 
 " Themes {{{
-Plug 'yevhen-m/base16-vim'
+Plug 'chriskempson/base16-vim'
 " }}}
 
 " Session plugins {{{
@@ -112,9 +125,31 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " }}}
 
+" Helpful plugins {{{
+Plug 'FooSoft/vim-argwrap'
+" Open file:line
+Plug 'bogado/file-line'
+Plug 'vim-scripts/BufOnly.vim'
+" }}}
+
 call plug#end()
 
 let mapleader = "\<Space>"
+
+" Statusline {{{
+set statusline=
+set statusline=%<       " where to truncate
+set statusline+=\ %{expand('%:h')}/
+set statusline+=%*%t%* " filename
+set statusline+=\ %m%r  " modified, readonly, filetype
+set statusline+=%=      " switch to right-hand side
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+set statusline+=%{ObsessionStatus()}
+set statusline+=%y      " filetype
+set statusline+=\ %P    " percentage
+set statusline+=\|%l:%c " cusor line and column
+set statusline+=\|%L\ | " number of lines
+" }}}
 
 "Opens vsp on right side
 set splitright
@@ -128,7 +163,6 @@ syntax on
 set laststatus=2
 set incsearch
 set ignorecase
-set smartcase
 set bs=2
 set history=1000
 set undolevels=1000
@@ -142,32 +176,39 @@ set ruler
 set t_Co=256
 set completeopt=longest,menuone
 set shell=/bin/zsh
-set relativenumber
 set autoread
 
 "Indents handling
 set autoindent
 set tabstop=4
 set shiftwidth=4
-set cursorline
 set showmatch
 set switchbuf=usetab
 set expandtab
 
+set nocursorcolumn
+set nocursorline
+syntax sync minlines=256
+set number relativenumber
+
 " Yank to system clipboard
 nnoremap gy "+y
 vnoremap gy "+y
+nnoremap gd "+d
+vnoremap gd "+d
 vnoremap gY "+Y
 nnoremap gY "+y$
 " Paste from system clipboard
 nnoremap gp "+p
 vnoremap gp "+p
 nnoremap gP "+P
-
+" Paste from yank clipboard
+nnoremap <leader>p "0p
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Colorscheme {{{
 let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-eighties
+colorscheme base16-ocean
 set background=dark
 " }}}
 
@@ -178,12 +219,9 @@ set pastetoggle=<F10>
 
 " autocompletion of files and commands behaves like shell
 " (complete only the common part, list the options that match)
-set wildmode=list:longest
+set wildmode=full
 
-" save file when Vim loses focus
-au FocusLost * :wa
-
-set colorcolumn=80
+set colorcolumn=100
 
 " Indent settings
 let g:indentLine_color_term=239
@@ -193,9 +231,9 @@ let g:indentLine_faster = 1
 nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
-nmap W :w <CR>
-nmap Q :q <CR>
-nmap Z :qa <CR>
+nmap W :w<CR>
+nmap Q :q<CR>
+nmap QA :qa<CR>
 
 " Moving in insert mode
 inoremap jj <ESC>
@@ -214,7 +252,6 @@ let NERDTreeShowHidden=1
 " insert blank lines
 nnoremap <silent> oo :<C-u>put=repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
 nnoremap <silent> OO :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
-
 nnoremap <C-t> :tabnew<CR>
 nnoremap <C-p> :tabprevious<CR>
 nnoremap <C-n> :tabnext<CR>
@@ -228,9 +265,18 @@ nnoremap <C-g> :Files<CR>
 nnoremap <leader>f :GFiles<CR>
 nnoremap <leader>gc :Commits<CR>
 nnoremap <leader>ag :Ag<space>
+
+" " Ack
+" noremap <Leader>A :Ack <cword><cr>
+" noremap <Leader>c :Ack --ignore-file=match:test "class <cword>"<cr>
+" noremap <Leader>C :Ack "class <cword>"<cr>
+" noremap <Leader>m :Ack --ignore-file=match:test "def <cword>"<cr>
+" noremap <Leader>M :Ack "def <cword>"<cr>
+
  "Git status
 nnoremap <leader>gs :GFiles?<CR>
-nnoremap <leader>l :Lines<CR>
+nnoremap <leader>l :BLines<CR>
+nnoremap <leader>L :Lines<CR>
 nnoremap <leader>fr :Locate<space>
 nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>tt :Windows<CR>
@@ -305,20 +351,9 @@ set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 
-"Airline settings
-" let g:airline#extensions#syntastic#enabled = 1
-let g:airline#extensions#tmuxline#enabled = 0
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline_theme='base16'
-let g:airline_section_warning = '%{gutentags#statusline()}'
-
 " Python hosts
 let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python')
-let g:python_host_prog = glob('~/.virtualenvs/neovim2/bin/python')
+" let g:python_host_prog = glob('~/.virtualenvs/neovim2/bin/python')
 
 " Fix trouble in neovim
  if has('nvim')
@@ -329,7 +364,7 @@ let g:python_host_prog = glob('~/.virtualenvs/neovim2/bin/python')
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 set foldmethod=indent
-set foldlevel=99
+set foldlevel=100
 
 " Enable folding with the spacebar
 nnoremap <space> za
@@ -372,14 +407,15 @@ let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 "END SURROUND
 
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 colorcolumn=80
+autocmd FileType sass setlocal shiftwidth=4 tabstop=4 colorcolumn=80
 autocmd FileType gitcommit setlocal colorcolumn=51 textwidth=72
-" autocmd FileType html,markdown,htmldjango,jinja setlocal shiftwidth=4 tabstop=4
-autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 colorcolumn=80
-autocmd FileType python setlocal colorcolumn=80,120
+autocmd FileType html,markdown,htmldjango,jinja setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 colorcolumn=80
+autocmd FileType python setlocal colorcolumn=100
 autocmd FileType rst setlocal filetype=text
-autocmd FileType text setlocal shiftwidth=2 textwidth=80 colorcolumn=80
+autocmd FileType text setlocal shiftwidth=2 textwidth=100 colorcolumn=100
 autocmd FileType xml setlocal shiftwidth=4 tabstop=4
-autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 colorcolumn=80
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 colorcolumn=100
 
 set diffopt+=vertical
 
@@ -420,10 +456,8 @@ nnoremap gP "+P
 noremap <leader>ss :Autoformat<CR>
 vnoremap <leader>ss :'<,'>Autoformat<CR>
 
-let g:formatters_html= ['tidy']
-let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
 let g:formatters_python = ['autopep8']
-
+let g:autopep8_max_line_length=100
 " }}}
 
 " Gutentags settings {{{
@@ -448,7 +482,17 @@ nnoremap <leader>tf :TestFile --keepdb<CR>
 
 autocmd BufNewFile,BufRead *.json set ft=javascript
 
-set nocursorcolumn
-set nocursorline
-set norelativenumber
-syntax sync minlines=256
+" Emmet setting for JSX
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
+let g:UltiSnipsExpandTrigger="<c-l>"
+
+nmap <F9> :set ignorecase! ignorecase?<CR>
+set diffopt+=vertical
+
+let g:jedi#force_py_version = 3
+set omnifunc=jedi#completions

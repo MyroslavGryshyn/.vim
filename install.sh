@@ -16,3 +16,15 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 brew install the_silver_searcher
 
 bash create_links.sh
+
+# zsh-autosuggestions
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+# zsh-syntax
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# Fuzzy search
+brew install fzf
+
+# To install useful key bindings and fuzzy completion:
+$(brew --prefix)/opt/fzf/install
