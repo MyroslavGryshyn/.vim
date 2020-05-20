@@ -29,12 +29,11 @@ Plug 'raimon49/requirements.txt.vim',{ 'for': 'requirements'}
 Plug 'elzr/vim-json',                { 'for': 'json'}
 Plug 'w0rp/ale',
 Plug 'editorconfig/editorconfig-vim',
-Plug 'rcrooloose/syntastic',
+Plug 'vim-syntastic/syntastic',
 " }}}
 
 " JS plugins {{{
 Plug 'raimon49/requirements.txt.vim',{ 'for': 'requirements'}
-Plug 'elzr/vim-json',                { 'for': 'json'}
 Plug 'pangloss/vim-javascript',       { 'for': 'javascript' }
 Plug 'mxw/vim-jsx',                   { 'for': 'javascript' }
 Plug 'chemzqm/vim-jsx-improve',       { 'for': 'javascript' }
@@ -49,6 +48,7 @@ Plug 'tell-k/vim-autopep8',          { 'for': 'python' }
 Plug 'tweekmonster/impsort.vim',     { 'for': 'python' }
 Plug 'zchee/deoplete-jedi',          { 'for': 'python' }
 Plug 'davidhalter/jedi-vim',         { 'for': 'python' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " }}}
 
 " Autocomplete engines {{{
@@ -61,10 +61,10 @@ Plug 'Shougo/deoplete.nvim',         {'do': function('DoRemote')}
 " }}}
 
 " Html plugins {{{
-Plug 'vim-scripts/django.vim', { 'for': ['htmldjango', 'html']}
-Plug 'gregsexton/MatchTag', { 'for': 'html' }
+Plug 'vim-scripts/django.vim',
+Plug 'gregsexton/MatchTag',
 Plug 'mattn/emmet-vim'
-Plug 'mitsuhiko/vim-jinja', { 'for': 'html' }
+Plug 'mitsuhiko/vim-jinja',
 " }}}
 
 " Useful plugins {{{
@@ -92,7 +92,7 @@ Plug 'djoshea/vim-autoread'
 Plug 'airblade/vim-gitgutter'
 " }}}
 
-Plug 'edkolev/tmuxline.vim'
+" Plug 'edkolev/tmuxline.vim'
 
 " Themes {{{
 Plug 'chriskempson/base16-vim'
@@ -221,7 +221,7 @@ set pastetoggle=<F10>
 " (complete only the common part, list the options that match)
 set wildmode=full
 
-set colorcolumn=100
+set colorcolumn=140
 
 " Indent settings
 let g:indentLine_color_term=239
@@ -266,13 +266,6 @@ nnoremap <leader>f :GFiles<CR>
 nnoremap <leader>gc :Commits<CR>
 nnoremap <leader>ag :Ag<space>
 
-" " Ack
-" noremap <Leader>A :Ack <cword><cr>
-" noremap <Leader>c :Ack --ignore-file=match:test "class <cword>"<cr>
-" noremap <Leader>C :Ack "class <cword>"<cr>
-" noremap <Leader>m :Ack --ignore-file=match:test "def <cword>"<cr>
-" noremap <Leader>M :Ack "def <cword>"<cr>
-
  "Git status
 nnoremap <leader>gs :GFiles?<CR>
 nnoremap <leader>l :BLines<CR>
@@ -290,19 +283,6 @@ let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclu
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'String'],
-  \ 'hl':      ['fg', 'String'],
-  \ 'fg+':     ['fg', 'Normal', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'Normal', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'String'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
 
 " FZF END
 
@@ -346,14 +326,9 @@ endif
 
 set mouse=a
 
-" Make vim understand Cyrilic
-set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
-
 " Python hosts
-let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python')
-" let g:python_host_prog = glob('~/.virtualenvs/neovim2/bin/python')
+let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python3')
+let g:python_host_prog = glob('~/.virtualenvs/neovim/bin/python')
 
 " Fix trouble in neovim
  if has('nvim')
@@ -364,7 +339,7 @@ let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python')
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 set foldmethod=indent
-set foldlevel=100
+set foldlevel=140
 
 " Enable folding with the spacebar
 nnoremap <space> za
@@ -384,6 +359,7 @@ autocmd BufRead,BufNewFile *.js set filetype=javascript
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
 autocmd BufRead,BufNewFile *.yml set filetype=yaml
 autocmd BufRead,BufNewFile *.html set filetype=html
+autocmd BufNewFile,BufRead *.template set filetype=htmldjango
 
 let g:ctrlp_max_files=20000
 
@@ -409,9 +385,9 @@ let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 colorcolumn=80
 autocmd FileType sass setlocal shiftwidth=4 tabstop=4 colorcolumn=80
 autocmd FileType gitcommit setlocal colorcolumn=51 textwidth=72
-autocmd FileType html,markdown,htmldjango,jinja setlocal shiftwidth=2 tabstop=2
+autocmd FileType template,html,markdown,htmldjango,jinja setlocal shiftwidth=2 tabstop=2
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 colorcolumn=80
-autocmd FileType python setlocal colorcolumn=100
+autocmd FileType python setlocal colorcolumn=140
 autocmd FileType rst setlocal filetype=text
 autocmd FileType text setlocal shiftwidth=2 textwidth=100 colorcolumn=100
 autocmd FileType xml setlocal shiftwidth=4 tabstop=4
@@ -494,5 +470,5 @@ let g:UltiSnipsExpandTrigger="<c-l>"
 nmap <F9> :set ignorecase! ignorecase?<CR>
 set diffopt+=vertical
 
-let g:jedi#force_py_version = 3
-set omnifunc=jedi#completions
+" " let g:jedi#force_py_version = 3
+" set omnifunc=jedi#completions

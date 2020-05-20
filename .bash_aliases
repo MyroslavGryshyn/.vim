@@ -27,7 +27,7 @@ alias hg='history | grep'
 alias pg='ps aux | grep'
 alias fgrep='find . | grep'
 alias pyrun='python manage.py runserver'
-alias pyshell='python manage.py shell'
+alias pyshell='python manage.py shell_plus'
 alias pyman='python manage.py '
 
 alias pipr='pip install -r requirements.txt'
@@ -41,7 +41,16 @@ alias micebook-stage="ssh -i ~/.ssh/micebook-development.pem ubuntu@ec2-54-154-2
 alias gl="git log --oneline --graph --date=short --pretty"
 alias leo="cd ~/tmp/LeoPort/ && ./gradlew run && cd -"
 
-alias eth="/Users/mero/.virtualenvs/playground/bin/python /Users/mero/Dev/playground/crypto.py"
+alias runall="workon fareharbor.com && cd server && ./pg stop; ./pg start && ./redis stop; ./redis start && pyrun"
+
+lint-check() {
+   python ./manage.py test server.tests.test_for_lint_errors
+}
 # alias remap80="echo '
 # rdr pass inet proto tcp from any to any port 80 -> 127.0.0.1 port 8080
 # ' | sudo pfctl -ef -"
+
+alias watch_test='nodemon --ext ".py" --exec "./manage.py test"'
+
+alias wof='workon fareharbor.com && cd server'
+alias wifi_bk="networksetup -setairportnetwork en0 BK-GUEST "

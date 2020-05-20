@@ -5,12 +5,7 @@ export LANG=en_US.UTF-8
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-# ZSH_THEME="robbyrussell"
 
 # source "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
 
@@ -61,6 +56,7 @@ plugins=(git vi-mode pip pyenv python django sudo zsh-syntax-highlighting zsh-au
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+export PATH="/Applications/Postgres.app/Contents/Versions/11/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -77,11 +73,6 @@ source $ZSH/oh-my-zsh.sh
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
@@ -257,3 +248,11 @@ eval $(thefuck --alias)
 [[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 export XDG_CONFIG_HOME=$HOME
+alias vim="nvim"
+alias vi="nvim"
+
+eval "$(pyenv init -)"
+pyenv virtualenvwrapper
+
+export PATH="$PATH:/Users/mhryshyn/Applications/flutter/bin"
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"

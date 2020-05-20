@@ -1,4 +1,4 @@
-brew install neovim/neovim
+brew install neovim
 
 mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 ln -s ~/.vim $XDG_CONFIG_HOME/nvim
