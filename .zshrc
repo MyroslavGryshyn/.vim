@@ -252,7 +252,10 @@ alias vim="nvim"
 alias vi="nvim"
 
 eval "$(pyenv init -)"
-pyenv virtualenvwrapper
+# Not sure we need it
+# pyenv virtualenvwrapper
 
-export PATH="$PATH:/Users/mhryshyn/Applications/flutter/bin"
-export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
+export DJANGO_LOCAL=True
+
+source ~/.git-completion.zsh

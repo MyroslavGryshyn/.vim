@@ -39,9 +39,9 @@ alias micebook-dev="ssh -i ~/.ssh/micebook-development.pem ubuntu@ec2-54-154-228
 alias micebook-stage="ssh -i ~/.ssh/micebook-development.pem ubuntu@ec2-54-154-228-174.eu-west-1.compute.amazonaws.com"
 
 alias gl="git log --oneline --graph --date=short --pretty"
-alias leo="cd ~/tmp/LeoPort/ && ./gradlew run && cd -"
 
-alias runall="workon fareharbor.com && cd server && ./pg stop; ./pg start && ./redis stop; ./redis start && pyrun"
+alias runall="workon fareharbor.com && cd server && ./pg stop; ./pg start && ./clean && python manage.py migrate && pyrun"
+alias stopall="workon fareharbor.com && cd server && ./pg stop; ./redis stop"
 
 lint-check() {
    python ./manage.py test server.tests.test_for_lint_errors

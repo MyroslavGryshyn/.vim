@@ -21,5 +21,8 @@ ln -s ~/.vim/.key-binding.zsh ~/.key-binding.zsh
 ln -s ~/.vim/.gitignore  ~/.gitignore
 ln -s ~/.vim/.tigrc  ~/.tigrc
 
+mkdir -p ~/.config/alacritty/
+ln -s ~/.vim/alacritty.yml  ~/.config/alacritty/alacritty.yml
+
 # Installing plugins for zsh
 git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
