@@ -248,8 +248,8 @@ nnoremap <silent> - :nohl<CR>
 set mouse=a
 
 "" Python hosts
-let g:python3_host_prog = glob('/usr/local/bin/python3')
-"let g:python_host_prog = glob('~/.virtualenvs/neovim/bin/python')
+let g:python_host_prog = glob('~/.virtualenvs/neovim/bin/python')
+let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python')
 
 "" Fix trouble in neovim
 " if has('nvim')
