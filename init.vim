@@ -29,11 +29,12 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'yggdroot/indentline'
 
-Plug 'davidhalter/jedi-vim' ",         { 'for': 'python' }
+" Plug 'davidhalter/jedi-vim' ",         { 'for': 'python' }
 Plug 'majutsushi/tagbar'
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 
 "" Candidates
+Plug 'tpope/vim-surround',
 Plug 'neoclide/coc.nvim',            {'branch': 'release'}
 Plug 'Chiel92/vim-autoformat'
 Plug 'SirVer/ultisnips'
@@ -53,6 +54,7 @@ set background=dark
 """ }}}
 
 " Use tab for trigger completion with characters ahead and navigate.
+
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
@@ -61,7 +63,8 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-let g:jedi#popup_on_dot = 0
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#force_py_version=2
 
 """ Statusline {{{
 set statusline=
@@ -98,7 +101,7 @@ set number relativenumber
 "set gdefault
 "set hlsearch
 "set path+=**
-"set nofoldenable
+set nofoldenable
 "set scrolloff=5
 "set ruler
 "set t_Co=256
@@ -121,10 +124,10 @@ set shell=/bin/zsh
 
 " To consider one day -> Trello
 " GoTo code navigation.
-" nmap <silent> gd <Plug>(coc-definition)
-" nmap <silent> gz <Plug>(coc-type-definition)
-" nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gz <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 
 "" Yank to system clipboard
 nnoremap gy "+y
@@ -161,7 +164,7 @@ nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 nmap W :w<CR>
-nmap Q :q<CR>
+nnorema X :q<CR>
 nmap QA :qa<CR>
 
 """ Moving in insert mode
@@ -212,6 +215,7 @@ let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclu
 "nmap <leader><tab> <plug>(fzf-maps-n)
 "xmap <leader><tab> <plug>(fzf-maps-x)
 "omap <leader><tab> <plug>(fzf-maps-o)
+"
 
 " FZF END
 
@@ -248,7 +252,7 @@ nnoremap <silent> - :nohl<CR>
 set mouse=a
 
 "" Python hosts
-let g:python_host_prog = glob('~/.virtualenvs/neovim/bin/python')
+let g:python_host_prog = glob('~/.virtualenvs/fareharbor.com/bin/python')
 let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python')
 
 "" Fix trouble in neovim
@@ -259,13 +263,13 @@ let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python')
 
 "let g:SuperTabDefaultCompletionType = "<c-n>"
 
-"set foldmethod=indent
-"set foldlevel=140
+set foldmethod=indent
+set foldlevel=140
 
 "" Enable folding with the spacebar
-"nnoremap <space> za
+" nnoremap <space> za
 
-"let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_docstring_preview = 1
 
 "" Enable Silver search
 "let g:ackprg = 'ag --nogroup --nocolor --column'
@@ -289,19 +293,19 @@ autocmd BufRead,BufNewFile *.py set filetype=python
 "nnoremap ,c :Gcommit<CR>
 "nnoremap ,s :Gstatus<CR>
 nnoremap ,d :Gdiff<CR>
-nnoremap ,b :Gblame<CR>
+nnoremap ,b :Git blame<CR>
 "nnoremap ,l :Glog<CR>
 "nnoremap ,la :Glog --<CR>
 set diffopt+=vertical
 "" END FUGITIVE
 
 ""SURROUND SETTINGS
-"let b:surround_{char2nr("{")} = "{{ \r }}"
-"let b:surround_{char2nr("%")} = "{% \r %}"
-"let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
-"let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
-"let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
-"let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
+let b:surround_{char2nr("{")} = "{{ \r }}"
+let b:surround_{char2nr("%")} = "{% \r %}"
+let b:surround_{char2nr("i")} = "{% if \1condition: \1 %}\r{% endif %}"
+let b:surround_{char2nr("w")} = "{% with \1with: \1 %}\r{% endwith %}"
+let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
+let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 ""END SURROUND
 
 "autocmd FileType css setlocal shiftwidth=2 tabstop=2 colorcolumn=80
@@ -349,11 +353,6 @@ let g:autopep8_max_line_length=140
 "nmap <F9> :set ignorecase! ignorecase?<CR>
 "set diffopt+=vertical
 
-let g:jedi#force_py_version = 2
-" set omnifunc=jedi#completions
-
-
-
 " List of old plugins - just in case
 "" Navigation plugins {{{
 """ Plug 'easymotion/vim-easymotion'
@@ -394,7 +393,6 @@ let g:jedi#force_py_version = 2
 
 """ Useful plugins {{{
 """ Plug 'ervandew/supertab'
-""" Plug 'tpope/vim-surround'
 """ Plug 'Townk/vim-autoclose'
 """ }}}
 

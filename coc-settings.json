@@ -1,0 +1,21 @@
+{
+  "python.jediEnabled": true,
+  "python.jediPath": "/usr/local/var/pyenv/versions/nvim/lib/python3.8/site-packages",
+  "python.venvFolders": ["envs", ".pyenv"],
+  "python.sortImports.path": "/usr/local/var/pyenv/versions/nvim/bin/isort",
+  "emmet.includeLanguages": { "javascript": "javascriptreact" },
+  "json.enable": true,
+  "json.format.enable": true,
+  "pairs.enableBackspace": true,
+  "yank.enableCompletion": false,
+  "diagnostic.displayByAle": true,
+  "diagnostic.enable": false,
+  "diagnostic.virtualText": false,
+  "suggest.autoTrigger": "always",
+  "list.nextKeymap": "<C-n>",
+  "list.previousKeymap": "<C-p>",
+  "list.maxHeight": 15,
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
+  }
+}

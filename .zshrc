@@ -51,7 +51,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode pip pyenv python django sudo zsh-syntax-highlighting zsh-autosuggestions z web-search)
+plugins=(git vi-mode pip python sudo zsh-syntax-highlighting zsh-autosuggestions z web-search)
 
 # User configuration
 
@@ -78,9 +78,20 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# TODO: Delete if not needed
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
+# pyenv virtualenvwrapper
+
+eval "$(pyenv init -)"
+
 export PROJECT_HOME=$HOME/Dev
 export WORKON_HOME=$HOME/.virtualenvs
 export EDITOR=vim
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
 
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     source /usr/local/bin/virtualenvwrapper.sh
@@ -235,27 +246,21 @@ function pubip {
   fi
 }
 
-export PYTHON_VERSION=2.7.14
-export RUN_ENV=DEV
+setalarm() {
+    sleep $(echo "$1 * 60" | bc)
+    say "Beep boop dzin"
+}
 
 eval $(thefuck --alias)
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
 export XDG_CONFIG_HOME=$HOME
 alias vim="nvim"
 alias vi="nvim"
 
-eval "$(pyenv init -)"
-# Not sure we need it
-# pyenv virtualenvwrapper
-
-export PATH="/usr/local/opt/postgresql@12/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@14/bin:$PATH"
 export DJANGO_LOCAL=True
 
-source ~/.git-completion.zsh
+export CFLAGS="-I$(brew --prefix openssl)/include"
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
+
+export PATH="$HOME/.poetry/bin:$PATH"

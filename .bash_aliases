@@ -40,17 +40,10 @@ alias micebook-stage="ssh -i ~/.ssh/micebook-development.pem ubuntu@ec2-54-154-2
 
 alias gl="git log --oneline --graph --date=short --pretty"
 
-alias runall="workon fareharbor.com && cd server && ./pg stop; ./pg start && ./clean && python manage.py migrate && pyrun"
-alias stopall="workon fareharbor.com && cd server && ./pg stop; ./redis stop"
-
 lint-check() {
    python ./manage.py test server.tests.test_for_lint_errors
 }
-# alias remap80="echo '
-# rdr pass inet proto tcp from any to any port 80 -> 127.0.0.1 port 8080
-# ' | sudo pfctl -ef -"
 
-alias watch_test='nodemon --ext ".py" --exec "./manage.py test"'
-
-alias wof='workon fareharbor.com && cd server'
-alias wifi_bk="networksetup -setairportnetwork en0 BK-GUEST "
+if [ -f ~/.vim/.fh_bash_aliases ]; then
+    . ~/.vim/.fh_bash_aliases
+fi
