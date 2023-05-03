@@ -12,12 +12,13 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'nvie/vim-flake8',              { 'for': 'python' } "Use F7
+Plug 'psf/black',                    { 'branch': 'stable' }
 Plug 'ntpeters/vim-better-whitespace',
 Plug 'tpope/vim-commentary'
 
@@ -29,23 +30,28 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'yggdroot/indentline'
 
-" Plug 'davidhalter/jedi-vim' ",         { 'for': 'python' }
 Plug 'majutsushi/tagbar'
 Plug 'hynek/vim-python-pep8-indent', { 'for': 'python' }
 
-"" Candidates
-Plug 'tpope/vim-surround',
+" Syntax
 Plug 'neoclide/coc.nvim',            {'branch': 'release'}
-Plug 'Chiel92/vim-autoformat'
+Plug 'tpope/vim-surround',
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" Plug 'ludovicchabant/vim-gutentags'
+
+"" Candidates
+Plug 'Chiel92/vim-autoformat'
+Plug 'tweekmonster/django-plus.vim'
+Plug 'Bogdanp/pyrepl.vim'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
 let mapleader = "\<Space>"
 
 let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsSnippetsDir="/Users/mhryshyn/.vim/UltiSnips"
 
 """ Colorscheme {{{
 let base16colorspace=256  " Access colors present in 256 colorspace
@@ -53,18 +59,25 @@ colorscheme base16-ocean
 set background=dark
 """ }}}
 
+""" Coc-vim {{{
 " Use tab for trigger completion with characters ahead and navigate.
 
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" use <tab> for trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
-" let g:jedi#popup_on_dot = 0
-" let g:jedi#force_py_version=2
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
+inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
+""" }}}
 
 """ Statusline {{{
 set statusline=
@@ -94,14 +107,15 @@ set number
 set number relativenumber
 "set laststatus=2
 "set incsearch
-"set ignorecase
+set ignorecase
+set smartcase
 "set bs=2
 "set history=1000
 "set undolevels=1000
 "set gdefault
 "set hlsearch
 "set path+=**
-set nofoldenable
+" set nofoldenable
 "set scrolloff=5
 "set ruler
 "set t_Co=256
@@ -115,14 +129,13 @@ set shell=/bin/zsh
 "set tabstop=4
 "set shiftwidth=4
 "set showmatch
-"set switchbuf=usetab
-"set expandtab
+set switchbuf=usetab
+set expandtab
 
 "set nocursorcolumn
 "set nocursorline
 "syntax sync minlines=256
 
-" To consider one day -> Trello
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gz <Plug>(coc-type-definition)
@@ -145,7 +158,7 @@ nnoremap gP "+P
 "nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 """Let's find ctag files
-"set tags=tags;
+set tags=tags;
 
 "set pastetoggle=<F10>
 
@@ -167,6 +180,8 @@ nmap W :w<CR>
 nnorema X :q<CR>
 nmap QA :qa<CR>
 
+nnoremap <F9> :Black<CR>
+
 """ Moving in insert mode
 inoremap jj <ESC>
 "inoremap HH <C-o>I
@@ -181,10 +196,6 @@ nmap tt :TagbarToggle<CR>
 
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-
-" Insert blank lines
-nnoremap <silent><C-j> :<C-u>put =repeat(nr2char(10),v:count)<Bar>execute "'[-1"<CR>
-nnoremap <silent><C-k> :<C-u>put!=repeat(nr2char(10),v:count)<Bar>execute "']+1"<CR>
 
 " Tabs
 nnoremap <C-t> :tabnew<CR>
@@ -208,15 +219,9 @@ nnoremap <leader>bb :Buffers<CR>
 nnoremap <leader>T :Tags<CR>
 "nnoremap <leader>hh :History<CR>
 "nnoremap <leader>: :History:<CR>
-"nnoremap <leader>/ :History/<CR>
+nnoremap <leader>/ :History/<CR>
 "nnoremap <leader>c :Commands<CR>
 let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclude=test'
-"" Mapping selecting mappings
-"nmap <leader><tab> <plug>(fzf-maps-n)
-"xmap <leader><tab> <plug>(fzf-maps-x)
-"omap <leader><tab> <plug>(fzf-maps-o)
-"
-
 " FZF END
 
 "noremap n nzz
@@ -227,8 +232,6 @@ let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclu
 nnoremap <silent> - :nohl<CR>
 
 "nmap <leader><leader>r :checktime<CR>
-
-"let g:tabman_number = 0
 
 ""Better backup, swap and undos storage
 "set directory=~/.vim/dirs/tmp     " directory to place swap files in
@@ -252,16 +255,13 @@ nnoremap <silent> - :nohl<CR>
 set mouse=a
 
 "" Python hosts
-let g:python_host_prog = glob('~/.virtualenvs/fareharbor.com/bin/python')
-let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python')
+let g:python3_host_prog = glob('~/.virtualenvs/neovim/bin/python')
 
 "" Fix trouble in neovim
 " if has('nvim')
 "     nmap <BS> <C-W>h
 "     nmap <bs> :<c-u>TmuxNavigateLeft<cr>
 " endif
-
-"let g:SuperTabDefaultCompletionType = "<c-n>"
 
 set foldmethod=indent
 set foldlevel=140
@@ -271,20 +271,16 @@ set foldlevel=140
 
 let g:SimpylFold_docstring_preview = 1
 
-"" Enable Silver search
-"let g:ackprg = 'ag --nogroup --nocolor --column'
-"set rtp+=~/.fzf
-
 ""Impsort settings
 "nnoremap <leader>ii :<c-u>ImpSort!<cr>
 
 "" autodetect python, js and html filetype
 autocmd BufRead,BufNewFile *.py set filetype=python
-"autocmd BufRead,BufNewFile *.js set filetype=javascript
+autocmd BufRead,BufNewFile *.js set filetype=javascript
 "autocmd BufRead,BufNewFile *.ts set filetype=typescript
 "autocmd BufRead,BufNewFile *.yml set filetype=yaml
-"autocmd BufRead,BufNewFile *.html set filetype=html
-"autocmd BufNewFile,BufRead *.template set filetype=htmldjango
+autocmd BufRead,BufNewFile *.html set filetype=html
+autocmd BufNewFile,BufRead *.template set filetype=htmldjango
 
 "let g:ctrlp_max_files=20000
 
@@ -308,12 +304,13 @@ let b:surround_{char2nr("f")} = "{% for \1for loop: \1 %}\r{% endfor %}"
 let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 ""END SURROUND
 
+autocmd FileType python setlocal colorcolumn=140
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 colorcolumn=140
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 colorcolumn=140
 "autocmd FileType css setlocal shiftwidth=2 tabstop=2 colorcolumn=80
 "autocmd FileType sass setlocal shiftwidth=4 tabstop=4 colorcolumn=80
 "autocmd FileType gitcommit setlocal colorcolumn=51 textwidth=72
 "autocmd FileType template,html,markdown,htmldjango,jinja setlocal shiftwidth=2 tabstop=2
-"autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 colorcolumn=80
-"autocmd FileType python setlocal colorcolumn=140
 "autocmd FileType rst setlocal filetype=text
 "autocmd FileType text setlocal shiftwidth=2 textwidth=100 colorcolumn=100
 "autocmd FileType xml setlocal shiftwidth=4 tabstop=4
@@ -328,115 +325,4 @@ let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
 let g:formatters_python = ['autopep8']
 let g:autopep8_max_line_length=140
 " }}}
-
-"" Gutentags settings {{{
-"let g:gutentags_enabled = 1
-"nnoremap cot :GutentagsToggle<cr>
-"autocmd FileType GV GutentagsDisable
-"command! GutentagsEnable :let g:gutentags_enabled=1<bar>echom "Gutentags enabled."
-"command! GutentagsDisable :let g:gutentags_enabled=0<bar>echom "Gutentags disabled."
-"command! GutentagsToggle
-"            \ :let g:gutentags_enabled=!g:gutentags_enabled
-"            \ <bar>echom "Gutentags ".(g:gutentags_enabled ? "enabled." : "disabled.")
-
-"autocmd BufNewFile,BufRead *.json set ft=javascript
-
-"" Emmet setting for JSX
-"let g:user_emmet_settings = {
-"\  'javascript' : {
-"\      'extends' : 'jsx',
-"\  },
-"\}
-
-"" let g:UltiSnipsExpandTrigger="<c-l>"
-
-"nmap <F9> :set ignorecase! ignorecase?<CR>
-"set diffopt+=vertical
-
-" List of old plugins - just in case
-"" Navigation plugins {{{
-""" Plug 'easymotion/vim-easymotion'
-""" Plug 'wesQ3/vim-windowswap'
-""" Plug 'szw/vim-maximizer' "Use F3
-""" Plug 'tpope/vim-eunuch'
-""" Plug 'danro/rename.vim'
-""" }}}
-
-""" Syntax plugins {{{
-""" Plug 'raimon49/requirements.txt.vim',{ 'for': 'requirements'}
-""" Plug 'elzr/vim-json',                { 'for': 'json'}
-""" Plug 'w0rp/ale',
-""" Plug 'editorconfig/editorconfig-vim',
-""" Plug 'vim-syntastic/syntastic',
-""" }}}
-
-""" JS plugins {{{
-""" Plug 'pangloss/vim-javascript',       { 'for': 'javascript' }
-""" Plug 'mxw/vim-jsx',                   { 'for': 'javascript' }
-""" Plug 'chemzqm/vim-jsx-improve',       { 'for': 'javascript' }
-""" Plug 'epilande/vim-react-snippets',   { 'for': 'javascript' }
-""" }}}
-
-
-""" Python plugins {{{
-""" Plug 'tell-k/vim-autopep8',          { 'for': 'python' }
-""" Plug 'tweekmonster/impsort.vim',     { 'for': 'python' }
-""" Plug 'neoclide/coc.nvim',            {'branch': 'release'}
-""" }}}
-
-""" Html plugins {{{
-""" Plug 'vim-scripts/django.vim',
-""" Plug 'gregsexton/MatchTag',
-""" Plug 'mattn/emmet-vim'
-""" Plug 'mitsuhiko/vim-jinja',
-""" }}}
-
-""" Useful plugins {{{
-""" Plug 'ervandew/supertab'
-""" Plug 'Townk/vim-autoclose'
-""" }}}
-
-""" Docker plugins {{{
-""" Plug 'ekalinin/Dockerfile.vim'
-""" }}}
-
-""" Git plugins {{{
-""" Plug 'tpope/vim-rhubarb'
-""" Plug 'junegunn/gv.vim'
-""" Plug 'djoshea/vim-autoread'
-""" }}}
-
-""" Plug 'edkolev/tmuxline.vim'
-
-""" Themes {{{
-"Plug 'chriskempson/base16-vim'
-""" }}}
-
-""" Session plugins {{{
-""" Plug 'tpope/vim-obsession'
-""" }}}
-
-""" Plug 'thinca/vim-visualstar'
-""" Plug 'jmcantrell/vim-virtualenv'
-
-""" Tag plugins {{{
-""" }}}
-
-""" Test plugins {{{
-""" Plug 'janko-m/vim-test'
-""" Plug 'benmills/vimux'
-""" }}}
-
-""" Dispatch plugins {{{
-""" Plug 'tpope/vim-dispatch'
-""" Plug 'aliev/vim-compiler-python'
-""" Plug 'radenling/vim-dispatch-neovim'
-""" }}}
-
-""" Snippets plugins {{{
-""" }}}
-
-""" Helpful plugins {{{
-""" Plug 'FooSoft/vim-argwrap'
-""" Plug 'bogado/file-line'
-""" }}}
+"

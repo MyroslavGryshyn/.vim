@@ -7,8 +7,6 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="agnoster"
 
-# source "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -20,7 +18,7 @@ ZSH_THEME="agnoster"
 # DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+export UPDATE_ZSH_DAYS=14
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -55,9 +53,7 @@ plugins=(git vi-mode pip python sudo zsh-syntax-highlighting zsh-autosuggestions
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
-export PATH="/Applications/Postgres.app/Contents/Versions/11/bin:$PATH"
-# export MANPATH="/usr/local/man:$MANPATH"
+# export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,18 +74,12 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# TODO: Delete if not needed
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init --path)"
-# pyenv virtualenvwrapper
-
-eval "$(pyenv init -)"
+eval "$(pyenv init - --no-rehash)"
 
 export PROJECT_HOME=$HOME/Dev
 export WORKON_HOME=$HOME/.virtualenvs
 export EDITOR=vim
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.10
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -105,10 +95,11 @@ set -o vi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.key-binding.zsh ] && source ~/.key-binding.zsh
 
+# export FZF_DEFAULT_OPTS="--print-query"
 export FZF_DEFAULT_COMMAND='ag -g "" --hidden'
-_fzf_compgen_path() {
-  ag -g "" "$1"
-}
+# _fzf_compgen_path() {
+#   ag -g "" "$1"
+# }
 
 alias tmux="TERM=xterm-256color tmux"
 
@@ -257,10 +248,25 @@ export XDG_CONFIG_HOME=$HOME
 alias vim="nvim"
 alias vi="nvim"
 
-export PATH="/usr/local/opt/postgresql@14/bin:$PATH"
 export DJANGO_LOCAL=True
 
 export CFLAGS="-I$(brew --prefix openssl)/include"
 export LDFLAGS="-L$(brew --prefix openssl)/lib"
 
+export PATH="/usr/local/opt/postgresql@14/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
+export PG_RESTORE=/usr/local/opt/postgresql@14/bin/pg_restore
+
+function nvimvenv {
+  if [[ -e "$VIRTUAL_ENV" && -f "$VIRTUAL_ENV/bin/activate" ]]; then
+    source "$VIRTUAL_ENV/bin/activate"
+    command nvim $@
+    deactivate
+  else
+    command nvim $@
+  fi
+}
+
+alias vim=nvimvenv
+
+export ALWAYS_RUN_TASKS_SYNCHRONOUSLY='yes'

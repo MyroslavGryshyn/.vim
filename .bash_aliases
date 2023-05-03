@@ -20,6 +20,7 @@ alias l='ls -CF'
 alias gs='git status'
 alias gc='git commit -am'
 alias gch='git checkout'
+alias glist='git stash list'
 
 alias gentags='ctagsp -R *'
 
@@ -47,3 +48,4 @@ lint-check() {
 if [ -f ~/.vim/.fh_bash_aliases ]; then
     . ~/.vim/.fh_bash_aliases
 fi
+
