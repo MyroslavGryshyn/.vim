@@ -18,6 +18,7 @@ alias l='ls -CF'
 
 # git aliases
 alias gs='git status'
+alias gd='git diff'
 alias gc='git commit -am'
 alias gch='git checkout'
 alias glist='git stash list'

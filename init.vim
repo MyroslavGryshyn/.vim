@@ -40,11 +40,12 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 "" Candidates
+Plug 'mattn/emmet-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tweekmonster/django-plus.vim'
-Plug 'Bogdanp/pyrepl.vim'
+Plug 'AndrewRadev/tagalong.vim'
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 call plug#end()
 
@@ -231,6 +232,9 @@ let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclu
 "noremap <Down> 2<C-e>
 nnoremap <silent> - :nohl<CR>
 
+let g:user_emmet_expandabbr_key='<C-y>'
+" imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
 "nmap <leader><leader>r :checktime<CR>
 
 ""Better backup, swap and undos storage
@@ -306,11 +310,11 @@ let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
 autocmd FileType python setlocal colorcolumn=140
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 colorcolumn=140
-autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 colorcolumn=140
+
+autocmd FileType template,html,markdown,htmldjango,jinja setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 "autocmd FileType css setlocal shiftwidth=2 tabstop=2 colorcolumn=80
 "autocmd FileType sass setlocal shiftwidth=4 tabstop=4 colorcolumn=80
 "autocmd FileType gitcommit setlocal colorcolumn=51 textwidth=72
-"autocmd FileType template,html,markdown,htmldjango,jinja setlocal shiftwidth=2 tabstop=2
 "autocmd FileType rst setlocal filetype=text
 "autocmd FileType text setlocal shiftwidth=2 textwidth=100 colorcolumn=100
 "autocmd FileType xml setlocal shiftwidth=4 tabstop=4
@@ -326,3 +330,5 @@ let g:formatters_python = ['autopep8']
 let g:autopep8_max_line_length=140
 " }}}
 "
+
+let g:tagalong_verbose = 1
