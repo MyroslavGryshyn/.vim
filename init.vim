@@ -57,8 +57,8 @@ let g:UltiSnipsSnippetsDir="/Users/mhryshyn/.vim/UltiSnips"
 
 """ Colorscheme {{{
 let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-ocean
-set background=dark
+colorscheme base16-nova
+" set background=dark
 """ }}}
 
 """ Coc-vim {{{

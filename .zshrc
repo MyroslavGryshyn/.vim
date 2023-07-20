@@ -81,20 +81,20 @@ if [ -f ~/.bash_aliases ]; then
 fi
 echo "END bash_aliases"
 
-echo "START pyenv"
-eval "$(pyenv init - --no-rehash)"
-echo "STOP pyenv"
+# echo "START pfd --type f --strip-cwd-prefix --hidden --followyenv"
+# eval "$(pyenv init - --no-rehash)"
+# echo "STOP pyenv"
 
 export PROJECT_HOME=$HOME/Dev
 export WORKON_HOME=$HOME/.virtualenvs
 export EDITOR=vim
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.10
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.10
+# export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+# source /usr/local/bin/virtualenvwrapper.sh
 
-if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
+# if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+#     source /usr/local/bin/virtualenvwrapper.sh
+# fi
 
 export DJANGO_LIVE_TEST_SERVER_ADDRESS="localhost:9000"
 
@@ -107,7 +107,7 @@ set -o vi
 [ -f ~/.key-binding.zsh ] && source ~/.key-binding.zsh
 
 export FZF_DEFAULT_OPTS='--height 50%'
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='ag --hidden'
 _fzf_compgen_path() {
   ag -g "" "$1"
 }
