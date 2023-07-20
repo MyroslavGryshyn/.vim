@@ -261,9 +261,6 @@ alias vi="nvim"
 
 export DJANGO_LOCAL=True
 
-export CFLAGS="-I$(brew --prefix openssl)/include"
-export LDFLAGS="-L$(brew --prefix openssl)/lib"
-
 export PATH="/usr/local/opt/postgresql@14/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 export PG_RESTORE=/usr/local/opt/postgresql@14/bin/pg_restore
@@ -281,6 +278,3 @@ function nvimvenv {
 alias vim=nvimvenv
 
 export ALWAYS_RUN_TASKS_SYNCHRONOUSLY='yes'
-
-export B_N_IP="64.226.120.252"
-alias ssh-bn="ssh mero@'$B_N_IP'"

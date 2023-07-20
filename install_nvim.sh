@@ -1,3 +1,4 @@
+sudo apt  install neovim
 curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
 chmod u+x nvim.appimage
 ./nvim.appimage --appimage-extract
