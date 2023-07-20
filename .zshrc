@@ -108,7 +108,6 @@ set -o vi
 
 export FZF_DEFAULT_OPTS='--height 50%'
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
-export FZF_DEFAULT_COMMAND=''
 _fzf_compgen_path() {
   ag -g "" "$1"
 }

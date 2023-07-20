@@ -40,6 +40,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 "" Candidates
+Plug 'tweekmonster/impsort.vim'
 Plug 'mattn/emmet-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tweekmonster/django-plus.vim'
@@ -276,7 +277,7 @@ set foldlevel=140
 let g:SimpylFold_docstring_preview = 1
 
 ""Impsort settings
-"nnoremap <leader>ii :<c-u>ImpSort!<cr>
+nnoremap <leader>ii :<c-u>ImpSort!<cr>
 
 "" autodetect python, js and html filetype
 autocmd BufRead,BufNewFile *.py set filetype=python
@@ -332,3 +333,5 @@ let g:autopep8_max_line_length=140
 "
 
 let g:tagalong_verbose = 1
+
+
