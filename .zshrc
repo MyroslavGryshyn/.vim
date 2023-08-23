@@ -107,7 +107,7 @@ set -o vi
 [ -f ~/.key-binding.zsh ] && source ~/.key-binding.zsh
 
 export FZF_DEFAULT_OPTS='--height 50%'
-export FZF_DEFAULT_COMMAND='ag --hidden'
+export FZF_DEFAULT_COMMAND='fd --hidden'
 _fzf_compgen_path() {
   ag -g "" "$1"
 }
@@ -263,6 +263,8 @@ export DJANGO_LOCAL=True
 
 export PATH="/usr/local/opt/postgresql@14/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
 export PG_RESTORE=/usr/local/opt/postgresql@14/bin/pg_restore
 
 function nvimvenv {
@@ -278,3 +280,7 @@ function nvimvenv {
 alias vim=nvimvenv
 
 export ALWAYS_RUN_TASKS_SYNCHRONOUSLY='yes'
+
+# FZF bindings
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh

@@ -25,3 +25,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sudo apt install fzf
 
 sudo apt install thefuck
+
+# FD install
+sudo apt install fd-find
+ln -s $(which fdfind) ~/.local/bin/fd
