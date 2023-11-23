@@ -266,8 +266,10 @@ export CFLAGS="-I$(brew --prefix openssl)/include"
 export LDFLAGS="-L$(brew --prefix openssl)/lib"
 
 export PATH="/usr/local/opt/postgresql@14/bin:$PATH"
-export PATH="$HOME/.poetry/bin:$PATH"
 export PG_RESTORE=/usr/local/opt/postgresql@14/bin/pg_restore
+
+# Adding poetry
+export PATH="/Users/mhryshyn/.local/bin:$PATH"
 
 function nvimvenv {
   if [[ -e "$VIRTUAL_ENV" && -f "$VIRTUAL_ENV/bin/activate" ]]; then
@@ -285,3 +287,6 @@ export ALWAYS_RUN_TASKS_SYNCHRONOUSLY='yes'
 
 export B_N_IP="64.226.120.252"
 alias ssh-bn="ssh mero@'$B_N_IP'"
+
+alias run-bn="workon beneighb; source export_local_vars.sh; python beneighb/manage.py runserver"
+alias pyman-bn="workon beneighb; source export_local_vars.sh; python beneighb/manage.py "

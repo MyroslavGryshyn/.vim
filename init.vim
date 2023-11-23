@@ -40,13 +40,18 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 "" Candidates
+Plug 'cakebaker/scss-syntax.vim'
 Plug 'tweekmonster/impsort.vim'
 Plug 'mattn/emmet-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'tweekmonster/django-plus.vim'
 Plug 'AndrewRadev/tagalong.vim'
 
+Plug 'neovim/nvim-lspconfig'
+Plug 'SmiteshP/nvim-navic'
+
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+
 
 call plug#end()
 
@@ -179,7 +184,8 @@ nnoremap <leader>v :vsplit<CR>
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 
 nmap W :w<CR>
-nnorema X :q<CR>
+nmap X :q<CR>
+" nnorema X :q<CR>
 nmap QA :qa<CR>
 
 nnoremap <F9> :Black<CR>
@@ -217,7 +223,7 @@ nnoremap <leader>l :BLines<CR>
 nnoremap <leader>L :Lines<CR>
 "nnoremap <leader>fr :Locate<space>
 nnoremap <leader>bb :Buffers<CR>
-"nnoremap <leader>tt :Windows<CR>
+"nnoremap <leader>tt <Windows></Windows>
 nnoremap <leader>T :Tags<CR>
 "nnoremap <leader>hh :History<CR>
 "nnoremap <leader>: :History:<CR>
@@ -233,7 +239,8 @@ let g:fzf_tags_command = 'ctags -R --exclude=.git --exclude=node_modules --exclu
 "noremap <Down> 2<C-e>
 nnoremap <silent> - :nohl<CR>
 
-let g:user_emmet_expandabbr_key='<C-y>'
+" TODO: Change to smth else
+" let g:user_emmet_expandabbr_key='<C-y>'
 " imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 "nmap <leader><leader>r :checktime<CR>
@@ -286,6 +293,12 @@ autocmd BufRead,BufNewFile *.js set filetype=javascript
 "autocmd BufRead,BufNewFile *.yml set filetype=yaml
 autocmd BufRead,BufNewFile *.html set filetype=html
 autocmd BufNewFile,BufRead *.template set filetype=htmldjango
+autocmd BufRead,BufNewFile *.scss set filetype=scss.css
+
+augroup python_format
+    autocmd!
+    autocmd BufWritePost *.py silent !black --skip-string-normalization --line-length 79 %
+augroup end
 
 "let g:ctrlp_max_files=20000
 
@@ -311,6 +324,7 @@ let b:surround_{char2nr("c")} = "{% comment %}\r{% endcomment %}"
 
 autocmd FileType python setlocal colorcolumn=140
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 colorcolumn=140
+autocmd FileType scss.css setlocal shiftwidth=2 tabstop=2 colorcolumn=140
 
 autocmd FileType template,html,markdown,htmldjango,jinja setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
 "autocmd FileType css setlocal shiftwidth=2 tabstop=2 colorcolumn=80
@@ -334,4 +348,6 @@ let g:autopep8_max_line_length=140
 
 let g:tagalong_verbose = 1
 
-
+" Black settings
+let g:black_linelength = 79
+let g:black_skip_string_normalization = 1
