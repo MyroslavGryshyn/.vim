@@ -283,10 +283,8 @@ function nvimvenv {
 
 alias vim=nvimvenv
 
-export ALWAYS_RUN_TASKS_SYNCHRONOUSLY='yes'
-
 export B_N_IP="64.226.120.252"
 alias ssh-bn="ssh mero@'$B_N_IP'"
 
-alias run-bn="workon beneighb; source export_local_vars.sh; python beneighb/manage.py runserver"
-alias pyman-bn="workon beneighb; source export_local_vars.sh; python beneighb/manage.py "
+alias runserver="workon backend; source export_local_vars.sh; python beneighb/manage.py runserver"
+alias pyman="workon backend; source export_local_vars.sh; python beneighb/manage.py "
