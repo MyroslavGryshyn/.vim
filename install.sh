@@ -48,3 +48,6 @@ mkvirtualenv neovim
 working neovim
 pip3 install neovim virtualenvwrapper
 deactivate
+
+echo “Installing ctags”
+brew install ctags
