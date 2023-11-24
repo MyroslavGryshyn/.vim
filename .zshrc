@@ -88,10 +88,9 @@ echo "STOP pyenv"
 export PROJECT_HOME=$HOME/Dev
 export WORKON_HOME=$HOME/.virtualenvs
 export EDITOR=vim
-export VIRTUALENVWRAPPER_PYTHON=python3
-# Homebrew virtualenv
-export VIRTUALENVWRAPPER_VIRTUALENV=/opt/homebrew/bin/virtualenv
-source /opt/homebrew/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.10
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
 
 if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
     source /usr/local/bin/virtualenvwrapper.sh
@@ -284,9 +283,3 @@ function nvimvenv {
 alias vim=nvimvenv
 
 export ALWAYS_RUN_TASKS_SYNCHRONOUSLY='yes'
-
-export B_N_IP="64.226.120.252"
-alias ssh-bn="ssh mero@'$B_N_IP'"
-
-alias run-bn="workon beneighb; source export_local_vars.sh; python beneighb/manage.py runserver"
-alias pyman-bn="workon beneighb; source export_local_vars.sh; python beneighb/manage.py "
