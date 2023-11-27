@@ -1,7 +1,6 @@
 {
   "coc.preferences.jumpCommand": "tabe",
   "python.jediEnabled": true,
-  "python.jediPath": "/usr/local/var/pyenv/versions/nvim/lib/python3.8/site-packages",
   "python.venvFolders": ["envs", ".pyenv"],
   "python.sortImports.path": "/usr/local/var/pyenv/versions/nvim/bin/isort",
   "emmet.includeLanguages": { "javascript": "javascriptreact" },
