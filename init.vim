@@ -75,12 +75,12 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
+" inoremap <silent><expr> <Tab>
+"       \ coc#pum#visible() ? coc#pum#next(1) :
+"       \ CheckBackspace() ? "\<Tab>" :
+"       \ coc#refresh()
 
-inoremap <expr> <Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+" inoremap <expr> <C-Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
@@ -199,7 +199,17 @@ inoremap jj <ESC>
 "inoremap CC <C-o>C
 "inoremap SS <C-o>S
 
-nmap <F2> :NERDTreeToggle<CR>
+function MyNerdToggle()
+    if exists("g:NERDTree") && g:NERDTree.IsOpen()
+        :NERDTreeToggle
+    else
+        :NERDTreeFind
+    endif
+endfunction
+
+nnoremap <leader>n :call MyNerdToggle()<CR>
+
+
 nmap tt :TagbarToggle<CR>
 
 let NERDTreeShowHidden=1
@@ -351,3 +361,6 @@ let g:tagalong_verbose = 1
 " Black settings
 let g:black_linelength = 79
 let g:black_skip_string_normalization = 1
+
+" Copilot C-J for accept
+" imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")

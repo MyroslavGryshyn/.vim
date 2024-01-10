@@ -36,7 +36,7 @@ alias pipr='pip install -r requirements.txt'
 
 alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
-alias open_changed="vim -p $(git status --porcelain | awk '{print $2}')"
+alias open_changed="vim -p \$(git status --porcelain | awk '{print $2}')"
 
 alias gl="git log --oneline --graph --date=short --pretty"
 
