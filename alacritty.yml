@@ -21,6 +21,9 @@ window:
     columns: 0
     lines: 0
 
+  # Removes top bar
+  decorations: false
+
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
