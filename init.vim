@@ -192,15 +192,11 @@ nnoremap <F9> :Black<CR>
 
 """ Moving in insert mode
 inoremap jj <ESC>
-"inoremap HH <C-o>I
-"inoremap LL <C-o>A
-"inoremap KK <C-o>O
-"inoremap JJ <C-o>o
-"inoremap CC <C-o>C
-"inoremap SS <C-o>S
 
 nmap <F2> :NERDTreeToggle<CR>
 nmap tt :TagbarToggle<CR>
+
+nmap cp :let @+ = expand("%:p")<cr>
 
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
@@ -294,11 +290,6 @@ autocmd BufRead,BufNewFile *.js set filetype=javascript
 autocmd BufRead,BufNewFile *.html set filetype=html
 autocmd BufNewFile,BufRead *.template set filetype=htmldjango
 autocmd BufRead,BufNewFile *.scss set filetype=scss.css
-
-augroup python_format
-    autocmd!
-    autocmd BufWritePost *.py silent !black --skip-string-normalization --line-length 79 %
-augroup end
 
 "let g:ctrlp_max_files=20000
 

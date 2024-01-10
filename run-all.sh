@@ -7,6 +7,7 @@ workon fareharbor.com
 ./pg stop
 ./pg start
 ./clean
+npm i
 python manage.py migrate && pyrun
 
 
