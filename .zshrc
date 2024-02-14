@@ -264,8 +264,8 @@ export DJANGO_LOCAL=True
 export CFLAGS="-I$(brew --prefix openssl)/include"
 export LDFLAGS="-L$(brew --prefix openssl)/lib"
 
-export PATH="/usr/local/opt/postgresql@14/bin:$PATH"
-export PG_RESTORE=/usr/local/opt/postgresql@14/bin/pg_restore
+export PATH="/usr/local/opt/postgresql@16/bin:$PATH"
+export PG_RESTORE=/usr/local/opt/postgresql@16/bin/pg_restore
 
 # Adding poetry
 export PATH="/Users/mhryshyn/.local/bin:$PATH"

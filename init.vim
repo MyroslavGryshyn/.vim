@@ -75,12 +75,12 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" inoremap <silent><expr> <Tab>
-"       \ coc#pum#visible() ? coc#pum#next(1) :
-"       \ CheckBackspace() ? "\<Tab>" :
-"       \ coc#refresh()
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
 
-" inoremap <expr> <C-Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
+inoremap <expr> <C-Tab> coc#pum#visible() ? coc#pum#next(1) : "\<Tab>"
 inoremap <expr> <S-Tab> coc#pum#visible() ? coc#pum#prev(1) : "\<S-Tab>"
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
 
@@ -206,7 +206,10 @@ nnoremap <leader>n :call MyNerdToggle()<CR>
 
 nmap tt :TagbarToggle<CR>
 
+" Full path
 nmap cp :let @+ = expand("%:p")<cr>
+" Just filename
+nmap cpf :let @+ = expand("%:t")<cr>
 
 let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
@@ -309,7 +312,7 @@ autocmd BufRead,BufNewFile *.scss set filetype=scss.css
 "nnoremap ,s :Gstatus<CR>
 nnoremap ,d :Gdiff<CR>
 nnoremap ,b :Git blame<CR>
-"nnoremap ,l :Glog<CR>
+nnoremap ,l :Glog<CR>
 "nnoremap ,la :Glog --<CR>
 set diffopt+=vertical
 "" END FUGITIVE
@@ -355,3 +358,27 @@ let g:black_skip_string_normalization = 1
 
 " Copilot C-J for accept
 " imap <silent><script><expr> <C-J> copilot#Accept("\<CR>")
+"
+"" CoC Configuration
+" Enable CoC
+set nocompatible
+filetype plugin indent on
+syntax on
+set hidden
+
+" Customize diagnostic message colors
+highlight CocErrorSign ctermfg=Red guifg=Red
+highlight CocWarningSign ctermfg=Yellow guifg=Yellow
+highlight CocInfoSign ctermfg=Blue guifg=Blue
+highlight CocHintSign ctermfg=Green guifg=Green
+
+highlight CocErrorVirtualText ctermfg=Red guifg=Red
+highlight CocWarningVirtualText ctermfg=Yellow guifg=Yellow
+highlight CocInfoVirtualText ctermfg=Blue guifg=Blue
+highlight CocHintVirtualText ctermfg=Green guifg=Green
+
+
+highlight CocErrorVirtualText ctermfg=Red guifg=Red
+highlight CocWarningVirtualText ctermfg=Yellow guifg=Yellow
+highlight CocInfoVirtualText ctermfg=Blue guifg=Blue
+highlight CocHintVirtualText ctermfg=Green guifg=Green

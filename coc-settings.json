@@ -1,20 +1,20 @@
 {
   "coc.preferences.jumpCommand": "tabe",
-  "python.jediEnabled": true,
-  "python.venvFolders": ["envs", ".pyenv"],
+  "diagnostic.virtualText": false,
+  "diagnostic.virtualTextCurrentLineOnly": true,
+  "diagnostic.displayByAle": false,
+  "inlayHint.enable": false,
+//  "diagnostic.errorSign": "",
+//  "diagnostic.warningSign": "",
+//  "diagnostic.infoSign": "",
+//  "diagnostic.hintSign": "",
+
   "python.sortImports.path": "/usr/local/var/pyenv/versions/nvim/bin/isort",
-  "emmet.includeLanguages": { "javascript": "javascriptreact" },
   "json.enable": true,
   "json.format.enable": true,
-  "pairs.enableBackspace": true,
-  "yank.enableCompletion": false,
-  "diagnostic.displayByAle": true,
-  "diagnostic.enable": false,
-  "diagnostic.virtualText": false,
   "suggest.autoTrigger": "always",
   "list.nextKeymap": "<C-n>",
   "list.previousKeymap": "<C-p>",
-  "list.maxHeight": 15,
   "list.insertMappings": {
     "<C-c>": "do:exit"
   }
